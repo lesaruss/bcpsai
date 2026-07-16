@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Staff Login - Broward Powered by AI</title>
+<style>
+:root{color-scheme:light;--navy:#0c2340;--navy-2:#13315c;--blue:#1672a7;--blue-soft:#e8f1fb;--ink:#1a2230;--muted:#5a6678;--line:#dde3ec;--bg-soft:#f5f8fc}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:radial-gradient(1000px 500px at 70% -10%,rgba(22,114,167,.18),transparent 60%),linear-gradient(160deg,#0c2340,#13315c);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.card{background:#fff;border-radius:16px;box-shadow:0 20px 60px rgba(12,35,64,.35);width:100%;max-width:420px;padding:34px 30px}
+.logo{display:block;height:54px;margin:0 auto 18px}
+h1{margin:0 0 4px;font-size:1.3rem;color:var(--navy);text-align:center}
+.sub{margin:0 0 22px;color:var(--muted);font-size:.9rem;text-align:center}
+label{display:block;font-size:.82rem;font-weight:600;color:var(--navy-2);margin:14px 0 6px}
+input{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:10px;font-size:.95rem}
+input:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+button{width:100%;margin-top:20px;padding:13px;border:0;border-radius:10px;background:var(--blue);color:#fff;font-weight:700;font-size:.96rem;cursor:pointer}
+button:hover{background:var(--navy)}
+.google{margin-top:12px;background:#fff;color:var(--navy);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;gap:9px}
+.google:hover{background:var(--bg-soft)}
+.google svg{width:18px;height:18px}
+.msg{margin-top:16px;font-size:.86rem;padding:10px 12px;border-radius:9px;display:none}
+.msg.err{display:block;background:#fdecec;color:#a3262f;border:1px solid #f3c2c5}
+.msg.ok{display:block;background:#e7f5f1;color:#176a57;border:1px solid #bfe6db}
+.foot{margin-top:20px;text-align:center;font-size:.8rem}
+.foot a{color:var(--blue);text-decoration:none}
+.note{margin-top:18px;font-size:.74rem;color:var(--muted);text-align:center;line-height:1.4}
+</style>
+</head>
+<body>
+<div class="card">
+  <img class="logo" src="/bcps-logo.png" alt="Broward County Public Schools">
+  <h1>Staff Login</h1>
+  <p class="sub">Sign in with your BCPS Web Team credentials.</p>
+
+  <form id="form">
+    <label for="email">Email</label>
+    <input id="email" type="email" autocomplete="username" required placeholder="you@browardschools.com">
+    <label for="password">Password</label>
+    <input id="password" type="password" autocomplete="current-password" required placeholder="Your password">
+    <button type="submit" id="submit">Sign In</button>
+  </form>
+  <button class="google" id="google" type="button">
+    <svg viewBox="0 0 24 24"><path fill="#4285F4" d="M22.5 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.9a5 5 0 0 1-2.2 3.3v2.7h3.6c2.1-1.9 3.2-4.8 3.2-7.8z"/><path fill="#34A853" d="M12 23c2.9 0 5.4-1 7.2-2.6l-3.6-2.7c-1 .7-2.3 1.1-3.6 1.1-2.8 0-5.1-1.9-6-4.4H2.3v2.8A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M6 14.4a6.6 6.6 0 0 1 0-4.2V7.4H2.3a11 11 0 0 0 0 9.8L6 14.4z"/><path fill="#EA4335" d="M12 5.5c1.6 0 3 .6 4.1 1.6l3.1-3.1A11 11 0 0 0 2.3 7.4L6 10.2c.9-2.6 3.2-4.7 6-4.7z"/></svg>
+    Sign in with Google
+  </button>
+
+  <div class="msg" id="msg"></div>
+  <p class="foot"><a href="/index.html">&larr; Back to the site</a></p>
+  <p class="note">Access is for authorized Broward County Public Schools staff. Accounts are shared with the BCPS MarComm portal.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL="https://fwbhwfxpncrsfhttimna.supabase.co";
+const SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ3Ymh3ZnhwbmNyc2ZodHRpbW5hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NjAxMzksImV4cCI6MjA5MDIzNjEzOX0.9mxjK0bn5WATCbNLWrHPakD6yHUDtHFHrOaklPnWkOA";
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const msg = document.getElementById('msg');
+function show(t,ok){ msg.textContent=t; msg.className='msg '+(ok?'ok':'err'); }
+
+(async ()=>{ const { data } = await sb.auth.getSession(); if(data.session){ location.href='/admin.html'; } })();
+
+document.getElementById('form').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const btn=document.getElementById('submit'); btn.disabled=true; btn.textContent='Signing in...';
+  const { error } = await sb.auth.signInWithPassword({
+    email: document.getElementById('email').value.trim(),
+    password: document.getElementById('password').value
+  });
+  btn.disabled=false; btn.textContent='Sign In';
+  if(error){ show(error.message,false); } else { show('Signed in. Redirecting...',true); location.href='/admin.html'; }
+});
+
+document.getElementById('google').addEventListener('click', async ()=>{
+  const { error } = await sb.auth.signInWithOAuth({ provider:'google', options:{ redirectTo: location.origin + '/admin.html' } });
+  if(error){ show(error.message,false); }
+});
+</script>
+</body>
+</html>
