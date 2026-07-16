@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Broward Powered by AI &mdash; Content Preview</title>
+<style>
+:root{
+  color-scheme: light;
+  --navy:#0c2340;--navy-2:#13315c;--blue:#1672a7;--blue-soft:#e8f1fb;
+  --teal:#1b9e8a;--teal-soft:#e7f5f1;--ink:#1a2230;--muted:#5a6678;
+  --line:#dde3ec;--bg:#ffffff;--bg-soft:#f5f8fc;--gold:#c8a24a;
+  --radius:14px;--shadow:0 1px 2px rgba(12,35,64,.06),0 8px 24px rgba(12,35,64,.06);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}
+h1,h2,h3,h4{line-height:1.18;color:var(--navy);margin:0}
+p{margin:0 0 1rem}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+
+/* Placeholder banner */
+.placeholder-bar{background:#fff7e6;border-bottom:1px solid #f0dca6;color:#7a5d12;font-size:.84rem}
+.placeholder-bar .wrap{display:flex;align-items:center;gap:10px;padding:9px 22px}
+.placeholder-bar svg{width:17px;height:17px;flex:0 0 auto}
+.placeholder-bar b{color:#5e480d}
+
+/* Top bar */
+.topbar{background:var(--navy);color:#fff;font-size:.82rem}
+.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;gap:14px}
+.topbar .langs{display:flex;gap:14px;flex-wrap:wrap}
+.topbar .langs button{background:none;border:0;color:#cdd9ec;cursor:pointer;font:inherit;padding:0}
+.topbar .langs button:hover{color:#fff;text-decoration:underline}
+
+/* Header / nav */
+header.site{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:14px;height:72px;position:relative}
+.brand{display:flex;align-items:center;gap:12px;cursor:pointer;border:0;background:none;font:inherit;text-align:left;padding:0}
+.brand .mark{width:48px;height:48px;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.brand .mark svg{width:48px;height:48px;display:block}
+.brand .mark img{width:48px;height:48px;object-fit:contain;display:block}
+.brand .name{font-weight:700;color:var(--navy);font-size:1.02rem;letter-spacing:.2px}
+.brand .name small{display:block;font-weight:500;color:var(--muted);font-size:.7rem;letter-spacing:.6px;text-transform:uppercase}
+.brand .logo-full{height:44px;width:auto;display:block}
+.brand .divider{width:1px;height:34px;background:var(--line);margin:0 4px;flex:0 0 auto}
+.brand .initiative{font-weight:700;color:var(--navy);font-size:1rem;letter-spacing:.1px;line-height:1.15}
+@media(max-width:560px){.brand .divider,.brand .initiative{display:none}}
+.menutoggle{margin-left:auto;display:inline-flex;align-items:center;justify-content:center;width:48px;height:44px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer}
+.menutoggle:hover{background:var(--bg-soft)}
+.menutoggle svg{width:24px;height:24px;stroke:var(--navy)}
+nav.main{position:absolute;top:66px;right:0;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);min-width:240px;padding:8px;display:none;z-index:40}
+nav.main.open{display:flex}
+nav.main button{border:0;background:none;font:inherit;font-weight:600;color:var(--navy-2);padding:11px 14px;border-radius:9px;cursor:pointer;font-size:.94rem;width:100%;text-align:left}
+nav.main button:hover{background:var(--bg-soft)}
+nav.main button.active{background:var(--blue-soft);color:var(--navy)}
+nav.main .navlogin{display:block;padding:11px 14px;border-radius:9px;font-weight:600;font-size:.94rem;color:#fff;background:var(--blue);margin-top:4px;text-align:center}
+nav.main .navlogin:hover{background:var(--navy)}
+
+.view{display:none;animation:fade .25s ease}
+.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* Hero */
+.hero{background:radial-gradient(1200px 480px at 80% -10%,rgba(22,114,167,.26),transparent 60%),linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 70%);color:#fff;position:relative;overflow:hidden}
+.hero .wrap{padding:60px 22px 66px}
+.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#dce7f7;padding:6px 13px;border-radius:999px;font-size:.76rem;font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-bottom:18px}
+.kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.hero h1{color:#fff;font-size:2.8rem;letter-spacing:-.5px;margin-bottom:14px}
+.hero .sub{color:#cdd9ec;font-size:1.16rem;max-width:34ch;margin-bottom:8px}
+.hero .creed{display:inline-block;margin-top:14px;font-weight:600;color:#fff;border-left:3px solid var(--gold);padding-left:12px;font-size:1.02rem}
+.video{aspect-ratio:16/9;border-radius:var(--radius);background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#cdd9ec}
+.video .play{width:62px;height:62px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center}
+.video .play svg{width:25px;height:25px;margin-left:3px}
+.video .cap{font-size:.8rem}
+.video.real{padding:0;background:#000}
+.video.real iframe{width:100%;height:100%;border:0;border-radius:var(--radius);display:block}
+.reslink{display:flex;align-items:center;gap:13px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;box-shadow:var(--shadow);color:var(--ink)}
+.reslink:hover{background:var(--bg-soft)}
+.reslink .fi{flex:0 0 auto;width:34px;height:34px;border-radius:9px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center}
+.reslink .fi svg{width:18px;height:18px}
+.contactrow{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.contactrow:last-child{border-bottom:0}
+.contactrow b{color:var(--navy)}
+.contactrow span{color:var(--muted)}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 16px;border-radius:10px;font-weight:600;font-size:.9rem;cursor:pointer;border:1px solid transparent}
+.btn svg{width:16px;height:16px}
+.btn-primary{background:#fff;color:var(--navy)}
+.btn-primary:hover{background:#eef4fc}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.28)}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+
+section.band{padding:56px 0}
+section.band.soft{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.eyebrow{color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:.6px;font-size:.76rem;margin-bottom:8px}
+.lead{color:var(--muted);font-size:1.04rem;max-width:64ch}
+.h2{font-size:1.85rem;margin-bottom:10px}
+.h3sec{font-size:1.3rem;margin:34px 0 6px}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:24px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:26px}
+
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.card h3{font-size:1.05rem;margin-bottom:6px}
+.card p{font-size:.9rem;color:var(--muted);margin:0}
+.card .ico{width:40px;height:40px;border-radius:10px;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.card .ico svg{width:21px;height:21px;stroke:var(--blue)}
+.card.is{border-top:3px solid var(--teal)}
+.card.isnot{border-top:3px solid #c0556b}
+
+.checklist{list-style:none;margin:0;padding:0}
+.checklist li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;font-size:.94rem;color:var(--ink)}
+.checklist li svg{width:18px;height:18px;flex:0 0 auto;margin-top:2px}
+.checklist.yes li svg{stroke:var(--teal)}
+.checklist.no li svg{stroke:#c0556b}
+
+.samplenote{display:inline-flex;align-items:flex-start;gap:9px;background:#fff7e6;border:1px solid #f0dca6;color:#8a6a16;font-size:.82rem;font-weight:600;padding:9px 13px;border-radius:9px;margin-top:18px;max-width:70ch;line-height:1.4}
+.samplenote svg{width:16px;height:16px;flex:0 0 auto;margin-top:1px}
+.cite{font-size:.78rem;color:var(--muted);margin-top:14px}
+.cite b{color:var(--navy-2)}
+
+/* flow */
+.flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.flow .node{flex:1 1 0;min-width:120px;text-align:center;padding:14px 8px;background:var(--bg-soft);border-radius:10px;font-weight:600;color:var(--navy);font-size:.9rem}
+.flow .arrow{color:var(--blue);flex:0 0 auto}
+.flow .arrow svg{width:20px;height:20px}
+
+/* tiles */
+.tile{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.tile .num{font-size:2rem;font-weight:800;color:var(--navy);letter-spacing:-1px}
+.tile .lbl{color:var(--muted);font-size:.84rem;margin-top:4px}
+.tile .trend{display:inline-block;margin-top:10px;font-size:.74rem;font-weight:600;color:var(--teal);background:var(--teal-soft);padding:3px 9px;border-radius:999px}
+
+.barwrap{margin-top:24px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.bar{display:grid;grid-template-columns:180px 1fr 52px;align-items:center;gap:14px;margin:11px 0;font-size:.88rem}
+.bar .track{height:12px;border-radius:999px;background:var(--bg-soft);overflow:hidden}
+.bar .fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--navy))}
+.bar .pct{color:var(--muted);font-weight:600;text-align:right}
+
+/* tools */
+.tool .top{display:flex;align-items:center;gap:13px;margin-bottom:12px}
+.tool .logo{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.15rem;flex:0 0 auto}
+.tag{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--teal);background:var(--teal-soft);padding:3px 9px;border-radius:999px;margin-top:3px}
+.feat{list-style:none;margin:12px 0 0;padding:0}
+.feat li{display:flex;gap:9px;align-items:flex-start;padding:6px 0;font-size:.9rem;color:var(--ink)}
+.feat li svg{width:17px;height:17px;stroke:var(--blue);flex:0 0 auto;margin-top:3px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);position:relative}
+.step .n{width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.86rem;margin-bottom:12px}
+.step h4{font-size:1rem;margin-bottom:5px}
+.step p{font-size:.85rem;color:var(--muted);margin:0}
+
+/* accordion */
+.acc{margin-top:22px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.acc details{border-bottom:1px solid var(--line)}
+.acc details:last-child{border-bottom:0}
+.acc summary{cursor:pointer;list-style:none;padding:17px 22px;font-weight:600;color:var(--navy);display:flex;align-items:center;justify-content:space-between;gap:14px;font-size:1rem}
+.acc summary::-webkit-details-marker{display:none}
+.acc summary .chev{width:18px;height:18px;stroke:var(--blue);transition:transform .2s;flex:0 0 auto}
+.acc details[open] summary .chev{transform:rotate(180deg)}
+.acc .body{padding:0 22px 18px;color:var(--muted);font-size:.93rem}
+
+.docrow{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+.doc{display:flex;align-items:center;gap:13px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;box-shadow:var(--shadow)}
+.doc .fi{width:38px;height:38px;border-radius:9px;background:var(--blue-soft);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.doc .fi svg{width:19px;height:19px;stroke:var(--blue)}
+.doc .meta b{display:block;color:var(--navy);font-size:.92rem}
+.doc .meta span{color:var(--muted);font-size:.76rem}
+
+.gradeband{border-left:3px solid var(--blue);padding-left:16px;margin:18px 0}
+.gradeband h4{font-size:1.05rem;margin-bottom:6px}
+.gradeband ul{margin:0;padding-left:18px;color:var(--muted);font-size:.92rem}
+.gradeband li{margin:4px 0}
+
+.pillcat{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.pillcat span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:.85rem;font-weight:600;color:var(--navy-2);box-shadow:var(--shadow)}
+
+.sourcelist{list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sourcelist li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;box-shadow:var(--shadow);font-size:.9rem}
+.sourcelist b{display:block;color:var(--navy);margin-bottom:2px}
+.sourcelist span{color:var(--muted);font-size:.82rem}
+
+.callout{background:var(--navy);color:#dfe8f5;border-radius:var(--radius);padding:26px 28px;margin-top:26px}
+.callout h3{color:#fff;font-size:1.2rem;margin-bottom:8px}
+.callout p{margin:0;font-size:.98rem}
+.callout .creedline{color:#fff;font-weight:600;border-left:3px solid var(--gold);padding-left:12px;display:inline-block;margin-top:6px}
+
+/* event + gallery */
+.event{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:24px;align-items:start}
+.eventfacts{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+.eventfacts .row{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.eventfacts .row:last-child{border-bottom:0}
+.eventfacts .row svg{width:18px;height:18px;stroke:var(--blue);flex:0 0 auto;margin-top:2px}
+.eventfacts .row b{color:var(--navy);display:block;font-size:.78rem;text-transform:uppercase;letter-spacing:.4px}
+.quote{background:var(--bg-soft);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:16px 18px;margin:14px 0;color:var(--ink);font-size:.95rem}
+.quote span{display:block;margin-top:8px;color:var(--muted);font-size:.82rem;font-weight:600}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.shot{aspect-ratio:4/3;border-radius:12px;background:linear-gradient(150deg,var(--navy-2),var(--blue));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#dfe8f5;text-align:center;padding:10px;border:1px solid var(--line)}
+.shot svg{width:26px;height:26px;opacity:.85}
+.shot span{font-size:.76rem;font-weight:600;line-height:1.3}
+.albumcta{display:inline-flex;align-items:center;gap:9px;margin-top:20px;background:var(--navy);color:#fff;padding:13px 20px;border-radius:10px;font-weight:600;font-size:.92rem}
+.albumcta:hover{background:var(--navy-2)}
+.albumcta svg{width:18px;height:18px}
+@media(max-width:900px){.event{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}}
+footer.site{background:var(--navy);color:#cdd9ec;padding:38px 0;margin-top:0;font-size:.88rem}
+footer.site .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer.site b{color:#fff}
+
+.mockflag{position:fixed;right:14px;bottom:14px;z-index:50;background:var(--navy);color:#fff;font-size:.72rem;font-weight:600;padding:8px 13px;border-radius:999px;box-shadow:var(--shadow);opacity:.92}
+
+@media(max-width:900px){
+  .hero .grid{grid-template-columns:1fr;gap:28px}
+  .hero h1{font-size:2.1rem}
+  .grid2,.grid3,.tools,.docrow,.sourcelist{grid-template-columns:1fr}
+  .grid4,.grid5,.steps{grid-template-columns:repeat(2,1fr)}
+  nav.main{right:0;min-width:210px}
+  .bar{grid-template-columns:120px 1fr 44px}
+}
+</style>
+</head>
+<body>
+
+<div class="placeholder-bar">
+  <div class="wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
+    <span><b>Content-updated preview, not yet live.</b> This page adds real BCPS source content (Copilot course catalog, MagicSchool and Copilot PRISM resources, AI Liaison Network, symposium infrastructure data) in place of the generic placeholder copy. It has not replaced the live homepage yet, and sections still awaiting a BCPS decision are left untouched.</span>
+  </div>
+</div>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Broward County Public Schools</span>
+    <div class="langs" aria-label="Language options">
+      <button>English</button><button>Español</button><button>Kreyòl Ayisyen</button><button>Português</button>
+    </div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <button class="brand" data-go="home" aria-label="Broward Powered by AI home">
+      <img class="logo-full" src="data:image/png;base64,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" alt="Broward County Public Schools">
+      <span class="divider" aria-hidden="true"></span><span class="initiative">Broward Powered by AI</span>
+    </button>
+    <button class="menutoggle" id="menutoggle" aria-label="Open menu" aria-expanded="false" aria-controls="mainnav">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+    <nav class="main" id="mainnav" aria-label="Primary">
+      <button data-go="home" class="active">Home</button>
+      <button data-go="principles">Our Principles</button>
+      <button data-go="tools">Approved Tools</button>
+      <button data-go="policy">Policy &amp; Privacy</button>
+      <button data-go="learning">Learning</button>
+      <button data-go="liaisons">AI Liaison Network</button>
+      <button data-go="community">Community</button>
+      <button data-go="accountability">Accountability</button>
+      <button data-go="sources">Sources</button>
+      <a class="navlogin" href="/login.html">Staff Login</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ===================== HOME ===================== -->
+<div class="view active" id="home">
+  <section class="hero">
+    <div class="wrap">
+      <div class="grid">
+        <div>
+          <span class="kicker"><span class="dot"></span> Districtwide Initiative</span>
+          <h1>Broward Powered by AI</h1>
+          <p class="sub">Preparing students for a world that doesn't exist yet.</p>
+          <span class="creed">Human Intelligence First. Artificial Intelligence Second.</span>
+          <div class="ctas">
+            <button class="btn btn-primary" data-go="principles"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg> Our Principles</button>
+            <button class="btn btn-ghost" data-go="policy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg> Parent Resources</button>
+            <button class="btn btn-ghost" data-go="accountability"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg> Accountability</button>
+          </div>
+        </div>
+        <div>
+          <div class="video real" aria-label="Featured video: Microsoft Copilot for Education overview">
+            <iframe src="https://www.youtube-nocookie.com/embed/yjMIZOWdLXk" title="Featured video: Microsoft Copilot for Education overview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <p class="cite" style="color:#cdd9ec;margin-top:8px">Featured video, per BCPS direction: Microsoft Copilot for Education overview. Broward&#39;s own fully produced introduction video (Superintendent, Chief Academic Officer, teachers, students, parents, and Board highlights) is called for in the source framework but was not yet located in SharePoint as a playable file; this video will be swapped in once BCPS provides it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow">What is Broward Powered by AI</div>
+      <h2 class="h2">Five commitments to every family</h2>
+      <p class="lead">A districtwide approach to artificial intelligence built on transparency, trust, education, engagement, and accountability. Technology that supports the relationships and experiences essential to learning, never replaces them.</p>
+      <div class="grid5">
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Transparency</h3><p>Know exactly what AI is used, why, and how it is monitored.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/></svg></span><h3>Trust</h3><p>Clear safeguards, governance, and ethical guardrails.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 9v5c0 1.5 2.2 3 5 3s5-1.5 5-3V9"/></svg></span><h3>Education</h3><p>Help families understand AI and the skills students need next.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><path d="M17 8h4M19 6v4"/></svg></span><h3>Engagement</h3><p>Ways for parents, students, and educators to take part.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg></span><h3>Accountability</h3><p>Public progress, metrics, reports, and continuous review.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band soft">
+    <div class="wrap">
+      <div class="eyebrow">Why now</div>
+      <h2 class="h2">A connected ecosystem of learning</h2>
+      <p class="lead">AI, virtual reality, and extended reality are reshaping how students learn and the careers they will enter. Broward Powered by AI connects every level of the system so progress reaches the classroom and the future workforce.</p>
+      <div class="flow" aria-label="Framework flow from students to future workforce">
+        <span class="node">Students</span>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="node">Teachers</span>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="node">Schools</span>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="node">Families</span>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="node">Community</span>
+        <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="node">Future Workforce</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow">AI in Broward classrooms</div>
+      <h2 class="h2">What AI is, and what it is not</h2>
+      <div class="grid2">
+        <div class="card is"><h3>What AI is</h3>
+          <ul class="checklist yes">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Supports teaching</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Supports learning</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Supports accessibility</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Supports personalization</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Supports efficiency</li>
+          </ul></div>
+        <div class="card isnot"><h3>What AI is not</h3>
+          <ul class="checklist no">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg> Replacing teachers</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg> Making educational decisions</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg> Grading students independently</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg> Replacing human relationships</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg> Replacing curriculum</li>
+          </ul></div>
+      </div>
+      <div class="callout">
+        <h3>The principle behind every decision</h3>
+        <p>The U.S. Department of Education describes responsible AI in schools like an electric bike, not a robot vacuum: the human stays fully aware and fully in control, while their effort is multiplied. Every AI tool in Broward is meant to be inspectable, explainable, and able to be overridden by an educator.</p>
+        <span class="creedline">Humans in the loop, always.</span>
+      </div>
+      <p class="cite"><b>Source:</b> U.S. Department of Education, Office of Educational Technology, Artificial Intelligence and the Future of Teaching and Learning (2023).</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== PRINCIPLES ===================== -->
+<div class="view" id="principles">
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow">Our approach</div>
+      <h2 class="h2">The principles that govern AI in Broward</h2>
+      <p class="lead">These principles are drawn from the leading national and international frameworks for responsible AI in education. They define how every tool is chosen, used, and reviewed.</p>
+      <div class="samplenote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> Placeholder framework for BCPS review. Adapted from U.S. Dept. of Education, TeachAI, UNESCO, OECD, and the NIST AI Risk Management Framework.</div>
+
+      <div class="grid3">
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.2"/><path d="M5 20c0-3.3 3.1-6 7-6s7 2.7 7 6"/></svg></span><h3>Human Oversight</h3><p>People, not machines, make the decisions that affect students. Educators can review and override any AI recommendation.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a4 4 0 014 4c0 2-2 3-2 5h-4c0-2-2-3-2-5a4 4 0 014-4zM9 19h6M10 22h4"/></svg></span><h3>Human Agency</h3><p>AI multiplies human effort. Teachers and students stay in control of how it is used.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Transparency</h3><p>Families know when and how AI is used, and can understand in plain terms how it works.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8l7-4 7 4M5 8v8l7 4 7-4V8"/></svg></span><h3>Equity &amp; Fairness</h3><p>AI must work fairly across all student groups, with bias actively monitored and addressed.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 018 0v3"/></svg></span><h3>Privacy &amp; Data Governance</h3><p>Student data is protected, minimized, and used only for the stated educational purpose.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></span><h3>Safety &amp; Security</h3><p>Tools are vetted to be safe, secure, and resilient before students or staff use them.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg></span><h3>Accountability</h3><p>Named people and offices are answerable for AI use, with a clear way to raise concerns.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></span><h3>Accessibility</h3><p>Tools are usable by students with disabilities and across the digital divide.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0114-5l2 2M20 12a8 8 0 01-14 5l-2-2M18 5v4h-4M6 19v-4h4"/></svg></span><h3>Evidence &amp; Effectiveness</h3><p>AI use is grounded in evidence and reviewed regularly for real impact on learning.</p></div>
+      </div>
+
+      <h3 class="h3sec">Aligned with the TeachAI guidance for schools</h3>
+      <p class="lead">Our approach mirrors the seven principles recommended by TeachAI, a coalition led by ISTE, CSTA, and education leaders: Purpose, Compliance, Knowledge, Balance, Integrity, Agency, and Evaluation.</p>
+      <p class="cite"><b>Sources:</b> TeachAI AI Guidance for Schools Toolkit; UNESCO Recommendation on the Ethics of AI (2021); OECD AI Principles; NIST AI Risk Management Framework 1.0 (2023); U.S. Dept. of Education AI reports (2023, 2024).</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== TOOLS ===================== -->
+<div class="view" id="tools">
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow">Approved tools</div>
+      <h2 class="h2">Only reviewed, district-approved tools</h2>
+      <p class="lead">Broward uses an approved-tools-only model. Student and staff information is never entered into tools that have not been reviewed. Each approved tool clears privacy, security, and accessibility review first.</p>
+      <div class="grid2">
+        <div class="card tool"><div class="top"><span class="logo" style="background:#0067b8">C</span><div><h3>Microsoft Copilot</h3><span class="tag">Approved</span></div></div>
+          <p style="color:var(--muted);font-size:.92rem">An AI assistant inside the district's protected Microsoft environment, with enterprise data protection enabled.</p>
+          <ul class="feat">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Enterprise data protection enabled</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Not used to train public AI models on school data</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Role-based student access controls</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Parent FAQ and demonstration video</li>
+          </ul></div>
+        <div class="card tool"><div class="top"><span class="logo" style="background:#7c3aed">M</span><div><h3>MagicSchool AI</h3><span class="tag">Approved</span></div></div>
+          <p style="color:var(--muted);font-size:.92rem">A purpose-built education platform that helps teachers plan and differentiate, with human oversight at every step.</p>
+          <ul class="feat">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Built for K-12 educators</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Teacher reviews all output</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Supports ESE and ESOL learners</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Professional learning pathway</li>
+          </ul></div>
+      </div>
+
+      <h3 class="h3sec">Microsoft Copilot: professional learning</h3>
+      <p class="lead">The real course catalog BCPS Information Systems Division offers staff, from first exposure through building custom AI agents. Course numbers and descriptions as provided by ISD PMO.</p>
+      <div class="acc">
+        <details open><summary>Introduction courses <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">
+          <p><b>39149799 &middot; Context-Based Copilot AI Chat</b><br>Designed for non-instructional staff to understand the difference between web-grounded and work-grounded Copilot AI chat experiences, and when to use each for research, brainstorming, or work-specific tasks.</p>
+          <p><b>39149797 &middot; Copilot AI in Excel: Simplify Your Data</b><br>Use Copilot AI in Microsoft Excel to analyze data, generate formulas, create summaries, and automate repetitive tasks.</p>
+          <p><b>39149801 &middot; Copilot AI in Outlook Calendar &amp; Email</b><br>Explore how Copilot AI enhances email and calendar workflows in Outlook, from drafting to scheduling.</p>
+          <p><b>39150579 &middot; Copilot Create: Visual Design Made Easy</b><br>Design visually appealing, professional materials using smart prompts, layout suggestions, and visual refinements.</p>
+          <p><b>39149796 &middot; Copilot in PowerPoint: Design with Ease</b><br>Quickly generate presentations, refine slide content, visualize data, and tailor messaging.</p>
+          <p><b>39149800 &middot; Copilot in Teams, Work Better Together</b><br>Catch up on missed discussions, summarize conversations, draft chat responses, and organize tasks in Microsoft Teams.</p>
+          <p style="margin-bottom:0"><b>39149798 &middot; Copilot in Word: Write Smarter, Faster</b><br>Draft, edit, summarize, and refine documents more efficiently in Microsoft Word.</p>
+        </div></details>
+        <details><summary>Intermediate courses <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">
+          <p><b>39150127 &middot; Copilot AI For Admins</b><br>Hands-on workflows and prompt techniques for school and department admins across Outlook, Excel, PowerPoint, Word, Forms, and Teams.</p>
+          <p><b>39150102 &middot; Copilot AI Skills For Non-Instructional: Practical Workflows</b><br>Practical, hands-on workflows and prompting techniques to streamline daily tasks across Microsoft 365.</p>
+          <p style="margin-bottom:0"><b>39150277 &middot; Intermediate Copilot AI Chat Skills</b><br>Structure prompts, use multi-turn refinement, and apply real-work workflows for meetings, document analysis, and weekly planning.</p>
+        </div></details>
+        <details><summary>Advanced courses <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">
+          <p><b>39150052 &middot; Advanced Copilot AI: Pre-built Agents</b><br>Leverage prebuilt agents to automate repetitive processes, surface instant insights, and simplify complex workflows.</p>
+          <p style="margin-bottom:0"><b>39150103 &middot; Advanced Copilot AI: Building Agents</b><br>Explore real-world use cases and build a first AI agent to automate tasks and streamline workflows.</p>
+        </div></details>
+      </div>
+
+      <h3 class="h3sec">Leader resources</h3>
+      <p class="lead">Short, ready-to-use prompt guides for principals and school leaders using each approved tool.</p>
+      <div class="docrow">
+        <a class="reslink" href="https://youtu.be/yjMIZOWdLXk" target="_blank" rel="noopener"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5v14l11-7z"/></svg></span><div class="meta"><b>Copilot demonstration video</b><span>Watch on YouTube</span></div></a>
+        <div class="doc"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg></span><div class="meta"><b>PRISM: Getting Started with Copilot for School Leaders</b><span>PDF resource, provided by BCPS</span></div></div>
+        <div class="doc"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg></span><div class="meta"><b>PRISM: Using MagicSchool AI as a School Leader</b><span>PDF resource, provided by BCPS</span></div></div>
+      </div>
+
+      <h3 class="h3sec">How a tool gets approved</h3>
+      <p class="lead">Every tool passes the same review before it reaches a classroom.</p>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h4>Privacy review</h4><p>Signed data privacy agreement, FERPA check, and an independent privacy rating.</p></div>
+        <div class="step"><span class="n">2</span><h4>Security review</h4><p>Independent security audit, encryption, and breach-notification terms.</p></div>
+        <div class="step"><span class="n">3</span><h4>Accessibility review</h4><p>Tested for WCAG 2.1 AA conformance, as required under ADA Title II.</p></div>
+        <div class="step"><span class="n">4</span><h4>Approval &amp; publish</h4><p>Added to the approved inventory and listed here for families.</p></div>
+      </div>
+      <p class="cite"><b>Sources:</b> U.S. Dept. of Education developer guidance (2024); Student Data Privacy Consortium National Data Privacy Agreement; Common Sense Privacy Program; ADA Title II web rule; WCAG 2.1 AA. Professional learning catalog and PRISM leader resources: BCPS Information Systems Division (ISD PMO Sections) and PRISM AI Principal Resource Handouts (Copilot, MagicSchool), Approved Documents / 3 Approved Tools, BCPS SharePoint.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== POLICY & PRIVACY ===================== -->
+<div class="view" id="policy">
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow">Policy, safeguards &amp; privacy</div>
+      <h2 class="h2">How student data is protected</h2>
+      <p class="lead">The protections behind every AI decision. Read the plain-language answer first, then open the full document.</p>
+      <div class="samplenote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> Sample answers for layout. Final wording to be confirmed by BCPS legal and data governance, including any Florida-specific privacy law.</div>
+
+      <div class="acc">
+        <details open><summary>What information is collected, and why? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">Approved tools collect only what is needed to deliver the educational service. Information is used for that purpose alone, not for advertising or any unrelated commercial use.</div></details>
+        <details><summary>Where is data stored, and who has access? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">Data stays within the district's protected systems and approved vendor environments governed by data privacy agreements. Access is limited by role to the staff who need it for instruction and support.</div></details>
+        <details><summary>Can AI train on my child's information? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">No. Approved tools are configured so student and staff information is not used to train public AI models. This is a condition of approval for every tool listed on this site.</div></details>
+        <details><summary>What are my rights as a parent? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">Under FERPA you may inspect and review your child's education records, request corrections, and consent before personally identifiable information is shared outside permitted uses. Under PPRA, certain surveys require notice and the chance to opt out.</div></details>
+        <details><summary>How are tools checked before students use them? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">Every tool clears privacy, security, and accessibility review. Vendors sign data privacy agreements, must meet COPPA requirements for younger students, and may not sell student data or use it for targeted advertising.</div></details>
+        <details><summary>Are AI detectors used to accuse students? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">No. AI detection tools can be unreliable and biased, so they are not relied upon to make decisions about a student. Academic integrity is handled through clear expectations and honest conversation.</div></details>
+      </div>
+
+      <h3 class="h3sec">The laws that protect your child</h3>
+      <div class="grid4">
+        <div class="card"><h3>FERPA</h3><p>Federal law giving parents rights over education records and control of personal information.</p></div>
+        <div class="card"><h3>COPPA</h3><p>Federal rule protecting the online data of children under 13. Vendors must comply.</p></div>
+        <div class="card"><h3>PPRA</h3><p>Requires notice and opt-out for certain surveys on sensitive topics.</p></div>
+        <div class="card"><h3>State privacy law</h3><p>Limits how education vendors use student data, including a ban on selling it.</p></div>
+      </div>
+
+      <h3 class="h3sec">Your choices</h3>
+      <div class="grid2">
+        <div class="card"><h3>Questions and opt-out</h3><p>Families can ask how AI is used in their child's classroom and learn about available choices. A clear opt-out and contact process will be listed here for BCPS to complete.</p></div>
+        <div class="card"><h3>Report a concern</h3><p>A direct channel for families to raise a question or concern about an AI tool, routed to the responsible office. Contact details to be added by BCPS.</p></div>
+      </div>
+
+      <h3 class="h3sec">Featured documents</h3>
+      <div class="docrow">
+        <div class="doc"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg></span><div class="meta"><b>BCPS AI Policy</b><span>PDF document</span></div></div>
+        <div class="doc"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg></span><div class="meta"><b>Ethical Implementation Guide</b><span>PDF document</span></div></div>
+        <div class="doc"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg></span><div class="meta"><b>Standard Operating Procedures</b><span>PDF document</span></div></div>
+        <div class="doc"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg></span><div class="meta"><b>School Board Resolution</b><span>PDF document</span></div></div>
+      </div>
+      <p class="cite"><b>Sources:</b> U.S. Dept. of Education Student Privacy Policy Office (FERPA, PPRA); FTC COPPA guidance; state student data privacy statutes; Peninsula School District and TeachAI on AI detector reliability.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== LEARNING ===================== -->
+<div class="view" id="learning">
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow">AI literacy</div>
+      <h2 class="h2">Understanding AI, for students and families</h2>
+      <p class="lead">Broward teaches students not just to use AI, but to understand it, question it, and use it responsibly. The approach is built on the AI4K12 Five Big Ideas, the leading K-12 AI literacy framework.</p>
+
+      <h3 class="h3sec">The Five Big Ideas in AI</h3>
+      <div class="grid5">
+        <div class="card"><h3>Perception</h3><p>AI senses the world through cameras and microphones and turns signals into meaning.</p></div>
+        <div class="card"><h3>Representation &amp; Reasoning</h3><p>AI builds models of the world to work through problems, but does not think like a person.</p></div>
+        <div class="card"><h3>Learning</h3><p>Computers learn by finding patterns in large amounts of data supplied by people.</p></div>
+        <div class="card"><h3>Natural Interaction</h3><p>Interacting naturally with people takes many kinds of knowledge that AI still lacks.</p></div>
+        <div class="card"><h3>Societal Impact</h3><p>AI can help and harm. Biased data can leave some people worse served, so ethics matter.</p></div>
+      </div>
+
+      <h3 class="h3sec">What students learn, by grade band</h3>
+      <div class="gradeband"><h4>Elementary</h4><ul>
+        <li>Recognize where AI shows up in everyday life and that it is a human-made tool.</li>
+        <li>Understand computers learn differently from people, by finding patterns in data.</li>
+        <li>Begin reasoning about fairness, and that altered photos and videos exist.</li>
+      </ul></div>
+      <div class="gradeband"><h4>Middle</h4><ul>
+        <li>Train and test a simple model and examine its data for bias.</li>
+        <li>Understand how recommendation algorithms shape what they see online.</li>
+        <li>Define AI and generative AI and weigh benefits and drawbacks.</li>
+      </ul></div>
+      <div class="gradeband"><h4>High</h4><ul>
+        <li>Carry out a full machine-learning process and evaluate the data critically.</li>
+        <li>Judge AI against fairness, transparency, accountability, and privacy.</li>
+        <li>Evaluate AI-generated content for accuracy, bias, origin, and citation ethics.</li>
+      </ul></div>
+
+      <h3 class="h3sec">Core topics across all grades</h3>
+      <div class="pillcat">
+        <span>Digital Citizenship</span><span>AI Literacy</span><span>Prompt Writing</span><span>Fact Verification</span><span>Bias Awareness</span><span>Academic Integrity</span><span>Future Readiness</span><span>Career Connections</span>
+      </div>
+
+      <h3 class="h3sec">Family AI Toolkit</h3>
+      <div class="grid4">
+        <div class="card"><h3>Co-learn</h3><p>You don't need to be an expert. Explore AI alongside your child.</p></div>
+        <div class="card"><h3>Always verify</h3><p>AI can sound confident and still be wrong. Check answers against a trusted source.</p></div>
+        <div class="card"><h3>Protect privacy</h3><p>No names, addresses, or photos go into AI tools.</p></div>
+        <div class="card"><h3>Talk about it</h3><p>Ask what your child uses and what their school allows.</p></div>
+      </div>
+
+      <h3 class="h3sec">Professional learning for educators</h3>
+      <p class="lead">Teachers move through a clear pathway, from foundations to leadership.</p>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h4>AI Foundations</h4><p>What AI is, how it works, and responsible use.</p></div>
+        <div class="step"><span class="n">2</span><h4>Hands-on practice</h4><p>Guided practice with approved tools like Copilot and MagicSchool.</p></div>
+        <div class="step"><span class="n">3</span><h4>Classroom integration</h4><p>Applying AI in literacy, math, science, ESE, and ESOL settings.</p></div>
+        <div class="step"><span class="n">4</span><h4>Leadership</h4><p>AI liaisons and leaders coach others and guide responsible use.</p></div>
+      </div>
+
+      <h3 class="h3sec">How AI supports learning by content area</h3>
+      <p class="lead">Leading with the strongest evidence. AI is a force multiplier for practice, feedback, and access. It does not replace teachers, and it does not match one-to-one human tutoring.</p>
+      <div class="grid3">
+        <div class="card"><h3>Special Education (ESE)</h3><p>Text-to-speech and other supports remove barriers, aligned with Universal Design for Learning. This is the strongest-evidence area.</p></div>
+        <div class="card"><h3>Mathematics</h3><p>Adaptive practice gives students targeted problems and feedback, with the teacher guiding instruction.</p></div>
+        <div class="card"><h3>Literacy</h3><p>AI reading tutors give real-time feedback that multiplies guided oral-reading practice.</p></div>
+        <div class="card"><h3>English Learners (ESOL)</h3><p>Speech-feedback tools support private pronunciation practice. Translation helps, with accuracy limits noted.</p></div>
+        <div class="card"><h3>Science</h3><p>Automated formative feedback on how students investigate, supporting inquiry.</p></div>
+        <div class="card"><h3>All subjects</h3><p>Teachers save time on planning and differentiation, with every output reviewed by a human.</p></div>
+      </div>
+      <p class="cite"><b>Sources:</b> AI4K12 (AAAI and CSTA, NSF-funded) Five Big Ideas; CSTA and AI4K12 AI Learning Priorities; ISTE Standards; Common Sense Education; UNESCO AI Competency Framework; CAST Universal Design for Learning; U.S. Dept. of Education AI report (2023).</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== AI LIAISON NETWORK ===================== -->
+<div class="view" id="liaisons">
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow">Learning &middot; Department of Innovative Learning</div>
+      <h2 class="h2">AI Liaisons and AI Student Leaders</h2>
+      <p class="lead">A structured, districtwide leadership program, not just a directory. AI Liaisons and AI Student Leaders work together at each school to build responsible AI use, student voice, and digital citizenship.</p>
+
+      <div class="callout">
+        <h3 style="color:#fff">A message from the Department of Innovative Learning</h3>
+        <p style="color:#dfe8f5;margin-bottom:0">"This program was created to empower students to explore artificial intelligence through a leadership lens, one that emphasizes ethics, collaboration, curiosity, and responsibility. AI Student Leaders are not expected to be experts. Instead, they are learners, ambassadors of positive digital citizenship, and partners in helping schools and the district think intentionally about the future of learning." &mdash; Dr. Sherri N. Wilson, Director, Innovative Learning</p>
+      </div>
+
+      <h3 class="h3sec">Program structure and timeline</h3>
+      <div class="grid3">
+        <div class="card"><h3>School-based engagement</h3><p>Roughly one meeting per month with a school-based facilitator, during or after school. Schools may fold this into leadership, media, innovation, or advisory structures.</p></div>
+        <div class="card"><h3>District-level engagement</h3><p>Students may be invited periodically, not routinely, to student-voice conversations, innovation showcases, and feedback sessions tied to district initiatives.</p></div>
+        <div class="card"><h3>Time commitment</h3><p>Designed to be manageable and inclusive. No weekly requirement. Students typically serve one school year, with flexibility to rotate.</p></div>
+      </div>
+
+      <h3 class="h3sec">Student selection guidance</h3>
+      <p class="lead">Selection is about curiosity and digital citizenship, not credentials.</p>
+      <div class="grid2">
+        <div class="card is"><h3>What selection looks for</h3>
+          <ul class="checklist yes">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Curiosity and willingness to engage with new ideas</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Responsible digital citizenship and respectful communication</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Reflects the diversity of the school community</li>
+          </ul></div>
+        <div class="card isnot"><h3>What selection does not require</h3>
+          <ul class="checklist no">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg> GPA or standardized test scores</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg> Prior AI or technology experience</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg> An existing formal leadership title</li>
+          </ul></div>
+      </div>
+
+      <h3 class="h3sec">AI in the Classroom: for teachers and students</h3>
+      <p class="lead">Ethical AI Use: Remember the 3 Principles.</p>
+      <div class="grid3">
+        <div class="card"><h3>Fairness</h3><p>Treat all voices and perspectives with respect.</p></div>
+        <div class="card"><h3>Accuracy</h3><p>Always fact-check AI-generated information.</p></div>
+        <div class="card"><h3>Transparency</h3><p>Be clear when and how AI is used.</p></div>
+      </div>
+      <h3 class="h3sec" style="margin-top:26px">Four domains of AI literacy</h3>
+      <div class="grid4">
+        <div class="tile" style="text-align:left"><div class="lbl" style="font-weight:700;color:var(--navy)">1. Engaging with AI</div><p style="margin-top:8px;font-size:.88rem;color:var(--muted)">Evaluate and compare AI versus human work.</p></div>
+        <div class="tile" style="text-align:left"><div class="lbl" style="font-weight:700;color:var(--navy)">2. Creating with AI</div><p style="margin-top:8px;font-size:.88rem;color:var(--muted)">Brainstorm responsibly and discuss authorship.</p></div>
+        <div class="tile" style="text-align:left"><div class="lbl" style="font-weight:700;color:var(--navy)">3. Managing AI</div><p style="margin-top:8px;font-size:.88rem;color:var(--muted)">Practice prompt design and set classroom norms.</p></div>
+        <div class="tile" style="text-align:left"><div class="lbl" style="font-weight:700;color:var(--navy)">4. Designing AI</div><p style="margin-top:8px;font-size:.88rem;color:var(--muted)">Explore how AI works and analyze bias in data.</p></div>
+      </div>
+
+      <h3 class="h3sec">For parents and guardians</h3>
+      <div class="grid2">
+        <div class="card"><h3>Your rights</h3><ul class="feat">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Transparency in how AI is used in instruction</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Plain-language explanations of tools and safeguards</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Opportunities to opt in or out where applicable</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Ongoing communication when tools or policies change</li>
+        </ul></div>
+        <div class="card"><h3>Your responsibilities</h3><ul class="feat">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Reinforce ethical, learning-focused AI use at home</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Protect privacy: don&#39;t share personal information with AI tools</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Understand AI can be wrong ("hallucinations") or biased</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Raise questions or concerns through established channels</li>
+        </ul></div>
+      </div>
+
+      <h3 class="h3sec">Program contacts</h3>
+      <div class="eventfacts" style="max-width:640px">
+        <div class="contactrow"><b>Dr. Sherri Wilson</b><span>Director, Innovative Learning</span></div>
+        <div class="contactrow"><b>Mireille Alexis</b><span>AI Liaison Cohort Lead</span></div>
+        <div class="contactrow"><b>Jaclyn Sherman</b><span>Project Manager</span></div>
+        <div class="contactrow"><b>Sarah S. Kellem</b><span>PD Specialist</span></div>
+        <div class="contactrow"><b>Rachelle L. Boggan</b><span>PD Specialist</span></div>
+        <div class="contactrow"><b>Angelique Lynch</b><span>PD Specialist</span></div>
+        <div class="contactrow"><b>Tikilah Shropshire</b><span>Staff Developer</span></div>
+      </div>
+
+      <div class="samplenote" style="max-width:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> The interactive school-by-school AI Liaison map (liaison names, schools, and direct contact) is still being requested from Innovative Learning. This section will be updated with the full roster once it is provided.</div>
+
+      <p class="cite"><b>Sources:</b> AI Liaison and AI Student Leader Handbook, Department of Innovative Learning, Approved Documents / 5 Learning, BCPS SharePoint. BCPS Policy 5306: School and District Technology Usage; BCPS Code of Student Conduct.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== COMMUNITY ===================== -->
+<div class="view" id="community">
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow">Community engagement</div>
+      <h2 class="h2">Parent AI Symposium 2026</h2>
+      <p class="lead">Broward Powered by AI is built with families, not just for them. On June 5, 2026, the District brought parents, students, educators, and school leaders together to learn how AI is shaping education and how Broward is using it responsibly.</p>
+
+      <div class="event">
+        <div>
+          <p>Hosted at Nova High School in Davie, the Parent AI Symposium was an in-person event designed to help families understand how artificial intelligence is transforming the classroom and how to support their students in an increasingly technology-driven world. Attendees explored both the benefits and the concerns around AI, with a main session focused on what families need to know.</p>
+          <p>A highlight of the day was students themselves demonstrating how they use AI in their learning, alongside district leaders answering questions directly from parents.</p>
+          <div class="quote">"This is an opportunity to really teach people about how Broward County Public Schools plans to use AI in the classroom and outside the classroom as well."<span>Dr. Howard Hepburn, Superintendent, Broward County Public Schools</span></div>
+          <div class="quote">"It's really important for leaders and policy makers to anticipate the big changes that AI is going to bring and prepare our students and our families for an AI workforce."<span>Sarah Leonardi, School Board Chair</span></div>
+        </div>
+        <div class="eventfacts">
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><div><b>Date</b>June 5, 2026</div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><b>Location</b>Nova High School, Davie</div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><path d="M16 5a3 3 0 010 6M19 20c0-2-1-3.5-2.5-4.3"/></svg><div><b>Who attended</b>Parents, students, educators, and school leaders</div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg><div><b>Main session</b>AI in BCPS: What Families Need to Know</div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Format</b>Main session, breakout sessions, and networking</div></div>
+        </div>
+      </div>
+
+      <h3 class="h3sec">Photo gallery</h3>
+      <div class="samplenote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> Photos live in the shared album below. On the production site they will be hosted by the District and displayed here in this grid.</div>
+      <div class="gallery">
+        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Welcome &amp; registration</span></div>
+        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Main session</span></div>
+        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Student demonstrations</span></div>
+        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Breakout sessions</span></div>
+        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>District leaders</span></div>
+        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Family Q&amp;A</span></div>
+        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Networking</span></div>
+        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Hands-on tools</span></div>
+      </div>
+      <a class="albumcta" href="https://photos.app.goo.gl/avLXQq15JvkieB447" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
+        View the full photo album
+      </a>
+
+      <h3 class="h3sec">AI infrastructure and training, by the numbers</h3>
+      <p class="lead">As presented by Dr. Fabian Cone, Chief Academic Officer, and Manuel Castaneda, Executive Director of Analytics &amp; Intelligence, at the June 5, 2026 symposium.</p>
+      <div class="grid2">
+        <div class="card"><h3>Governance and infrastructure</h3><p>AI Task Force convened November 2024. 20,000+ Microsoft 365 Copilot licenses deployed districtwide. Ethical Implementation Framework board-adopted; AI Resolution passed March 10, 2026. Copilot and MagicSchool integrated across district systems.</p></div>
+        <div class="card"><h3>Training and readiness</h3><p>Five-phase rollout: districtwide training and awareness, tool-specific learning through the AI Liaison Cohort, live and asynchronous Canvas-integrated sessions, site-based implementation support, and ongoing monitoring with usage data and stakeholder feedback to refine training.</p></div>
+      </div>
+
+      <h3 class="h3sec">Breakout session tracks</h3>
+      <p class="lead">Academic Leadership Days, June 8 &amp; 9, 2026, ran four repeating breakout sessions across administrator regions.</p>
+      <div class="grid4">
+        <div class="card"><h3 style="font-size:1rem">ESE Strategic Goals &amp; AI Integration</h3></div>
+        <div class="card"><h3 style="font-size:1rem">Better Together: Unlocking the Power of Microsoft and MagicSchool &amp; Microsoft Copilot: Supporting Learning</h3></div>
+        <div class="card"><h3 style="font-size:1rem">Microsoft Education Tools</h3></div>
+        <div class="card"><h3 style="font-size:1rem">Copilot Teach &ndash; ITFs</h3></div>
+      </div>
+      <div class="samplenote" style="max-width:none">Additional real session content (the Reading Coach demo, Khan Academy Summer Bridge presentation, ESE strategic goals slides, and the Principal Executive Board&#39;s written AI policy feedback) is in the source material and queued to be added to this page next.</div>
+
+      <h3 class="h3sec">More ways to engage</h3>
+      <div class="grid3">
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 9v5c0 1.5 2.2 3 5 3s5-1.5 5-3V9"/></svg></span><h3>Parent University</h3><p>Ongoing sessions and recordings that help families build AI literacy at home.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span><h3>Community feedback</h3><p>A suggestion form and survey results so families help shape the initiative.</p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 11h16"/></svg></span><h3>Upcoming events</h3><p>A calendar of symposiums, workshops, and school-based sessions.</p></div>
+      </div>
+      <p class="cite"><b>Sources:</b> WSVN 7News coverage of the BCPS Parent AI Symposium (June 2026); browardschools.com. Quotes verbatim from WSVN reporting. Infrastructure figures and breakout tracks: AI Symposium Main Session (6.5.26) and BCPS Academic Leadership Days Program 2026, Approved Documents / 6 Community, BCPS SharePoint.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== ACCOUNTABILITY ===================== -->
+<div class="view" id="accountability">
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow">Accountability</div>
+      <h2 class="h2">Public Transparency Dashboard</h2>
+      <p class="lead">A live snapshot of the people, schools, and hours behind Broward Powered by AI. Tied to district goals and updated on a set schedule.</p>
+      <div class="samplenote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> Illustrative sample data. Figures are placeholders pending BCPS data confirmation.</div>
+      <div class="grid4">
+        <div class="tile"><div class="num">1,240</div><div class="lbl">Teachers trained</div><span class="trend">+180 this term</span></div>
+        <div class="tile"><div class="num">96</div><div class="lbl">Administrators trained</div><span class="trend">+12 this term</span></div>
+        <div class="tile"><div class="num">3,500</div><div class="lbl">Parents reached</div><span class="trend">+640 this term</span></div>
+        <div class="tile"><div class="num">214</div><div class="lbl">AI liaisons trained</div><span class="trend">+30 this term</span></div>
+        <div class="tile"><div class="num">142</div><div class="lbl">Schools participating</div><span class="trend">+9 this term</span></div>
+        <div class="tile"><div class="num">8,900</div><div class="lbl">Professional learning hours</div><span class="trend">+1,100</span></div>
+        <div class="tile"><div class="num">38</div><div class="lbl">Parent events held</div><span class="trend">+6 this term</span></div>
+        <div class="tile"><div class="num">61%</div><div class="lbl">Student AI literacy participation</div><span class="trend">+8 pts</span></div>
+      </div>
+
+      <div class="barwrap">
+        <h3 style="font-size:1.1rem;margin-bottom:6px">Professional learning pathway completion</h3>
+        <div class="bar"><span>AI Foundations</span><span class="track"><span class="fill" style="width:82%"></span></span><span class="pct">82%</span></div>
+        <div class="bar"><span>MagicSchool AI</span><span class="track"><span class="fill" style="width:64%"></span></span><span class="pct">64%</span></div>
+        <div class="bar"><span>Microsoft Copilot</span><span class="track"><span class="fill" style="width:58%"></span></span><span class="pct">58%</span></div>
+        <div class="bar"><span>AI &amp; Literacy</span><span class="track"><span class="fill" style="width:47%"></span></span><span class="pct">47%</span></div>
+        <div class="bar"><span>AI &amp; ESE Supports</span><span class="track"><span class="fill" style="width:39%"></span></span><span class="pct">39%</span></div>
+      </div>
+
+      <h3 class="h3sec">Governance and review</h3>
+      <div class="grid2">
+        <div class="card"><h3>A living document</h3><p>This initiative is reviewed and updated on a set schedule. Each update is dated and versioned so families can see what changed and when.</p></div>
+        <div class="card"><h3>We show setbacks too</h3><p>Credible transparency means reporting what is not working alongside what is. Progress, delays, and lessons learned are all shared here.</p></div>
+      </div>
+      <p class="cite"><b>Last reviewed:</b> placeholder date &nbsp;&middot;&nbsp; <b>Version:</b> draft. <br><b>Sources:</b> OECD Government at a Glance 2025 on public transparency; ISTE governance guidance; Peninsula School District versioning practice.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== SOURCES ===================== -->
+<div class="view" id="sources">
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow">How this was built</div>
+      <h2 class="h2">Grounded in established best practices</h2>
+      <p class="lead">Nothing on this site was invented. Every section is drawn from national and international frameworks for responsible AI in education, plus real district practice. This list is for BCPS review and would be refined before publication.</p>
+      <ul class="sourcelist">
+        <li><b>U.S. Department of Education, Office of Educational Technology</b><span>AI and the Future of Teaching and Learning (2023); Designing for Education with AI (2024).</span></li>
+        <li><b>TeachAI</b><span>AI Guidance for Schools Toolkit and seven principles, led by ISTE and CSTA.</span></li>
+        <li><b>AI4K12 (AAAI and CSTA, NSF-funded)</b><span>The Five Big Ideas in AI, the leading K-12 AI literacy framework.</span></li>
+        <li><b>UNESCO</b><span>Recommendation on the Ethics of Artificial Intelligence (2021); AI Competency Frameworks.</span></li>
+        <li><b>OECD</b><span>AI Principles (2019, revised 2024).</span></li>
+        <li><b>NIST</b><span>AI Risk Management Framework 1.0 (2023).</span></li>
+        <li><b>Student Privacy laws</b><span>FERPA, COPPA, PPRA, and state student data privacy statutes.</span></li>
+        <li><b>Student Data Privacy Consortium</b><span>National Data Privacy Agreement and vendor review practice.</span></li>
+        <li><b>ISTE and Common Sense Education</b><span>Educator standards, AI literacy lessons, and family guidance.</span></li>
+        <li><b>Peer districts</b><span>Peninsula School District (WA) and Gwinnett County Public Schools (GA) public AI pages.</span></li>
+      </ul>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span><b>Broward Powered by AI</b> &nbsp; Broward County Public Schools</span>
+    <span><a href="/login.html" style="color:#cdd9ec;text-decoration:underline">Staff Login</a> &nbsp;&middot;&nbsp; English &middot; Español &middot; Kreyòl Ayisyen &middot; Português &nbsp;&middot;&nbsp; WCAG 2.1 AA</span>
+  </div>
+</footer>
+
+<div class="mockflag">Preview &middot; not live &middot; bcps-ai</div>
+
+<script>
+(function(){
+  var views=document.querySelectorAll('.view');
+  var navBtns=document.querySelectorAll('nav.main button');
+  var nav=document.getElementById('mainnav');
+  var toggle=document.getElementById('menutoggle');
+  function setMenu(open){
+    nav.classList.toggle('open',open);
+    toggle.setAttribute('aria-expanded',open?'true':'false');
+    toggle.setAttribute('aria-label',open?'Close menu':'Open menu');
+  }
+  function go(id){
+    views.forEach(function(v){v.classList.toggle('active',v.id===id);});
+    navBtns.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-go')===id);});
+    setMenu(false);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+  document.querySelectorAll('[data-go]').forEach(function(el){
+    el.addEventListener('click',function(){go(el.getAttribute('data-go'));});
+  });
+  toggle.addEventListener('click',function(e){
+    e.stopPropagation();
+    setMenu(!nav.classList.contains('open'));
+  });
+  document.addEventListener('click',function(e){
+    if(nav.classList.contains('open') && !nav.contains(e.target) && e.target!==toggle){ setMenu(false); }
+  });
+})();
+</script>
+</body>
+</html>
