@@ -32,9 +32,9 @@
 <h1>BCPS Powered by AI: Content Preview Checklist</h1>
 <p class="meta">Prepared by Sean Russell &middot; July 16, 2026 &middot; Session B &middot; brand: K12 Unlocked / BCPS</p>
 
-<p class="lede">This session built the content-updated preview called for in the prior handoff: the ready-now changes from the content implementation map, applied to a copy of the live homepage and deployed as a new file so the live page is untouched. This checklist is the companion to that preview link.</p>
+<p class="lede">This session built the content-updated preview called for in the prior handoff, then applied Sean's decisions on the items that were held: replacing Our Principles with the real AILF, resolving the Copilot access wording, adding a For Staff and Leaders section, and restructuring the primary nav toward BCPS's own folder order. This checklist is the companion to that preview link, hosted alongside it on ai.bcpsmarcomm.com so it is reachable from the same domain shared with BCPS staff.</p>
 
-<p><b>Preview link (verified live):</b> <a class="cta" href="https://ai.bcpsmarcomm.com/preview-2026-07-16.html" target="_blank" rel="noopener">ai.bcpsmarcomm.com/preview-2026-07-16.html</a><br>This link has been verified: fetched directly, confirmed READY on Vercel, and the live homepage at ai.bcpsmarcomm.com was re-fetched afterward and shows no change.</p>
+<p><b>Preview link (verified live):</b> <a class="cta" href="https://ai.bcpsmarcomm.com/preview-2026-07-16.html" target="_blank" rel="noopener">ai.bcpsmarcomm.com/preview-2026-07-16.html</a><br>This link has been verified: fetched directly (with a cache-busting reload to confirm the latest deploy), confirmed READY on Vercel, and the live homepage at ai.bcpsmarcomm.com was re-fetched afterward and shows no change.</p>
 
 <h2>What changed in this preview</h2>
 
@@ -63,41 +63,47 @@
 <p>Added real numbers from the June 5 symposium main session (AI Task Force convened November 2024, 20,000+ Copilot licenses deployed, AI Resolution passed March 10, 2026) and the four real Academic Leadership Days breakout tracks. The existing, already-accurate symposium narrative and quotes were left untouched. Flagged in place: several real symposium materials (Reading Coach demo, Khan Academy Summer Bridge, ESE strategic goals, Principal Executive Board's written feedback) are read by title only so far and queued for a follow-up pass.</p>
 </div>
 
-<h2>What's held out of this preview</h2>
-<p class="lede">Per the prior session's flags, nothing below was touched. Each needs a decision from BCPS or from Sean before it goes in.</p>
+<h2>Decisions Sean made this pass, and what changed</h2>
 
-<div class="held">
-<h3>Our Principles page vs. the real AILF</h3>
-<p>BCPS's real 8-domain Artificial Intelligence Leadership Framework (AILF, tied to the Florida Educational Leadership Standards) was read in full this session, but the current generic nine-principle page was left alone. Needs a call on whether the AILF fully replaces it, a parent-friendly summary replaces it with the full document linked, or it stays a separate leadership-only resource.</p>
+<div class="done">
+<h3>Our Principles now shows the real AILF</h3>
+<p><b>Decision:</b> full replacement, not a summary or a separate leadership-only resource. The generic nine-principle page (TeachAI/UNESCO/OECD/NIST) is gone from the preview, replaced by BCPS's own 8-domain Artificial Intelligence Leadership Framework, tied to the Florida Educational Leadership Standards. Each domain shows its Leadership Focus statement and safeguards in an expandable accordion. The exhaustive "observable in" classroom examples from the source document were left out of the public page for length, and the brief now says the full document is available from BCPS as a downloadable reference, so nothing is hidden, just not reproduced line by line on a parent-facing page.</p>
 </div>
 
-<div class="held">
-<h3>Copilot student access wording</h3>
-<p>BCPS's own documents disagree with each other (the framework outline says AI-Academy pilot only; ISD PMO Sections.docx says broader grade-based access). The existing generic "role-based student access controls" line on the live Approved Tools card was left as-is rather than guessed at. Needs an answer from whoever owns the Copilot rollout.</p>
+<div class="done">
+<h3>Copilot student access wording resolved</h3>
+<p><b>Decision:</b> Sean's reconciling language. The Approved Tools card now reads "Student access is currently a limited pilot for AI-Academy students, with plans to expand to broader grade-based access," replacing the generic "role-based student access controls" line. This threads both BCPS documents (the framework outline's "pilot only" and ISD PMO Sections' "broader grade-based access") as a status plus a stated direction, rather than picking one over the other. Recommend BCPS's Copilot rollout owner confirm this exact phrasing before it goes live.</p>
 </div>
+
+<div class="done">
+<h3>New "For Staff and Leaders" section</h3>
+<p><b>Decision:</b> its own section, not folded into Parent Resources. Built from the real Broward AI Support: District and School Leadership One-sheet, used as written: the three-audience DO / DO NOT guidance (Clerical Staff, Specialists and Facilitators, Leaders), the Ethical AI 3-Principles framing, and citations to BCPS Policy 8500 and the Code of Student Conduct. Reachable from a hero button on the homepage and from the footer, not from the primary top nav, since the primary nav is parent-facing and this content is staff-facing (see nav rationale below).</p>
+</div>
+
+<h2>Nav restructure: recommendation and rationale</h2>
+<p class="lede">Sean asked for a best-practice recommendation here rather than a specific direction. This is what was implemented.</p>
+<div class="done">
+<h3>Primary nav now mirrors BCPS's own six-folder order</h3>
+<p><b>Recommendation:</b> Home, Our Principles, Approved Tools, Parent Resources, Learning, AI Liaison Network, Community, Accountability. "Policy &amp; Privacy" is relabeled "Parent Resources" to match BCPS's SharePoint folder name; its existing privacy FAQ content is unchanged and it is where the Digital Learning Blueprint will land once BCPS settles the disclosure question. "Sources" was removed from the primary tab bar and moved to a footer link, alongside the new "For Staff &amp; Leaders" link.</p>
+<p style="margin-bottom:0"><b>Why:</b> BCPS's own content is now the source of truth for this site's shape, per the content map's recommendation to adopt their six-folder structure as the backbone rather than keep our invented scaffolding. Two kinds of pages do not fit that backbone and were handled differently on purpose: "Sources" is a methodology and bibliography page (transparency about how the site was built), which is useful but is not something a parent needs in the main tab bar. "For Staff &amp; Leaders" is a different audience entirely from the site's stated parent and community purpose. Standard information-architecture practice is to keep a primary nav focused on the site's primary audience and primary content, and to make secondary, different-audience, or meta content reachable but not competing for space, typically through a footer link or a linked CTA. Accountability stayed in the primary nav despite not being one of BCPS's six folders, because it is one of BCPS's own five stated commitments (Transparency, Trust, Education, Engagement, Accountability) in the source framework, not an add-on from us.</p>
+</div>
+
+<h2>What's still held out of this preview</h2>
+<p class="lede">One item remains, needing a decision from BCPS.</p>
 
 <div class="held">
 <h3>Digital Learning Blueprint disclosure</h3>
-<p>The Ethical Implementation Guide is confirmed as an active, unapproved 60-plus page "Review Draft," not a finished policy. None of its competency content was pulled into the preview. Needs a decision on disclosure language before any of it is used.</p>
-</div>
-
-<div class="held">
-<h3>District and School Leadership one-sheet placement</h3>
-<p>This one-pager's content is finished and ready to use as written, but where it belongs is a placement call, not a content gap: a standalone "For Staff and Leaders" resource, or folded into Parent Resources as the leadership companion to the parent one-pager. Left out until that's decided.</p>
-</div>
-
-<div class="held">
-<h3>Full nav restructure</h3>
-<p>BCPS's own SharePoint folder order (Landing Page, Our Principles, Approved Tools, Parent Resources, Learning, Community) still doesn't match the live site's eight-tab nav one-for-one. The AI Liaison Network tab was added in the right relative position, but a full restructure was intentionally not done this session, per the content map's own recommendation to hold that until the decisions above are in.</p>
+<p>The Ethical Implementation Guide is confirmed as an active, unapproved 60-plus page "Review Draft," not a finished policy. None of its competency content was pulled into the preview. Sean's direction this pass: hold off on using any of its content, and keep this noted as a decision BCPS still needs to make on disclosure language. Parent Resources now references that this section will host the Blueprint once that language is settled.</p>
 </div>
 
 <h2>What's next</h2>
 <ul>
-  <li>Sean reviews the preview link above and calls the Copilot access conflict, the AILF placement, and the Blueprint disclosure question.</li>
+  <li>Sean or BCPS confirms the exact Copilot student-access phrasing with whoever owns the Copilot rollout.</li>
+  <li>BCPS decides the Digital Learning Blueprint's disclosure language before any of its content is used.</li>
   <li>Read the remaining Learning-folder documents (Learning Map Pathways, AI Integration Focus Areas, LEAD AI Cohort Overview, Turnitin workshop deck, full Leadership Days conference materials) before drafting Professional Learning in full.</li>
   <li>Read the remaining real Community materials (Reading Coach, Khan Academy Summer Bridge, ESE strategic goals, Principal Executive Board feedback) and add them to the Community section.</li>
   <li>Request the school-by-school AI Liaison roster from Innovative Learning.</li>
-  <li>Once the decisions above are in, revisit the nav using BCPS's own six-folder structure as the base, and promote this preview to replace the live homepage.</li>
+  <li>Once the Blueprint decision is in, promote this preview to replace the live homepage.</li>
 </ul>
 
 <footer>
