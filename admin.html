@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content Posting - Broward Powered by AI</title>
+<style>
+:root{color-scheme:light;--navy:#0c2340;--navy-2:#13315c;--blue:#1672a7;--blue-soft:#e8f1fb;--teal:#1b9e8a;--teal-soft:#e7f5f1;--gold:#c8a24a;--ink:#1a2230;--muted:#5a6678;--line:#dde3ec;--bg:#fff;--bg-soft:#f5f8fc}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg-soft)}
+#gate{min-height:100vh;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.bar{background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px;padding:12px 22px}
+.bar img{height:40px}
+.bar .who{margin-left:auto;font-size:.84rem;color:var(--muted)}
+.bar button{margin-left:14px;border:1px solid var(--line);background:#fff;border-radius:9px;padding:8px 13px;font-weight:600;font-size:.84rem;cursor:pointer}
+.bar button:hover{background:var(--bg-soft)}
+.wrap{max-width:760px;margin:0 auto;padding:30px 22px 60px}
+.eyebrow{color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:.6px;font-size:.74rem;margin-bottom:6px}
+h1{margin:0 0 6px;color:var(--navy);font-size:1.6rem}
+.lead{color:var(--muted);margin:0 0 8px}
+.flow{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 26px}
+.flow .s{background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 13px;font-size:.8rem;font-weight:600;color:var(--navy-2)}
+.flow .s.cur{background:var(--blue);color:#fff;border-color:var(--blue)}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:0 1px 2px rgba(12,35,64,.06),0 8px 24px rgba(12,35,64,.06)}
+label{display:block;font-size:.82rem;font-weight:600;color:var(--navy-2);margin:16px 0 6px}
+input,select,textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;font-size:.95rem;font-family:inherit}
+textarea{min-height:130px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-soft)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.submit{margin-top:22px;border:0;border-radius:10px;background:var(--blue);color:#fff;font-weight:700;padding:13px 20px;font-size:.95rem;cursor:pointer}
+.submit:hover{background:var(--navy)}
+.note{margin-top:16px;font-size:.8rem;color:var(--muted);background:var(--bg-soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.ok{margin-top:16px;display:none;background:var(--teal-soft);border:1px solid #bfe6db;color:#176a57;border-radius:10px;padding:12px 14px;font-size:.9rem}
+.staging{background:#fff7e6;border:1px solid #f0dca6;color:#7a5d12;font-size:.82rem;padding:9px 14px;text-align:center}
+@media(max-width:640px){.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="gate">Checking your session...</div>
+
+<div id="app" style="display:none">
+  <div class="staging">Staging preview. Submissions here are a demonstration of the approval workflow and are not yet published.</div>
+  <div class="bar">
+    <img src="/bcps-logo.png" alt="Broward County Public Schools">
+    <span class="who" id="who"></span>
+    <button id="signout">Sign out</button>
+  </div>
+  <div class="wrap">
+    <div class="eyebrow">Internal posting</div>
+    <h1>Submit content for approval</h1>
+    <p class="lead">Create a news item or announcement. It does not go live on the public site until it clears the approval process.</p>
+    <div class="flow">
+      <span class="s cur">1. Draft</span>
+      <span class="s">2. Submitted</span>
+      <span class="s">3. In review</span>
+      <span class="s">4. Approved</span>
+      <span class="s">5. Published</span>
+    </div>
+
+    <div class="card">
+      <form id="postform">
+        <div class="row">
+          <div>
+            <label for="type">Content type</label>
+            <select id="type"><option>News item</option><option>Announcement</option></select>
+          </div>
+          <div>
+            <label for="audience">Audience</label>
+            <select id="audience"><option>All families</option><option>Staff</option><option>Specific schools</option></select>
+          </div>
+        </div>
+        <label for="title">Title</label>
+        <input id="title" required placeholder="Headline">
+        <label for="body">Content</label>
+        <textarea id="body" required placeholder="Write the news item or announcement..."></textarea>
+        <button class="submit" type="submit">Submit for approval</button>
+        <div class="ok" id="ok">Submitted for approval. A reviewer will be notified. (Staging demo, not published.)</div>
+        <p class="note">Per the District content workflow, an author cannot publish their own post. Submissions route to a reviewer, then an approver, before appearing on the public site. Every action is logged.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const SUPABASE_URL="https://fwbhwfxpncrsfhttimna.supabase.co";
+const SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ3Ymh3ZnhwbmNyc2ZodHRpbW5hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NjAxMzksImV4cCI6MjA5MDIzNjEzOX0.9mxjK0bn5WATCbNLWrHPakD6yHUDtHFHrOaklPnWkOA";
+const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+(async ()=>{
+  const { data } = await sb.auth.getSession();
+  if(!data.session){ location.href='/login.html'; return; }
+  document.getElementById('gate').style.display='none';
+  document.getElementById('app').style.display='block';
+  document.getElementById('who').textContent = data.session.user.email || 'Signed in';
+})();
+
+document.getElementById('signout').addEventListener('click', async ()=>{
+  await sb.auth.signOut(); location.href='/login.html';
+});
+document.getElementById('postform').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  document.getElementById('ok').style.display='block';
+  e.target.querySelector('.submit').textContent='Submitted';
+  e.target.querySelector('.submit').disabled=true;
+});
+</script>
+</body>
+</html>
