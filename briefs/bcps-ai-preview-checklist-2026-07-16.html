@@ -40,6 +40,9 @@
   details[open].done > summary::after, details[open].held > summary::after{content:'\2212'}
   details.done .body, details.held .body{padding:0 20px 18px}
   details.done .body p, details.held .body p{margin:0;color:var(--text-75)}
+  .question{background:var(--blue-soft, #e8f1fb);border:1px solid #bcd7ee;border-radius:8px;padding:16px 20px;margin:14px 0}
+  .question h3{margin:0 0 8px;font-size:16px;color:var(--blue)}
+
 
 </style>
 </head>
@@ -60,7 +63,20 @@
 
 <p><b>Live site (verified):</b> <a class="cta" href="https://browardschools.ai" target="_blank" rel="noopener">browardschools.ai</a> and <a class="cta" href="https://www.browardschools.ai" target="_blank" rel="noopener">www.browardschools.ai</a><br>This link has been verified: both domains resolve, SSL is active with no warnings, and the content described as "Completed" below is confirmed live on the site as of this update.</p>
 
+<h2>Open questions for tomorrow</h2>
+<p class="lede">One real discrepancy surfaced while reviewing the July 2026 Monthly Board Implementation Report. Flagging it here rather than guessing at an answer.</p>
+
+<div class="question">
+<h3>Website "live" date does not match the board report</h3>
+<p>The Monthly Board Implementation Report lists "BrowardSchools.AI Website: IN PROGRESS, Live 7/24/2026" and repeats a "no later than Friday, July 24" availability target. The domain cutover to browardschools.ai was completed and verified on July 20. Needs the team to clarify: is July 24 a formal announcement or sign-off date separate from the technical launch, or does the board report need to be corrected?</p>
+</div>
+
 <h2>Completed</h2>
+
+<details class="done">
+<summary>Replaced Transparency Dashboard placeholders with real numbers (July 20)</summary>
+<div class="body"><p>Reviewed the July 2026 Monthly Board Implementation Report per Sean's direction: pulled in only the district-wide numbers with a real source (271,000+ students served, 222 schools, 206 AI Liaisons, 4,318+ teacher users, 60,423+ AI interactions, 33 PL sessions), sourced and dated on the page. Left the professional learning pathway completion percentages as illustrative, no real source for those specific figures yet. Everything else in the board report (safety/moderation detail, named engagement partners, pending board-vote items) was intentionally not added, that content reads as board-facing rather than parent-facing and needs its own review.</p></div>
+</details>
 
 <details class="done">
 <summary>Moved to the browardschools.ai domain (July 20)</summary>
@@ -160,8 +176,8 @@
 </details>
 
 <details class="held">
-<summary>Transparency Dashboard is still placeholder data</summary>
-<div class="body"><p>Teachers trained, administrators trained, parents reached, and the professional learning pathway percentages are illustrative sample numbers, clearly labeled as such on the page. Real BCPS figures are still needed for this section specifically (separate from the real Copilot attendance table, which is now live).</p></div>
+<summary>Professional learning pathway percentages are still placeholder data</summary>
+<div class="body"><p>The top-line Transparency Dashboard tiles are now real (see Completed, July 20). The professional learning pathway completion percentages underneath (AI Foundations, MagicSchool AI, Microsoft Copilot, AI &amp; Literacy, AI &amp; ESE Supports) are still illustrative sample numbers, clearly labeled as such on the page, since no real per-pathway completion source has been provided yet.</p></div>
 </details>
 
 <h2>Next steps</h2>
