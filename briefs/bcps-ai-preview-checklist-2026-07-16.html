@@ -74,6 +74,11 @@
 <h2>Completed</h2>
 
 <details class="done">
+<summary>Machine translation wired up: English, Español, Kreyòl Ayisyen, Português (July 20)</summary>
+<div class="body"><p>The topbar and footer language buttons were previously inert placeholders (see prior Pending note). Sean's direction: BCPS-style manual translation of a whole district site takes far too long to wait on, use software translation now as best practice, and swap in manual/vetted translation later if BCPS requests it. Implemented the Google Translate Website Translator widget (free for government and education sites, the same approach Finalsite recommends for district sites): clicking a language sets the standard <code>googtrans</code> cookie and reloads the page, which is the reliable pattern, an earlier version that live-manipulated the widget's dropdown had a race condition on repeat switches and was replaced. Verified live on browardschools.ai: Spanish, Haitian Creole, and Portuguese each fully translate the page, and English cleanly restores the original text, with no leftover race condition switching between them repeatedly.</p></div>
+</details>
+
+<details class="done">
 <summary>Fixed footer links resetting to Home (July 20)</summary>
 <div class="body"><p>Sean caught this browsing the site: "For Staff &amp; Leaders" and "Methodology &amp; Sources" in the footer would open the right section, then immediately snap back to Home. Root cause: those two links were the only ones written as real anchor tags (href="#") rather than buttons, and the click handler never called preventDefault, so the browser's own default navigation fired right after ours, cleared the address bar hash, and our own routing read that as "go home." Fixed and verified live: both links now open their section and stay there.</p></div>
 </details>
@@ -216,8 +221,8 @@
 </details>
 
 <details class="held">
-<summary>Translation buttons (topbar) are not functional</summary>
-<div class="body"><p>Sean caught this browsing the site: English, Español, Kreyòl Ayisyen, and Português appear in the topbar but do nothing when clicked. There is no translation logic wired up and no translated content anywhere on the site, they are placeholder labels only. This is a real content project, not a quick technical fix: it needs actual translated copy for every page, ideally from BCPS or a vetted translation process rather than machine-generated text on a public district site. The technical switching mechanism can be built as soon as real translated content exists for at least one language.</p></div>
+<summary>Confirm machine translation is acceptable, or BCPS wants manual translation instead</summary>
+<div class="body"><p>Translation is now live via Google Translate (see Completed, July 20), per Sean's direction not to wait on a manual translation process. Flagging for the team: if BCPS wants official, human-reviewed translations instead of machine translation for a public district site, the switching mechanism already built can point at real translated copy instead, no rebuild needed.</p></div>
 </details>
 
 <h2>Next steps</h2>
@@ -227,6 +232,7 @@
   <li>Get a decision-owner named for the Digital Learning Blueprint disclosure language.</li>
   <li>Confirm who is sourcing the remaining Learning and Community documents, and the AI Liaison roster.</li>
   <li>Decide whether and when to replace the Transparency Dashboard's placeholder figures with real BCPS numbers.</li>
+  <li>Confirm machine translation (English, Español, Kreyòl Ayisyen, Português) is acceptable for now, or whether BCPS wants a manual translation process instead.</li>
 </ul>
 
 <footer>
