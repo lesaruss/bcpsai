@@ -662,16 +662,22 @@ footer.site b{color:#fff}
   var navBtns=document.querySelectorAll('nav.main button');
   var nav=document.getElementById('mainnav');
   var toggle=document.getElementById('menutoggle');
+  var validIds=[];
+  views.forEach(function(v){validIds.push(v.id);});
   function setMenu(open){
     nav.classList.toggle('open',open);
     toggle.setAttribute('aria-expanded',open?'true':'false');
     toggle.setAttribute('aria-label',open?'Close menu':'Open menu');
   }
-  function go(id){
+  function render(id){
     views.forEach(function(v){v.classList.toggle('active',v.id===id);});
     navBtns.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-go')===id);});
+  }
+  function go(id){
+    render(id);
     setMenu(false);
     window.scrollTo({top:0,behavior:'smooth'});
+    if(location.hash!=='#'+id){ history.pushState({section:id},'','#'+id); }
   }
   document.querySelectorAll('[data-go]').forEach(function(el){
     el.addEventListener('click',function(){go(el.getAttribute('data-go'));});
@@ -683,6 +689,16 @@ footer.site b{color:#fff}
   document.addEventListener('click',function(e){
     if(nav.classList.contains('open') && !nav.contains(e.target) && e.target!==toggle){ setMenu(false); }
   });
+  window.addEventListener('popstate',function(){
+    var id=(location.hash||'').replace('#','');
+    if(validIds.indexOf(id)===-1){ id='home'; }
+    render(id);
+  });
+  var initial=(location.hash||'').replace('#','');
+  if(validIds.indexOf(initial)!==-1){
+    render(initial);
+    window.scrollTo({top:0,behavior:'instant'});
+  }
 })();
 </script>
 </body>
