@@ -226,6 +226,7 @@ footer.site b{color:#fff}
 </style>
 </head>
 <body>
+<div id="google_translate_element" class="notranslate" style="display:none"></div>
 
 <div class="placeholder-bar">
   <div class="wrap">
@@ -238,7 +239,7 @@ footer.site b{color:#fff}
   <div class="wrap">
     <span>Broward County Public Schools</span>
     <div class="langs" aria-label="Language options">
-      <button>English</button><button>Español</button><button>Kreyòl Ayisyen</button><button>Português</button>
+      <button class="notranslate" translate="no" data-lang="en">English</button><button class="notranslate" translate="no" data-lang="es">Español</button><button class="notranslate" translate="no" data-lang="ht">Kreyòl Ayisyen</button><button class="notranslate" translate="no" data-lang="pt">Português</button>
     </div>
   </div>
 </div>
@@ -910,7 +911,7 @@ footer.site b{color:#fff}
 <footer class="site">
   <div class="wrap">
     <span><b>Broward Powered by AI</b> &nbsp; Broward County Public Schools</span>
-    <span><a href="/login.html" style="color:#cdd9ec;text-decoration:underline">Staff Login</a> &nbsp;&middot;&nbsp; <a href="#" data-go="staffleaders" style="color:#cdd9ec;text-decoration:underline">For Staff &amp; Leaders</a> &nbsp;&middot;&nbsp; <a href="#" data-go="sources" style="color:#cdd9ec;text-decoration:underline">Methodology &amp; Sources</a> &nbsp;&middot;&nbsp; English &middot; Español &middot; Kreyòl Ayisyen &middot; Português &nbsp;&middot;&nbsp; WCAG 2.1 AA</span>
+    <span><a href="/login.html" style="color:#cdd9ec;text-decoration:underline">Staff Login</a> &nbsp;&middot;&nbsp; <a href="#" data-go="staffleaders" style="color:#cdd9ec;text-decoration:underline">For Staff &amp; Leaders</a> &nbsp;&middot;&nbsp; <a href="#" data-go="sources" style="color:#cdd9ec;text-decoration:underline">Methodology &amp; Sources</a> &nbsp;&middot;&nbsp; <a href="#" class="notranslate" translate="no" data-lang="en" style="color:#cdd9ec;text-decoration:underline">English</a> &middot; <a href="#" class="notranslate" translate="no" data-lang="es" style="color:#cdd9ec;text-decoration:underline">Español</a> &middot; <a href="#" class="notranslate" translate="no" data-lang="ht" style="color:#cdd9ec;text-decoration:underline">Kreyòl Ayisyen</a> &middot; <a href="#" class="notranslate" translate="no" data-lang="pt" style="color:#cdd9ec;text-decoration:underline">Português</a> &nbsp;&middot;&nbsp; WCAG 2.1 AA</span>
   </div>
 </footer>
 
@@ -939,6 +940,29 @@ footer.site b{color:#fff}
     window.scrollTo({top:0,behavior:'smooth'});
     if(location.hash!=='#'+id){ history.pushState({section:id},'','#'+id); }
   }
+  function setLanguage(lang){
+    if(lang==='en'){
+      document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.'+location.hostname+';';
+      location.reload();
+      return;
+    }
+    var tries=0;
+    var timer=setInterval(function(){
+      var combo=document.querySelector('.goog-te-combo');
+      tries++;
+      if(combo){
+        combo.value=lang;
+        combo.dispatchEvent(new Event('change'));
+        clearInterval(timer);
+      } else if(tries>50){
+        clearInterval(timer);
+      }
+    },100);
+  }
+  document.querySelectorAll('[data-lang]').forEach(function(el){
+    el.addEventListener('click',function(e){ e.preventDefault(); setLanguage(el.getAttribute('data-lang')); });
+  });
   document.querySelectorAll('[data-go]').forEach(function(el){
     el.addEventListener('click',function(e){ e.preventDefault(); go(el.getAttribute('data-go')); });
   });
@@ -961,5 +985,11 @@ footer.site b{color:#fff}
   }
 })();
 </script>
+<script>
+function googleTranslateElementInit(){
+  new google.translate.TranslateElement({pageLanguage:'en', includedLanguages:'es,ht,pt', autoDisplay:false}, 'google_translate_element');
+}
+</script>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
