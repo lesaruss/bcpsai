@@ -941,24 +941,15 @@ footer.site b{color:#fff}
     if(location.hash!=='#'+id){ history.pushState({section:id},'','#'+id); }
   }
   function setLanguage(lang){
-    if(lang==='en'){
-      document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-      document.cookie='googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.'+location.hostname+';';
-      location.reload();
-      return;
+    var expired='expires=Thu, 01 Jan 1970 00:00:00 UTC';
+    document.cookie='googtrans=; '+expired+'; path=/;';
+    document.cookie='googtrans=; '+expired+'; path=/; domain=.'+location.hostname+';';
+    if(lang!=='en'){
+      var value='/en/'+lang;
+      document.cookie='googtrans='+value+'; path=/;';
+      document.cookie='googtrans='+value+'; path=/; domain=.'+location.hostname+';';
     }
-    var tries=0;
-    var timer=setInterval(function(){
-      var combo=document.querySelector('.goog-te-combo');
-      tries++;
-      if(combo){
-        combo.value=lang;
-        combo.dispatchEvent(new Event('change'));
-        clearInterval(timer);
-      } else if(tries>50){
-        clearInterval(timer);
-      }
-    },100);
+    location.reload();
   }
   document.querySelectorAll('[data-lang]').forEach(function(el){
     el.addEventListener('click',function(e){ e.preventDefault(); setLanguage(el.getAttribute('data-lang')); });
