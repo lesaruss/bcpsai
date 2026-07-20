@@ -940,7 +940,7 @@ footer.site b{color:#fff}
     if(location.hash!=='#'+id){ history.pushState({section:id},'','#'+id); }
   }
   document.querySelectorAll('[data-go]').forEach(function(el){
-    el.addEventListener('click',function(){go(el.getAttribute('data-go'));});
+    el.addEventListener('click',function(e){ e.preventDefault(); go(el.getAttribute('data-go')); });
   });
   toggle.addEventListener('click',function(e){
     e.stopPropagation();
