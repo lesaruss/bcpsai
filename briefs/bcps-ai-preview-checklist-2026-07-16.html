@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BCPS Powered by AI: Preview Checklist, July 16 2026</title>
+<title>BCPS Powered by AI: Progress Tracker (updated July 20 2026)</title>
 <style>
   :root{
     --text:#1a1a1a;--text-75:rgba(26,26,26,.78);--text-50:rgba(26,26,26,.55);
@@ -42,85 +42,128 @@
   </div>
 </header>
 
-<h1>BCPS Powered by AI: Content Preview Checklist</h1>
-<p class="meta">Prepared by Sean Russell &middot; July 16, 2026</p>
+<h1>BCPS Powered by AI: Progress Tracker</h1>
+<p class="meta">Prepared by Sean Russell &middot; running tracker, last updated July 20, 2026 &middot; companion for the Broward AI Webpage Review meeting</p>
 
-<p class="lede">This session built the content-updated preview called for in the prior handoff, then applied Sean's decisions on the items that were held: replacing Our Principles with the real AILF, resolving the Copilot access wording, adding a For Staff and Leaders section, and restructuring the primary nav toward BCPS's own folder order. This checklist is the companion to that preview link, hosted alongside it on ai.bcpsmarcomm.com so it is reachable from the same domain shared with BCPS staff.</p>
+<p class="lede">This is the living tracker for the browardschools.ai site: what has shipped, what is still waiting on a BCPS decision or document, and what is next. It replaces the July 16 preview checklist as the single source of truth, folding that session's work in as already-completed.</p>
 
-<p><b>Preview link (verified live):</b> <a class="cta" href="https://ai.bcpsmarcomm.com/preview-2026-07-16.html" target="_blank" rel="noopener">ai.bcpsmarcomm.com/preview-2026-07-16.html</a><br>This link has been verified: fetched directly (with a cache-busting reload to confirm the latest deploy), confirmed READY on Vercel, and the live homepage at ai.bcpsmarcomm.com was re-fetched afterward and shows no change.</p>
+<p><b>Live site (verified):</b> <a class="cta" href="https://browardschools.ai" target="_blank" rel="noopener">browardschools.ai</a> and <a class="cta" href="https://www.browardschools.ai" target="_blank" rel="noopener">www.browardschools.ai</a><br>This link has been verified: both domains resolve, SSL is active with no warnings, and the content described as "Completed" below is confirmed live on the site as of this update.</p>
 
-<h2>What changed in this preview</h2>
+<h2>Completed</h2>
 
 <div class="done">
-<h3>Featured video</h3>
-<p>Replaced the placeholder video block on the homepage with a real embed, per the source framework's explicit instruction to feature the Microsoft Copilot video. Captioned honestly: this is the Copilot overview video, not yet the fully produced Broward-specific piece (Superintendent, staff, students, families) the framework also calls for, which was not found as a playable file in SharePoint.</p>
+<h3>Moved to the browardschools.ai domain (July 20)</h3>
+<p>Coordinated with BCPS IT Infrastructure to point browardschools.ai and www.browardschools.ai at the site. DNS is live (Azure DNS zone), SSL certificate is issued and verified on both, and the cutover is fully complete. No further action needed on either side.</p>
 </div>
 
 <div class="done">
-<h3>Microsoft Copilot: professional learning</h3>
-<p>Added the real ISD PMO course catalog to Approved Tools: 7 introduction courses, 3 intermediate, 2 advanced, with real course numbers (for example 39149799, 39150052) and descriptions, in an expandable accordion.</p>
+<h3>Fixed non-shareable page sections (July 20)</h3>
+<p>The site's navigation was not updating the browser URL, so every section (Our Principles, Approved Tools, Accountability, etc.) lived at the same address and could not be linked to directly or bookmarked. Added address-bar routing for every section (for example browardschools.ai/#tools) with working browser back and forward. Verified live.</p>
 </div>
 
 <div class="done">
-<h3>Leader resources</h3>
-<p>Added a link to the Copilot demonstration video and two new resource cards for the real PRISM AI Principal Resource Handouts (Copilot and MagicSchool), matching the existing "featured documents" card style used elsewhere on the site.</p>
+<h3>Live site brought current to the July 16 work (July 20)</h3>
+<p>Caught that the domain cutover had pointed at an older build. The July 16 preview content below (AI Liaison Network, For Staff and Leaders, the real course catalog, the nav restructure) existed only in a separate preview file and had not actually been promoted to the live homepage. Published it live and re-verified every section on the actual domain.</p>
 </div>
 
 <div class="done">
-<h3>New AI Liaison Network section</h3>
-<p>Added as its own nav item between Learning and Community. Built from the real 16-page AI Liaison and AI Student Leader Handbook: program structure and timeline, student selection guidance, the two real BCPS one-pagers (Ethical AI Use: 3 Principles plus the four domains of AI literacy; the parent/guardian rights and responsibilities guide), and the named program contacts (Dr. Sherri Wilson and team). Flagged in place: the school-by-school liaison roster is still a data request to Innovative Learning, not yet available.</p>
+<h3>Added Copilot professional learning attendance data (July 20)</h3>
+<p>Added a real attendance table (BCPS ISD PMO data) to the Approved Tools course catalog: 2,080 total course completions across 11 Copilot sessions. One row does not yet match an existing catalog entry, see Pending below. Flagged in place on the page itself, not just in this tracker.</p>
 </div>
 
 <div class="done">
-<h3>Community: symposium infrastructure and sessions</h3>
-<p>Added real numbers from the June 5 symposium main session (AI Task Force convened November 2024, 20,000+ Copilot licenses deployed, AI Resolution passed March 10, 2026) and the four real Academic Leadership Days breakout tracks. The existing, already-accurate symposium narrative and quotes were left untouched. Flagged in place: several real symposium materials (Reading Coach demo, Khan Academy Summer Bridge, ESE strategic goals, Principal Executive Board's written feedback) are read by title only so far and queued for a follow-up pass.</p>
-</div>
-
-<h2>Decisions Sean made this pass, and what changed</h2>
-
-<div class="done">
-<h3>Our Principles now shows the real AILF</h3>
-<p><b>Decision:</b> full replacement, not a summary or a separate leadership-only resource. The generic nine-principle page (TeachAI/UNESCO/OECD/NIST) is gone from the preview, replaced by BCPS's own 8-domain Artificial Intelligence Leadership Framework, tied to the Florida Educational Leadership Standards. Each domain shows its Leadership Focus statement and safeguards in an expandable accordion. The exhaustive "observable in" classroom examples from the source document were left out of the public page for length, and the brief now says the full document is available from BCPS as a downloadable reference, so nothing is hidden, just not reproduced line by line on a parent-facing page.</p>
+<h3>Featured video (July 16)</h3>
+<p>Replaced the homepage placeholder video with the real Microsoft Copilot overview video. Captioned honestly as the general Copilot overview, not yet the fully produced Broward-specific piece the source framework also calls for.</p>
 </div>
 
 <div class="done">
-<h3>Copilot student access wording resolved</h3>
-<p><b>Decision:</b> Sean's reconciling language. The Approved Tools card now reads "Student access is currently a limited pilot for AI-Academy students, with plans to expand to broader grade-based access," replacing the generic "role-based student access controls" line. This threads both BCPS documents (the framework outline's "pilot only" and ISD PMO Sections' "broader grade-based access") as a status plus a stated direction, rather than picking one over the other. Recommend BCPS's Copilot rollout owner confirm this exact phrasing before it goes live.</p>
+<h3>Microsoft Copilot: professional learning (July 16)</h3>
+<p>Added the real ISD PMO course catalog to Approved Tools: 7 introduction courses, 3 intermediate, 2 advanced, with real course numbers and descriptions, in an expandable accordion.</p>
 </div>
 
 <div class="done">
-<h3>New "For Staff and Leaders" section</h3>
-<p><b>Decision:</b> its own section, not folded into Parent Resources. Built from the real Broward AI Support: District and School Leadership One-sheet, used as written: the three-audience DO / DO NOT guidance (Clerical Staff, Specialists and Facilitators, Leaders), the Ethical AI 3-Principles framing, and citations to BCPS Policy 8500 and the Code of Student Conduct. Reachable from a hero button on the homepage and from the footer, not from the primary top nav, since the primary nav is parent-facing and this content is staff-facing (see nav rationale below).</p>
+<h3>Leader resources (July 16)</h3>
+<p>Added the Copilot demonstration video link and the real PRISM AI Principal Resource Handouts (Copilot and MagicSchool).</p>
 </div>
 
-<h2>Nav restructure: recommendation and rationale</h2>
-<p class="lede">Sean asked for a best-practice recommendation here rather than a specific direction. This is what was implemented.</p>
 <div class="done">
-<h3>Primary nav now mirrors BCPS's own six-folder order</h3>
-<p><b>Recommendation:</b> Home, Our Principles, Approved Tools, Parent Resources, Learning, AI Liaison Network, Community, Accountability. "Policy &amp; Privacy" is relabeled "Parent Resources" to match BCPS's SharePoint folder name; its existing privacy FAQ content is unchanged and it is where the Digital Learning Blueprint will land once BCPS settles the disclosure question. "Sources" was removed from the primary tab bar and moved to a footer link, alongside the new "For Staff &amp; Leaders" link.</p>
-<p style="margin-bottom:0"><b>Why:</b> BCPS's own content is now the source of truth for this site's shape, per the content map's recommendation to adopt their six-folder structure as the backbone rather than keep our invented scaffolding. Two kinds of pages do not fit that backbone and were handled differently on purpose: "Sources" is a methodology and bibliography page (transparency about how the site was built), which is useful but is not something a parent needs in the main tab bar. "For Staff &amp; Leaders" is a different audience entirely from the site's stated parent and community purpose. Standard information-architecture practice is to keep a primary nav focused on the site's primary audience and primary content, and to make secondary, different-audience, or meta content reachable but not competing for space, typically through a footer link or a linked CTA. Accountability stayed in the primary nav despite not being one of BCPS's six folders, because it is one of BCPS's own five stated commitments (Transparency, Trust, Education, Engagement, Accountability) in the source framework, not an add-on from us.</p>
+<h3>New AI Liaison Network section (July 16)</h3>
+<p>Built from the real 16-page AI Liaison and AI Student Leader Handbook: program structure and timeline, student selection guidance, both real BCPS one-pagers, and named program contacts (Dr. Sherri Wilson and team).</p>
 </div>
 
-<h2>What's still held out of this preview</h2>
-<p class="lede">One item remains, needing a decision from BCPS.</p>
+<div class="done">
+<h3>Community: symposium infrastructure and sessions (July 16)</h3>
+<p>Added real numbers from the June 5 symposium (AI Task Force convened November 2024, 20,000+ Copilot licenses deployed, AI Resolution passed March 10, 2026) and the four real Academic Leadership Days breakout tracks.</p>
+</div>
+
+<div class="done">
+<h3>Our Principles now shows the real AILF (July 16)</h3>
+<p>Full replacement of the generic nine-principle page with BCPS's own 8-domain Artificial Intelligence Leadership Framework, tied to the Florida Educational Leadership Standards.</p>
+</div>
+
+<div class="done">
+<h3>Copilot student access wording resolved (July 16)</h3>
+<p>Approved Tools now reads "Student access is currently a limited pilot for AI-Academy students, with plans to expand to broader grade-based access." Recommend BCPS's Copilot rollout owner confirm this exact phrasing, see Pending below.</p>
+</div>
+
+<div class="done">
+<h3>New "For Staff and Leaders" section (July 16)</h3>
+<p>Built from the real Broward AI Support: District and School Leadership one-sheet. Reachable from the homepage and footer, not the primary parent-facing nav.</p>
+</div>
+
+<div class="done">
+<h3>Nav restructured to BCPS's own six-folder order (July 16)</h3>
+<p>Home, Our Principles, Approved Tools, Parent Resources, Learning, AI Liaison Network, Community, Accountability. Sources and For Staff and Leaders moved to the footer.</p>
+</div>
+
+<h2>Pending, needs a BCPS decision or document</h2>
 
 <div class="held">
-<h3>Digital Learning Blueprint disclosure</h3>
-<p>The Ethical Implementation Guide is confirmed as an active, unapproved 60-plus page "Review Draft," not a finished policy. None of its competency content was pulled into the preview. Sean's direction this pass: hold off on using any of its content, and keep this noted as a decision BCPS still needs to make on disclosure language. Parent Resources now references that this section will host the Blueprint once that language is settled.</p>
+<h3>Confirm Copilot student-access phrasing</h3>
+<p>Sean's reconciling language is live on the site now. Still needs sign-off from whoever owns the Copilot rollout before it is treated as final and permanent.</p>
 </div>
 
-<h2>What's next</h2>
+<div class="held">
+<h3>Digital Learning Blueprint disclosure language</h3>
+<p>The Ethical Implementation Guide is confirmed as an active, unapproved 60-plus page "Review Draft," not a finished policy. Held out of the site entirely pending BCPS's decision on disclosure language.</p>
+</div>
+
+<div class="held">
+<h3>One attendance row needs a catalog match</h3>
+<p>"Advanced Copilot AI, Pre-built Agents for Non-Instructional Staff" (100 attended) does not have a clear matching line in the existing course catalog, which only lists two Advanced courses. Needs BCPS/ISD PMO confirmation on which course this maps to, or whether it is a new catalog entry.</p>
+</div>
+
+<div class="held">
+<h3>Remaining Learning-folder source documents</h3>
+<p>Learning Map Pathways, AI Integration Focus Areas, LEAD AI Cohort Overview, the Turnitin workshop deck, and the full Leadership Days conference materials are still queued to be read and incorporated.</p>
+</div>
+
+<div class="held">
+<h3>Remaining Community source materials</h3>
+<p>Reading Coach demo, Khan Academy Summer Bridge, ESE strategic goals, and the Principal Executive Board's written feedback are still queued to be read and added to the Community section.</p>
+</div>
+
+<div class="held">
+<h3>School-by-school AI Liaison roster</h3>
+<p>Still an open data request to Innovative Learning, not yet available.</p>
+</div>
+
+<div class="held">
+<h3>Transparency Dashboard is still placeholder data</h3>
+<p>Teachers trained, administrators trained, parents reached, and the professional learning pathway percentages are illustrative sample numbers, clearly labeled as such on the page. Real BCPS figures are still needed for this section specifically (separate from the real Copilot attendance table, which is now live).</p>
+</div>
+
+<h2>Next steps</h2>
 <ul>
-  <li>Sean or BCPS confirms the exact Copilot student-access phrasing with whoever owns the Copilot rollout.</li>
-  <li>BCPS decides the Digital Learning Blueprint's disclosure language before any of its content is used.</li>
-  <li>Read the remaining Learning-folder documents (Learning Map Pathways, AI Integration Focus Areas, LEAD AI Cohort Overview, Turnitin workshop deck, full Leadership Days conference materials) before drafting Professional Learning in full.</li>
-  <li>Read the remaining real Community materials (Reading Coach, Khan Academy Summer Bridge, ESE strategic goals, Principal Executive Board feedback) and add them to the Community section.</li>
-  <li>Request the school-by-school AI Liaison roster from Innovative Learning.</li>
-  <li>Once the Blueprint decision is in, promote this preview to replace the live homepage.</li>
+  <li>Walk the group through what is live on browardschools.ai today.</li>
+  <li>Get direction on the two open wording and data decisions: Copilot student-access phrasing, and the unmatched attendance row.</li>
+  <li>Get a decision-owner named for the Digital Learning Blueprint disclosure language.</li>
+  <li>Confirm who is sourcing the remaining Learning and Community documents, and the AI Liaison roster.</li>
+  <li>Decide whether and when to replace the Transparency Dashboard's placeholder figures with real BCPS numbers.</li>
 </ul>
 
 <footer>
-  Broward Powered by AI &middot; ai.bcpsmarcomm.com &middot; Preview, not yet live &middot; companion to preview-2026-07-16.html
+  Broward Powered by AI &middot; browardschools.ai &middot; living tracker, updated after each work session
 </footer>
 
 </body>
