@@ -74,6 +74,11 @@
 <h2>Completed</h2>
 
 <details class="done">
+<summary>Fixed footer links resetting to Home (July 20)</summary>
+<div class="body"><p>Sean caught this browsing the site: "For Staff &amp; Leaders" and "Methodology &amp; Sources" in the footer would open the right section, then immediately snap back to Home. Root cause: those two links were the only ones written as real anchor tags (href="#") rather than buttons, and the click handler never called preventDefault, so the browser's own default navigation fired right after ours, cleared the address bar hash, and our own routing read that as "go home." Fixed and verified live: both links now open their section and stay there.</p></div>
+</details>
+
+<details class="done">
 <summary>Replaced Transparency Dashboard placeholders with real numbers (July 20)</summary>
 <div class="body"><p>Reviewed the July 2026 Monthly Board Implementation Report per Sean's direction: pulled in only the district-wide numbers with a real source (271,000+ students served, 222 schools, 206 AI Liaisons, 4,318+ teacher users, 60,423+ AI interactions, 33 PL sessions), sourced and dated on the page. Left the professional learning pathway completion percentages as illustrative, no real source for those specific figures yet. Everything else in the board report (safety/moderation detail, named engagement partners, pending board-vote items) was intentionally not added, that content reads as board-facing rather than parent-facing and needs its own review.</p></div>
 </details>
@@ -208,6 +213,11 @@
 <details class="held">
 <summary>Sources/methodology list needs a BCPS review pass</summary>
 <div class="body"><p>The Sources page is explicitly labeled on the page itself as "for BCPS review and would be refined before publication." Needs a review pass before this is treated as final.</p></div>
+</details>
+
+<details class="held">
+<summary>Translation buttons (topbar) are not functional</summary>
+<div class="body"><p>Sean caught this browsing the site: English, Español, Kreyòl Ayisyen, and Português appear in the topbar but do nothing when clicked. There is no translation logic wired up and no translated content anywhere on the site, they are placeholder labels only. This is a real content project, not a quick technical fix: it needs actual translated copy for every page, ideally from BCPS or a vetted translation process rather than machine-generated text on a public district site. The technical switching mechanism can be built as soon as real translated content exists for at least one language.</p></div>
 </details>
 
 <h2>Next steps</h2>
