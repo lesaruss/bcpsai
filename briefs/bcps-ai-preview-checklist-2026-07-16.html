@@ -82,7 +82,7 @@
 <details class="done">
 <summary>Fixed footer links resetting to Home (July 20)</summary>
 <div class="body">
-<p class="reflink"><a href="https://browardschools.ai/#staffleaders" target="_blank" rel="noopener">View on the site: For Staff & Leaders (footer link) &#8599;</a></p><p>Sean caught this browsing the site: "For Staff &amp; Leaders" and "Methodology &amp; Sources" in the footer would open the right section, then immediately snap back to Home. Root cause: those two links were the only ones written as real anchor tags (href="#") rather than buttons, and the click handler never called preventDefault, so the browser's own default navigation fired right after ours, cleared the address bar hash, and our own routing read that as "go home." Fixed and verified live: both links now open their section and stay there.</p></div>
+<p class="reflink"><a href="https://browardschools.ai/#staffleaders" target="_blank" rel="noopener">View on the site: For Staff &amp; Leaders (footer link) &#8599;</a></p><p>Sean caught this browsing the site: "For Staff &amp; Leaders" and "Methodology &amp; Sources" in the footer would open the right section, then immediately snap back to Home. Root cause: those two links were the only ones written as real anchor tags (href="#") rather than buttons, and the click handler never called preventDefault, so the browser's own default navigation fired right after ours, cleared the address bar hash, and our own routing read that as "go home." Fixed and verified live: both links now open their section and stay there.</p></div>
 </details>
 
 <details class="done">
@@ -160,7 +160,7 @@
 <details class="done">
 <summary>New "For Staff and Leaders" section (July 16)</summary>
 <div class="body">
-<p class="reflink"><a href="https://browardschools.ai/#staffleaders" target="_blank" rel="noopener">View on the site: For Staff & Leaders &#8599;</a></p><p>Built from the real Broward AI Support: District and School Leadership one-sheet. Reachable from the homepage and footer, not the primary parent-facing nav.</p></div>
+<p class="reflink"><a href="https://browardschools.ai/#staffleaders" target="_blank" rel="noopener">View on the site: For Staff &amp; Leaders &#8599;</a></p><p>Built from the real Broward AI Support: District and School Leadership one-sheet. Reachable from the homepage and footer, not the primary parent-facing nav.</p></div>
 </details>
 
 <details class="done">
@@ -246,7 +246,7 @@
 <details class="held">
 <summary>Sources/methodology list needs a BCPS review pass</summary>
 <div class="body">
-<p class="reflink"><a href="https://browardschools.ai/#sources" target="_blank" rel="noopener">View on the site: Methodology & Sources &#8599;</a></p><p>The Sources page is explicitly labeled on the page itself as "for BCPS review and would be refined before publication." Needs a review pass before this is treated as final.</p></div>
+<p class="reflink"><a href="https://browardschools.ai/#sources" target="_blank" rel="noopener">View on the site: Methodology &amp; Sources &#8599;</a></p><p>The Sources page is explicitly labeled on the page itself as "for BCPS review and would be refined before publication." Needs a review pass before this is treated as final.</p></div>
 </details>
 
 <details class="held">
