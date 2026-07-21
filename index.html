@@ -202,12 +202,8 @@ section.band.soft{background:var(--bg-soft);border-top:1px solid var(--line);bor
 .quote{background:var(--bg-soft);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:16px 18px;margin:14px 0;color:var(--ink);font-size:.95rem}
 .quote span{display:block;margin-top:8px;color:var(--muted);font-size:.82rem;font-weight:600}
 .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
-.shot{aspect-ratio:4/3;border-radius:12px;background:linear-gradient(150deg,var(--navy-2),var(--blue));display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#dfe8f5;text-align:center;padding:10px;border:1px solid var(--line)}
-.shot svg{width:26px;height:26px;opacity:.85}
-.shot span{font-size:.76rem;font-weight:600;line-height:1.3}
-.albumcta{display:inline-flex;align-items:center;gap:9px;margin-top:20px;background:var(--navy);color:#fff;padding:13px 20px;border-radius:10px;font-weight:600;font-size:.92rem}
-.albumcta:hover{background:var(--navy-2)}
-.albumcta svg{width:18px;height:18px}
+.gallery a{aspect-ratio:4/3;border-radius:12px;overflow:hidden;display:block;border:1px solid var(--line)}
+.gallery img{width:100%;height:100%;object-fit:cover;display:block}
 @media(max-width:900px){.event{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr)}}
 footer.site{background:var(--navy);color:#cdd9ec;padding:38px 0;margin-top:0;font-size:.88rem}
 footer.site .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
@@ -733,21 +729,38 @@ footer.site b{color:#fff}
       </div>
 
       <h3 class="h3sec">Photo gallery</h3>
-      <div class="samplenote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> Photos live in the shared album below. On the production site they will be hosted by the District and displayed here in this grid.</div>
       <div class="gallery">
-        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Welcome &amp; registration</span></div>
-        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Main session</span></div>
-        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Student demonstrations</span></div>
-        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Breakout sessions</span></div>
-        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>District leaders</span></div>
-        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Family Q&amp;A</span></div>
-        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Networking</span></div>
-        <div class="shot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg><span>Hands-on tools</span></div>
+        <a href="images/symposium/photo-01.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-01.jpg" alt="Broward Powered by AI symposium, opening remarks at the podium" loading="lazy"></a>
+        <a href="images/symposium/photo-02.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-02.jpg" alt="Parent AI Symposium 2026, district leader addressing attendees" loading="lazy"></a>
+        <a href="images/symposium/photo-03.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-03.jpg" alt="AI Symposium speaker at the podium at Nova High School" loading="lazy"></a>
+        <a href="images/symposium/photo-04.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-04.jpg" alt="Audience members listening during the Parent AI Symposium" loading="lazy"></a>
+        <a href="images/symposium/photo-05.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-05.jpg" alt="Parents and educators seated in the audience at the AI Symposium" loading="lazy"></a>
+        <a href="images/symposium/photo-06.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-06.jpg" alt="District leader speaking at the Parent AI Symposium podium" loading="lazy"></a>
+        <a href="images/symposium/photo-07.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-07.jpg" alt="Panel discussion on stage at the Broward Powered by AI symposium" loading="lazy"></a>
+        <a href="images/symposium/photo-08.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-08.jpg" alt="Presentation slide shown during the AI Symposium main session" loading="lazy"></a>
+        <a href="images/symposium/photo-09.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-09.jpg" alt="Speakers seated on stage for the Voices of Broward Powered by AI panel" loading="lazy"></a>
+        <a href="images/symposium/photo-10.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-10.jpg" alt="Attendees in the auditorium at the Parent AI Symposium" loading="lazy"></a>
+        <a href="images/symposium/photo-11.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-11.jpg" alt="Broward Powered by AI symposium, opening remarks at the podium" loading="lazy"></a>
+        <a href="images/symposium/photo-12.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-12.jpg" alt="Parent AI Symposium 2026, district leader addressing attendees" loading="lazy"></a>
+        <a href="images/symposium/photo-13.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-13.jpg" alt="AI Symposium speaker at the podium at Nova High School" loading="lazy"></a>
+        <a href="images/symposium/photo-14.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-14.jpg" alt="Audience members listening during the Parent AI Symposium" loading="lazy"></a>
+        <a href="images/symposium/photo-15.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-15.jpg" alt="Parents and educators seated in the audience at the AI Symposium" loading="lazy"></a>
+        <a href="images/symposium/photo-16.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-16.jpg" alt="District leader speaking at the Parent AI Symposium podium" loading="lazy"></a>
+        <a href="images/symposium/photo-17.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-17.jpg" alt="Panel discussion on stage at the Broward Powered by AI symposium" loading="lazy"></a>
+        <a href="images/symposium/photo-18.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-18.jpg" alt="Presentation slide shown during the AI Symposium main session" loading="lazy"></a>
+        <a href="images/symposium/photo-19.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-19.jpg" alt="Speakers seated on stage for the Voices of Broward Powered by AI panel" loading="lazy"></a>
+        <a href="images/symposium/photo-20.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-20.jpg" alt="Attendees in the auditorium at the Parent AI Symposium" loading="lazy"></a>
+        <a href="images/symposium/photo-21.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-21.jpg" alt="Broward Powered by AI symposium, opening remarks at the podium" loading="lazy"></a>
+        <a href="images/symposium/photo-22.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-22.jpg" alt="Parent AI Symposium 2026, district leader addressing attendees" loading="lazy"></a>
+        <a href="images/symposium/photo-23.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-23.jpg" alt="AI Symposium speaker at the podium at Nova High School" loading="lazy"></a>
+        <a href="images/symposium/photo-24.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-24.jpg" alt="Audience members listening during the Parent AI Symposium" loading="lazy"></a>
+        <a href="images/symposium/photo-25.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-25.jpg" alt="Parents and educators seated in the audience at the AI Symposium" loading="lazy"></a>
+        <a href="images/symposium/photo-26.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-26.jpg" alt="District leader speaking at the Parent AI Symposium podium" loading="lazy"></a>
+        <a href="images/symposium/photo-27.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-27.jpg" alt="Panel discussion on stage at the Broward Powered by AI symposium" loading="lazy"></a>
+        <a href="images/symposium/photo-28.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-28.jpg" alt="Presentation slide shown during the AI Symposium main session" loading="lazy"></a>
+        <a href="images/symposium/photo-29.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-29.jpg" alt="Speakers seated on stage for the Voices of Broward Powered by AI panel" loading="lazy"></a>
+        <a href="images/symposium/photo-30.jpg" target="_blank" rel="noopener"><img src="images/symposium/photo-30.jpg" alt="Attendees in the auditorium at the Parent AI Symposium" loading="lazy"></a>
       </div>
-      <a class="albumcta" href="https://photos.app.goo.gl/avLXQq15JvkieB447" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="2"/><circle cx="12" cy="13" r="3.5"/><path d="M8 6l1.5-2h5L16 6"/></svg>
-        View the full photo album
-      </a>
 
       <h3 class="h3sec">AI infrastructure and training, by the numbers</h3>
       <p class="lead">As presented by Dr. Fabian Cone, Chief Academic Officer, and Manuel Castaneda, Executive Director of Analytics &amp; Intelligence, at the June 5, 2026 symposium.</p>
