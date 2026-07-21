@@ -28,7 +28,7 @@
   .held{background:var(--flag-bg);border:1px solid var(--flag-border);border-radius:8px;padding:16px 20px;margin:14px 0}
   .held h3{margin:0 0 8px;font-size:16px;color:var(--flag)}
   a{color:#1a56db}
-  .cta{display:inline-block;margin-top:10px;font-weight:600}
+  .cta{display:inline-block;margin-top:10px;font-weight:600}.reflink{margin:0 0 10px}.reflink a{font-size:13px;font-weight:600;color:#1a56db;text-decoration:underline}
   footer{margin-top:56px;color:var(--text-50);font-size:13px;border-top:1px solid var(--border);padding-top:16px}
   details.done, details.held{border-radius:8px;margin:14px 0;overflow:hidden}
   details.done{background:var(--good-bg);border:1px solid var(--good-border)}
@@ -75,154 +75,184 @@
 
 <details class="done">
 <summary>Machine translation wired up: English, Español, Kreyòl Ayisyen, Português (July 20)</summary>
-<div class="body"><p>The topbar and footer language buttons were previously inert placeholders (see prior Pending note). Sean's direction: BCPS-style manual translation of a whole district site takes far too long to wait on, use software translation now as best practice, and swap in manual/vetted translation later if BCPS requests it. Implemented the Google Translate Website Translator widget (free for government and education sites, the same approach Finalsite recommends for district sites): clicking a language sets the standard <code>googtrans</code> cookie and reloads the page, which is the reliable pattern, an earlier version that live-manipulated the widget's dropdown had a race condition on repeat switches and was replaced. Verified live on browardschools.ai: Spanish, Haitian Creole, and Portuguese each fully translate the page, and English cleanly restores the original text, with no leftover race condition switching between them repeatedly.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home (language switcher, top bar) &#8599;</a></p><p>The topbar and footer language buttons were previously inert placeholders (see prior Pending note). Sean's direction: BCPS-style manual translation of a whole district site takes far too long to wait on, use software translation now as best practice, and swap in manual/vetted translation later if BCPS requests it. Implemented the Google Translate Website Translator widget (free for government and education sites, the same approach Finalsite recommends for district sites): clicking a language sets the standard <code>googtrans</code> cookie and reloads the page, which is the reliable pattern, an earlier version that live-manipulated the widget's dropdown had a race condition on repeat switches and was replaced. Verified live on browardschools.ai: Spanish, Haitian Creole, and Portuguese each fully translate the page, and English cleanly restores the original text, with no leftover race condition switching between them repeatedly.</p></div>
 </details>
 
 <details class="done">
 <summary>Fixed footer links resetting to Home (July 20)</summary>
-<div class="body"><p>Sean caught this browsing the site: "For Staff &amp; Leaders" and "Methodology &amp; Sources" in the footer would open the right section, then immediately snap back to Home. Root cause: those two links were the only ones written as real anchor tags (href="#") rather than buttons, and the click handler never called preventDefault, so the browser's own default navigation fired right after ours, cleared the address bar hash, and our own routing read that as "go home." Fixed and verified live: both links now open their section and stay there.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#staffleaders" target="_blank" rel="noopener">View on the site: For Staff & Leaders (footer link) &#8599;</a></p><p>Sean caught this browsing the site: "For Staff &amp; Leaders" and "Methodology &amp; Sources" in the footer would open the right section, then immediately snap back to Home. Root cause: those two links were the only ones written as real anchor tags (href="#") rather than buttons, and the click handler never called preventDefault, so the browser's own default navigation fired right after ours, cleared the address bar hash, and our own routing read that as "go home." Fixed and verified live: both links now open their section and stay there.</p></div>
 </details>
 
 <details class="done">
 <summary>Replaced Transparency Dashboard placeholders with real numbers (July 20)</summary>
-<div class="body"><p>Reviewed the July 2026 Monthly Board Implementation Report per Sean's direction: pulled in only the district-wide numbers with a real source (271,000+ students served, 222 schools, 206 AI Liaisons, 4,318+ teacher users, 60,423+ AI interactions, 33 PL sessions), sourced and dated on the page. Left the professional learning pathway completion percentages as illustrative, no real source for those specific figures yet. Everything else in the board report (safety/moderation detail, named engagement partners, pending board-vote items) was intentionally not added, that content reads as board-facing rather than parent-facing and needs its own review.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#accountability" target="_blank" rel="noopener">View on the site: Accountability &#8599;</a></p><p>Reviewed the July 2026 Monthly Board Implementation Report per Sean's direction: pulled in only the district-wide numbers with a real source (271,000+ students served, 222 schools, 206 AI Liaisons, 4,318+ teacher users, 60,423+ AI interactions, 33 PL sessions), sourced and dated on the page. Left the professional learning pathway completion percentages as illustrative, no real source for those specific figures yet. Everything else in the board report (safety/moderation detail, named engagement partners, pending board-vote items) was intentionally not added, that content reads as board-facing rather than parent-facing and needs its own review.</p></div>
 </details>
 
 <details class="done">
 <summary>Moved to the browardschools.ai domain (July 20)</summary>
-<div class="body"><p>Coordinated with BCPS IT Infrastructure to point browardschools.ai and www.browardschools.ai at the site. DNS is live (Azure DNS zone), SSL certificate is issued and verified on both, and the cutover is fully complete. No further action needed on either side.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home &#8599;</a></p><p>Coordinated with BCPS IT Infrastructure to point browardschools.ai and www.browardschools.ai at the site. DNS is live (Azure DNS zone), SSL certificate is issued and verified on both, and the cutover is fully complete. No further action needed on either side.</p></div>
 </details>
 
 <details class="done">
 <summary>Fixed non-shareable page sections (July 20)</summary>
-<div class="body"><p>The site's navigation was not updating the browser URL, so every section (Our Principles, Approved Tools, Accountability, etc.) lived at the same address and could not be linked to directly or bookmarked. Added address-bar routing for every section (for example browardschools.ai/#tools) with working browser back and forward. Verified live.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools (example deep link) &#8599;</a></p><p>The site's navigation was not updating the browser URL, so every section (Our Principles, Approved Tools, Accountability, etc.) lived at the same address and could not be linked to directly or bookmarked. Added address-bar routing for every section (for example browardschools.ai/#tools) with working browser back and forward. Verified live.</p></div>
 </details>
 
 <details class="done">
 <summary>Live site brought current to the July 16 work (July 20)</summary>
-<div class="body"><p>Caught that the domain cutover had pointed at an older build. The July 16 preview content below (AI Liaison Network, For Staff and Leaders, the real course catalog, the nav restructure) existed only in a separate preview file and had not actually been promoted to the live homepage. Published it live and re-verified every section on the actual domain.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home &#8599;</a></p><p>Caught that the domain cutover had pointed at an older build. The July 16 preview content below (AI Liaison Network, For Staff and Leaders, the real course catalog, the nav restructure) existed only in a separate preview file and had not actually been promoted to the live homepage. Published it live and re-verified every section on the actual domain.</p></div>
 </details>
 
 <details class="done">
 <summary>Added Copilot professional learning attendance data (July 20)</summary>
-<div class="body"><p>Added a real attendance table (BCPS ISD PMO data) to the Approved Tools course catalog: 2,080 total course completions across 11 Copilot sessions. One row does not yet match an existing catalog entry, see Pending below. Flagged in place on the page itself, not just in this tracker.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p><p>Added a real attendance table (BCPS ISD PMO data) to the Approved Tools course catalog: 2,080 total course completions across 11 Copilot sessions. One row does not yet match an existing catalog entry, see Pending below. Flagged in place on the page itself, not just in this tracker.</p></div>
 </details>
 
 <details class="done">
 <summary>Featured video (July 16)</summary>
-<div class="body"><p>Replaced the homepage placeholder video with the real Microsoft Copilot overview video. Captioned honestly as the general Copilot overview, not yet the fully produced Broward-specific piece the source framework also calls for.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home (hero video) &#8599;</a></p><p>Replaced the homepage placeholder video with the real Microsoft Copilot overview video. Captioned honestly as the general Copilot overview, not yet the fully produced Broward-specific piece the source framework also calls for.</p></div>
 </details>
 
 <details class="done">
 <summary>Microsoft Copilot: professional learning (July 16)</summary>
-<div class="body"><p>Added the real ISD PMO course catalog to Approved Tools: 7 introduction courses, 3 intermediate, 2 advanced, with real course numbers and descriptions, in an expandable accordion.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p><p>Added the real ISD PMO course catalog to Approved Tools: 7 introduction courses, 3 intermediate, 2 advanced, with real course numbers and descriptions, in an expandable accordion.</p></div>
 </details>
 
 <details class="done">
 <summary>Leader resources (July 16)</summary>
-<div class="body"><p>Added the Copilot demonstration video link and the real PRISM AI Principal Resource Handouts (Copilot and MagicSchool).</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools, Leader resources &#8599;</a></p><p>Added the Copilot demonstration video link and the real PRISM AI Principal Resource Handouts (Copilot and MagicSchool).</p></div>
 </details>
 
 <details class="done">
 <summary>New AI Liaison Network section (July 16)</summary>
-<div class="body"><p>Built from the real 16-page AI Liaison and AI Student Leader Handbook: program structure and timeline, student selection guidance, both real BCPS one-pagers, and named program contacts (Dr. Sherri Wilson and team).</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#liaisons" target="_blank" rel="noopener">View on the site: AI Liaison Network &#8599;</a></p><p>Built from the real 16-page AI Liaison and AI Student Leader Handbook: program structure and timeline, student selection guidance, both real BCPS one-pagers, and named program contacts (Dr. Sherri Wilson and team).</p></div>
 </details>
 
 <details class="done">
 <summary>Community: symposium infrastructure and sessions (July 16)</summary>
-<div class="body"><p>Added real numbers from the June 5 symposium (AI Task Force convened November 2024, 20,000+ Copilot licenses deployed, AI Resolution passed March 10, 2026) and the four real Academic Leadership Days breakout tracks.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community &#8599;</a></p><p>Added real numbers from the June 5 symposium (AI Task Force convened November 2024, 20,000+ Copilot licenses deployed, AI Resolution passed March 10, 2026) and the four real Academic Leadership Days breakout tracks.</p></div>
 </details>
 
 <details class="done">
 <summary>Our Principles now shows the real AILF (July 16)</summary>
-<div class="body"><p>Full replacement of the generic nine-principle page with BCPS's own 8-domain Artificial Intelligence Leadership Framework, tied to the Florida Educational Leadership Standards.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#principles" target="_blank" rel="noopener">View on the site: Our Principles &#8599;</a></p><p>Full replacement of the generic nine-principle page with BCPS's own 8-domain Artificial Intelligence Leadership Framework, tied to the Florida Educational Leadership Standards.</p></div>
 </details>
 
 <details class="done">
 <summary>Copilot student access wording resolved (July 16)</summary>
-<div class="body"><p>Approved Tools now reads "Student access is currently a limited pilot for AI-Academy students, with plans to expand to broader grade-based access." Recommend BCPS's Copilot rollout owner confirm this exact phrasing, see Pending below.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p><p>Approved Tools now reads "Student access is currently a limited pilot for AI-Academy students, with plans to expand to broader grade-based access." Recommend BCPS's Copilot rollout owner confirm this exact phrasing, see Pending below.</p></div>
 </details>
 
 <details class="done">
 <summary>New "For Staff and Leaders" section (July 16)</summary>
-<div class="body"><p>Built from the real Broward AI Support: District and School Leadership one-sheet. Reachable from the homepage and footer, not the primary parent-facing nav.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#staffleaders" target="_blank" rel="noopener">View on the site: For Staff & Leaders &#8599;</a></p><p>Built from the real Broward AI Support: District and School Leadership one-sheet. Reachable from the homepage and footer, not the primary parent-facing nav.</p></div>
 </details>
 
 <details class="done">
 <summary>Nav restructured to BCPS's own six-folder order (July 16)</summary>
-<div class="body"><p>Home, Our Principles, Approved Tools, Parent Resources, Learning, AI Liaison Network, Community, Accountability. Sources and For Staff and Leaders moved to the footer.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home (top nav) &#8599;</a></p><p>Home, Our Principles, Approved Tools, Parent Resources, Learning, AI Liaison Network, Community, Accountability. Sources and For Staff and Leaders moved to the footer.</p></div>
 </details>
 
 <details class="done">
 <summary>Real symposium photos live in a native gallery, with lightbox (July 21)</summary>
-<div class="body"><p>Pulled all 30 photos from Sean's "BCPS AI SYMPOSIUM 6-5-26" Google Photos album, rehosted them directly in the bcpsai repo under images/symposium/, and rebuilt the Community section's Photo gallery with real img thumbnails. No more placeholder icons and no external Google Photos link. Photos open in an in-page lightbox (previous, next, keyboard, and click-outside to close) instead of a new tab.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Photo gallery &#8599;</a></p><p>Pulled all 30 photos from Sean's "BCPS AI SYMPOSIUM 6-5-26" Google Photos album, rehosted them directly in the bcpsai repo under images/symposium/, and rebuilt the Community section's Photo gallery with real img thumbnails. No more placeholder icons and no external Google Photos link. Photos open in an in-page lightbox (previous, next, keyboard, and click-outside to close) instead of a new tab.</p></div>
 </details>
 
 <details class="done">
 <summary>Broward's own AI introduction video is live on the home page (July 21)</summary>
-<div class="body"><p>BCPS provided the produced introduction video (Superintendent, Chief Academic Officer, teachers, students, parents, and Board highlights). Compressed from a 256MB source to a 22.5MB H.264/AAC file and hosted natively in the bcpsai repo, replacing the Microsoft Copilot for Education placeholder in the home page hero. Poster frame set to the Broward Powered by AI logo mark at the 6-second mark. Captions are still pending a caption file from the District, noted on the page itself.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home (hero video) &#8599;</a></p><p>BCPS provided the produced introduction video (Superintendent, Chief Academic Officer, teachers, students, parents, and Board highlights). Compressed from a 256MB source to a 22.5MB H.264/AAC file and hosted natively in the bcpsai repo, replacing the Microsoft Copilot for Education placeholder in the home page hero. Poster frame set to the Broward Powered by AI logo mark at the 6-second mark. Captions are still pending a caption file from the District, noted on the page itself.</p></div>
 </details>
 
 <h2>Pending, needs a BCPS decision or document</h2>
 
 <details class="held">
 <summary>Confirm Copilot student-access phrasing</summary>
-<div class="body"><p>Sean's reconciling language is live on the site now. Still needs sign-off from whoever owns the Copilot rollout before it is treated as final and permanent.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p><p>Sean's reconciling language is live on the site now. Still needs sign-off from whoever owns the Copilot rollout before it is treated as final and permanent.</p></div>
 </details>
 
 <details class="held">
 <summary>Digital Learning Blueprint disclosure language</summary>
-<div class="body"><p>The Ethical Implementation Guide is confirmed as an active, unapproved 60-plus page "Review Draft," not a finished policy. Held out of the site entirely pending BCPS's decision on disclosure language.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources &#8599;</a></p><p>The Ethical Implementation Guide is confirmed as an active, unapproved 60-plus page "Review Draft," not a finished policy. Held out of the site entirely pending BCPS's decision on disclosure language.</p></div>
 </details>
 
 <details class="held">
 <summary>One attendance row needs a catalog match</summary>
-<div class="body"><p>"Advanced Copilot AI, Pre-built Agents for Non-Instructional Staff" (100 attended) does not have a clear matching line in the existing course catalog, which only lists two Advanced courses. Needs BCPS/ISD PMO confirmation on which course this maps to, or whether it is a new catalog entry.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools, course catalog &#8599;</a></p><p>"Advanced Copilot AI, Pre-built Agents for Non-Instructional Staff" (100 attended) does not have a clear matching line in the existing course catalog, which only lists two Advanced courses. Needs BCPS/ISD PMO confirmation on which course this maps to, or whether it is a new catalog entry.</p></div>
 </details>
 
 <details class="held">
 <summary>Remaining Learning-folder source documents</summary>
-<div class="body"><p>Learning Map Pathways, AI Integration Focus Areas, LEAD AI Cohort Overview, the Turnitin workshop deck, and the full Leadership Days conference materials are still queued to be read and incorporated.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#learning" target="_blank" rel="noopener">View on the site: Learning &#8599;</a></p><p>Learning Map Pathways, AI Integration Focus Areas, LEAD AI Cohort Overview, the Turnitin workshop deck, and the full Leadership Days conference materials are still queued to be read and incorporated.</p></div>
 </details>
 
 <details class="held">
 <summary>Remaining Community source materials</summary>
-<div class="body"><p>Reading Coach demo, Khan Academy Summer Bridge, ESE strategic goals, and the Principal Executive Board's written feedback are still queued to be read and added to the Community section.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community &#8599;</a></p><p>Reading Coach demo, Khan Academy Summer Bridge, ESE strategic goals, and the Principal Executive Board's written feedback are still queued to be read and added to the Community section.</p></div>
 </details>
 
 <details class="held">
 <summary>School-by-school AI Liaison roster</summary>
-<div class="body"><p>Still an open data request to Innovative Learning, not yet available.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#liaisons" target="_blank" rel="noopener">View on the site: AI Liaison Network &#8599;</a></p><p>Still an open data request to Innovative Learning, not yet available.</p></div>
 </details>
 
 <details class="held">
 <summary>Professional learning pathway percentages are still placeholder data</summary>
-<div class="body"><p>The top-line Transparency Dashboard tiles are now real (see Completed, July 20). The professional learning pathway completion percentages underneath (AI Foundations, MagicSchool AI, Microsoft Copilot, AI &amp; Literacy, AI &amp; ESE Supports) are still illustrative sample numbers, clearly labeled as such on the page, since no real per-pathway completion source has been provided yet.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#accountability" target="_blank" rel="noopener">View on the site: Accountability &#8599;</a></p><p>The top-line Transparency Dashboard tiles are now real (see Completed, July 20). The professional learning pathway completion percentages underneath (AI Foundations, MagicSchool AI, Microsoft Copilot, AI &amp; Literacy, AI &amp; ESE Supports) are still illustrative sample numbers, clearly labeled as such on the page, since no real per-pathway completion source has been provided yet.</p></div>
 </details>
 
 <details class="held">
 <summary>Parent Resources FAQ answers still need legal sign-off</summary>
-<div class="body"><p>The Policy &amp; Privacy FAQ (what's collected, where it's stored, parent rights, and so on) is explicitly labeled on the page as sample answers for layout. Needs BCPS legal and data governance to confirm final wording, including any Florida-specific student privacy law.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources, FAQ &#8599;</a></p><p>The Policy &amp; Privacy FAQ (what's collected, where it's stored, parent rights, and so on) is explicitly labeled on the page as sample answers for layout. Needs BCPS legal and data governance to confirm final wording, including any Florida-specific student privacy law.</p></div>
 </details>
 
 <details class="held">
 <summary>"Report a concern" contact details are empty</summary>
-<div class="body"><p>The Policy &amp; Privacy section has a "Report a concern" channel for families, but the contact details for the responsible office still need to be added by BCPS.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources, Report a concern &#8599;</a></p><p>The Policy &amp; Privacy section has a "Report a concern" channel for families, but the contact details for the responsible office still need to be added by BCPS.</p></div>
 </details>
 
 <details class="held">
 <summary>Governance "last reviewed" date and version are still placeholders</summary>
-<div class="body"><p>The Accountability section's governance card shows "Last reviewed: placeholder date, Version: draft." Needs BCPS to establish a real review date and versioning cadence for this page.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#accountability" target="_blank" rel="noopener">View on the site: Accountability, Governance card &#8599;</a></p><p>The Accountability section's governance card shows "Last reviewed: placeholder date, Version: draft." Needs BCPS to establish a real review date and versioning cadence for this page.</p></div>
 </details>
 
 <details class="held">
 <summary>Sources/methodology list needs a BCPS review pass</summary>
-<div class="body"><p>The Sources page is explicitly labeled on the page itself as "for BCPS review and would be refined before publication." Needs a review pass before this is treated as final.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#sources" target="_blank" rel="noopener">View on the site: Methodology & Sources &#8599;</a></p><p>The Sources page is explicitly labeled on the page itself as "for BCPS review and would be refined before publication." Needs a review pass before this is treated as final.</p></div>
 </details>
 
 <details class="held">
 <summary>Confirm machine translation is acceptable, or BCPS wants manual translation instead</summary>
-<div class="body"><p>Translation is now live via Google Translate (see Completed, July 20), per Sean's direction not to wait on a manual translation process. Flagging for the team: if BCPS wants official, human-reviewed translations instead of machine translation for a public district site, the switching mechanism already built can point at real translated copy instead, no rebuild needed.</p></div>
+<div class="body">
+<p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home (language switcher) &#8599;</a></p><p>Translation is now live via Google Translate (see Completed, July 20), per Sean's direction not to wait on a manual translation process. Flagging for the team: if BCPS wants official, human-reviewed translations instead of machine translation for a public district site, the switching mechanism already built can point at real translated copy instead, no rebuild needed.</p></div>
 </details>
 
 <h2>Next steps</h2>
