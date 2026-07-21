@@ -77,6 +77,7 @@ nav.main .navlogin:hover{background:var(--navy)}
 .video .cap{font-size:.8rem}
 .video.real{padding:0;background:#000}
 .video.real iframe{width:100%;height:100%;border:0;border-radius:var(--radius);display:block}
+.video.real video{width:100%;height:100%;border:0;border-radius:var(--radius);display:block;object-fit:cover;background:#000}
 .reslink{display:flex;align-items:center;gap:13px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;box-shadow:var(--shadow);color:var(--ink)}
 .reslink:hover{background:var(--bg-soft)}
 .reslink .fi{flex:0 0 auto;width:34px;height:34px;border-radius:9px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center}
@@ -295,10 +296,13 @@ footer.site b{color:#fff}
           </div>
         </div>
         <div>
-          <div class="video real" aria-label="Featured video: Microsoft Copilot for Education overview">
-            <iframe src="https://www.youtube-nocookie.com/embed/yjMIZOWdLXk" title="Featured video: Microsoft Copilot for Education overview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          <div class="video real" aria-label="Featured video: Broward Powered by AI introduction">
+            <video controls preload="metadata" playsinline poster="images/broward-ai-home-poster.jpg">
+              <source src="videos/broward-ai-home.mp4" type="video/mp4">
+              Your browser does not support embedded video. <a href="videos/broward-ai-home.mp4">Download the video</a> instead.
+            </video>
           </div>
-          <p class="cite" style="color:#cdd9ec;margin-top:8px">Featured video, per BCPS direction: Microsoft Copilot for Education overview. Broward&#39;s own fully produced introduction video (Superintendent, Chief Academic Officer, teachers, students, parents, and Board highlights) is called for in the source framework but was not yet located in SharePoint as a playable file; this video will be swapped in once BCPS provides it.</p>
+          <p class="cite" style="color:#cdd9ec;margin-top:8px">Featured video: Broward's own introduction to Broward Powered by AI, provided by BCPS. Captions to be added once a caption file is available from the District.</p>
         </div>
       </div>
     </div>
