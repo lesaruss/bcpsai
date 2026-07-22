@@ -44,6 +44,16 @@
   .question h3{margin:0 0 8px;font-size:16px;color:var(--blue)}
 
 
+
+  .tablist{display:flex;gap:8px;margin:0 0 28px;border-bottom:2px solid var(--border);position:sticky;top:0;background:#fff;padding-top:4px;z-index:5}
+  .tab-btn{appearance:none;border:none;background:none;cursor:pointer;font:inherit;font-weight:700;font-size:15px;color:var(--text-50);padding:12px 18px 14px;border-bottom:3px solid transparent;margin-bottom:-2px;border-radius:8px 8px 0 0;display:flex;align-items:center;gap:8px}
+  .tab-btn:hover{color:var(--navy);background:rgba(12,35,64,.04)}
+  .tab-btn[aria-selected="true"]{color:var(--navy);border-bottom-color:var(--navy)}
+  .tab-btn .count{font-size:12px;font-weight:700;background:var(--border);color:var(--text-75);border-radius:99px;padding:1px 8px}
+  .tab-btn[aria-selected="true"] .count{background:var(--navy);color:#fff}
+  .tab-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .tabpanel h2{margin-top:0}
+  .tabpanel[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -63,6 +73,13 @@
 
 <p><b>Live site (verified):</b> <a class="cta" href="https://browardschools.ai" target="_blank" rel="noopener">browardschools.ai</a> and <a class="cta" href="https://www.browardschools.ai" target="_blank" rel="noopener">www.browardschools.ai</a><br>This link has been verified: both domains resolve, SSL is active with no warnings, and the content described as "Completed" below is confirmed live on the site as of this update.</p>
 
+<div class="tablist" role="tablist" aria-label="Progress tracker sections">
+  <button class="tab-btn" role="tab" id="tab-btn-questions" aria-controls="tab-questions" aria-selected="true" tabindex="0">Open questions <span class="count">4</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">24</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">24</span></button>
+</div>
+
+<div class="tabpanel" id="tab-questions" role="tabpanel" aria-labelledby="tab-btn-questions">
 <h2>Open questions for tomorrow</h2>
 <p class="lede">Four real discrepancies or open decisions have surfaced across the board report and the July 21-22 Framework document update. Flagging each here rather than guessing at an answer.</p>
 
@@ -85,7 +102,9 @@
 <h3>Password-gated Prisms VR videos need a hosting decision</h3>
 <p>The Framework document references two Prisms VR videos ("Prisms Implementation" and "Prisms Outcomes," both password: prisms) as <code>.url</code> shortcut files, not directly embeddable video files. Options: (1) BCPS provides the actual video files so they can be rehosted natively in the bcpsai repo the same way the home page video and symposium photos were, removing the password gate for the public site, or (2) the videos stay behind their existing password and the site links out with the password shown on the page. Needs a decision before either goes live.</p>
 </div>
+</div>
 
+<div class="tabpanel" id="tab-completed" role="tabpanel" aria-labelledby="tab-btn-completed" hidden>
 <h2>Completed</h2>
 
 <details class="done">
@@ -116,6 +135,24 @@
 <summary>Leadership Days/Symposium presentations added as named Community resources (July 22)</summary>
 <div class="body">
 <p>Added a "Presentations &amp; session materials" list to Community, between Breakout session tracks and More ways to engage, naming all seven files the July 21-22 Framework document identifies as available: AI Symposium Main Session, Better Together (Microsoft/MagicSchool/Copilot), Copilot Teach &ndash; Coach Leadership Day, AI Presentation, June 5th Parent Presentation &amp; Parent/Guardian Support One-Pager, M365 Study and Learn Agent walking deck, and Reading Coach. These match the existing Featured Documents pattern (named, not yet linked) rather than fabricating download links: the connector available this session can extract SharePoint document text but not raw file bytes, so these can't yet be rehosted the way the symposium photos and home page video were. Flagged in place on the page and in Pending below once BCPS confirms a hosting path.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Presentations &amp; session materials &#8599;</a></p></div>
+</details>
+
+<details class="done">
+<summary>Real symposium photos live in a native gallery, with lightbox (July 21)</summary>
+<div class="body">
+<p>Pulled all 30 photos from Sean's "BCPS AI SYMPOSIUM 6-5-26" Google Photos album, rehosted them directly in the bcpsai repo under images/symposium/, and rebuilt the Community section's Photo gallery with real img thumbnails. No more placeholder icons and no external Google Photos link. Photos open in an in-page lightbox (previous, next, keyboard, and click-outside to close) instead of a new tab.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Photo gallery &#8599;</a></p></div>
+</details>
+
+<details class="done">
+<summary>Broward's own AI introduction video is live on the home page (July 21)</summary>
+<div class="body">
+<p>BCPS provided the produced introduction video (Superintendent, Chief Academic Officer, teachers, students, parents, and Board highlights). Compressed from a 256MB source to a 22.5MB H.264/AAC file and hosted natively in the bcpsai repo, replacing the Microsoft Copilot for Education placeholder in the home page hero. Poster frame set to the Broward Powered by AI logo mark at the 6-second mark. Captions are still pending a caption file from the District, noted on the page itself.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home (hero video) &#8599;</a></p></div>
+</details>
+
+<details class="done">
+<summary>Renamed "Parent University" to Family Forum, updated Community feedback to a curated model (July 21)</summary>
+<div class="body">
+<p>Per decisions made in the July 21 webpage review: the Community section's "Parent University" card is now labeled Family Forum (with a note that it was formerly called Parent University), and the "Community feedback" card no longer describes an open suggestion form. It now describes the curated model the team agreed on: positive feedback and resolved items gathered from sessions via QR code, with no open form for commenting on a specific tool or vendor. Verified live.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, More ways to engage &#8599;</a></p></div>
 </details>
 
 <details class="done">
@@ -213,25 +250,9 @@
 <div class="body">
 <p>Home, Our Principles, Approved Tools, Parent Resources, Learning, AI Liaison Network, Community, Accountability. Sources and For Staff and Leaders moved to the footer.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home (top nav) &#8599;</a></p></div>
 </details>
+</div>
 
-<details class="done">
-<summary>Real symposium photos live in a native gallery, with lightbox (July 21)</summary>
-<div class="body">
-<p>Pulled all 30 photos from Sean's "BCPS AI SYMPOSIUM 6-5-26" Google Photos album, rehosted them directly in the bcpsai repo under images/symposium/, and rebuilt the Community section's Photo gallery with real img thumbnails. No more placeholder icons and no external Google Photos link. Photos open in an in-page lightbox (previous, next, keyboard, and click-outside to close) instead of a new tab.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Photo gallery &#8599;</a></p></div>
-</details>
-
-<details class="done">
-<summary>Broward's own AI introduction video is live on the home page (July 21)</summary>
-<div class="body">
-<p>BCPS provided the produced introduction video (Superintendent, Chief Academic Officer, teachers, students, parents, and Board highlights). Compressed from a 256MB source to a 22.5MB H.264/AAC file and hosted natively in the bcpsai repo, replacing the Microsoft Copilot for Education placeholder in the home page hero. Poster frame set to the Broward Powered by AI logo mark at the 6-second mark. Captions are still pending a caption file from the District, noted on the page itself.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home (hero video) &#8599;</a></p></div>
-</details>
-
-<details class="done">
-<summary>Renamed "Parent University" to Family Forum, updated Community feedback to a curated model (July 21)</summary>
-<div class="body">
-<p>Per decisions made in the July 21 webpage review: the Community section's "Parent University" card is now labeled Family Forum (with a note that it was formerly called Parent University), and the "Community feedback" card no longer describes an open suggestion form. It now describes the curated model the team agreed on: positive feedback and resolved items gathered from sessions via QR code, with no open form for commenting on a specific tool or vendor. Verified live.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, More ways to engage &#8599;</a></p></div>
-</details>
-
+<div class="tabpanel" id="tab-pending" role="tabpanel" aria-labelledby="tab-btn-pending" hidden>
 <h2>Pending, needs a BCPS decision or document</h2>
 
 <details class="held">
@@ -277,9 +298,9 @@
 </details>
 
 <details class="held">
-<summary>Parent Resources FAQ answers still need legal sign-off</summary>
+<summary>4 of 6 Parent Resources FAQ answers still need legal sign-off</summary>
 <div class="body">
-<p>The Policy &amp; Privacy FAQ (what's collected, where it's stored, parent rights, and so on) is explicitly labeled on the page as sample answers for layout. Needs BCPS legal and data governance to confirm final wording, including any Florida-specific student privacy law.</p><p><b>Status:</b> Waiting on BCPS, Manuel Castaneda.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources, FAQ &#8599;</a></p></div>
+<p>Update from July 22: two of the six Policy &amp; Privacy FAQ answers (parent rights, how tools are checked) now carry Manny's final language, see Completed above. The remaining four (what's collected, where it's stored, can AI train on student data, are AI detectors used) are still explicitly labeled on the page as sample answers for layout. Needs BCPS legal and data governance to confirm final wording for those four, including any Florida-specific student privacy law.</p><p><b>Status:</b> Waiting on BCPS, Manuel Castaneda, for the remaining 4 answers.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources, FAQ &#8599;</a></p></div>
 </details>
 
 <details class="held">
@@ -378,10 +399,36 @@
 <div class="body">
 <p>New from the July 21-22 Framework document: two Prisms VR videos ("Prisms Implementation" and "Prisms Outcomes," password: prisms) are referenced as password-protected <code>.url</code> shortcut files, not directly embeddable video. See the open question above for the two hosting options being proposed to BCPS.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone and Thomas J. Correll, to choose between rehosting the actual video files (password removed, same treatment as the home page video) or linking out with the existing password shown.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p></div>
 </details>
+</div>
 
 <footer>
   Broward Powered by AI &middot; browardschools.ai &middot; living tracker, updated after each work session
 </footer>
 
+
+<script>
+(function(){
+  var tabs = document.querySelectorAll('.tab-btn');
+  tabs.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      tabs.forEach(function(b){
+        b.setAttribute('aria-selected','false');
+        b.tabIndex = -1;
+        document.getElementById(b.getAttribute('aria-controls')).hidden = true;
+      });
+      btn.setAttribute('aria-selected','true');
+      btn.tabIndex = 0;
+      document.getElementById(btn.getAttribute('aria-controls')).hidden = false;
+      btn.focus();
+    });
+    btn.addEventListener('keydown', function(e){
+      var arr = Array.prototype.slice.call(tabs);
+      var i = arr.indexOf(btn);
+      if(e.key === 'ArrowRight'){ arr[(i+1) % arr.length].click(); e.preventDefault(); }
+      if(e.key === 'ArrowLeft'){ arr[(i-1+arr.length) % arr.length].click(); e.preventDefault(); }
+    });
+  });
+})();
+</script>
 </body>
 </html>
