@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BCPS Powered by AI: Progress Tracker (updated July 21 2026)</title>
+<title>BCPS Powered by AI: Progress Tracker (updated July 22 2026)</title>
 <style>
   :root{
     --text:#1a1a1a;--text-75:rgba(26,26,26,.78);--text-50:rgba(26,26,26,.55);
@@ -57,21 +57,60 @@
 </header>
 
 <h1>BCPS Powered by AI: Progress Tracker</h1>
-<p class="meta">Prepared by Sean Russell &middot; running tracker, last updated July 21, 2026 &middot; companion for the Broward AI Webpage Review meeting</p>
+<p class="meta">Prepared by Sean Russell &middot; running tracker, last updated July 22, 2026 &middot; companion for the Broward AI Webpage Review meeting</p>
 
 <p class="lede">This is the living tracker for the browardschools.ai site: what has shipped, what is still waiting on a BCPS decision or document, and what is next. It replaces the July 16 preview checklist as the single source of truth, folding that session's work in as already-completed.</p>
 
 <p><b>Live site (verified):</b> <a class="cta" href="https://browardschools.ai" target="_blank" rel="noopener">browardschools.ai</a> and <a class="cta" href="https://www.browardschools.ai" target="_blank" rel="noopener">www.browardschools.ai</a><br>This link has been verified: both domains resolve, SSL is active with no warnings, and the content described as "Completed" below is confirmed live on the site as of this update.</p>
 
 <h2>Open questions for tomorrow</h2>
-<p class="lede">One real discrepancy surfaced while reviewing the July 2026 Monthly Board Implementation Report. Flagging it here rather than guessing at an answer.</p>
+<p class="lede">Four real discrepancies or open decisions have surfaced across the board report and the July 21-22 Framework document update. Flagging each here rather than guessing at an answer.</p>
 
 <div class="question">
 <h3>Website "live" date does not match the board report</h3>
 <p>The Monthly Board Implementation Report lists "BrowardSchools.AI Website: IN PROGRESS, Live 7/24/2026" and repeats a "no later than Friday, July 24" availability target. The domain cutover to browardschools.ai was completed and verified on July 20. Needs the team to clarify: is July 24 a formal announcement or sign-off date separate from the technical launch, or does the board report need to be corrected?</p>
 </div>
 
+<div class="question">
+<h3>Breakout session date conflict: June 5 vs. June 8 &amp; 9</h3>
+<p>The July 21-22 Framework document instructs revising the Community section to read "Breakout session tracks Academic Leadership Days, <b>June 5, 2026</b>, ran four repeating breakout sessions across administrator regions." The live site currently reads <b>June 8 &amp; 9, 2026</b> for Academic Leadership Days, and June 5 is used elsewhere in the same Framework document as the separate Parent AI Symposium date. This looks like a copy-paste date error in the Framework document rather than an intended correction. Held off changing the live date until confirmed, rather than introducing a factual error.</p>
+</div>
+
+<div class="question">
+<h3>"Largest implementation in the world for educational staff" claim</h3>
+<p>The Framework document asks that Copilot adoption stats and timeline include the framing "largest implementation in the world for educational staff." This is a strong, specific superlative claim for a public parent-facing page. Before adding it: is this BCPS's own verified claim (and if so, from what source), or a placeholder phrase from the person who wrote the Framework doc? Happy to add it as an attributed BCPS statement once confirmed.</p>
+</div>
+
+<div class="question">
+<h3>Password-gated Prisms VR videos need a hosting decision</h3>
+<p>The Framework document references two Prisms VR videos ("Prisms Implementation" and "Prisms Outcomes," both password: prisms) as <code>.url</code> shortcut files, not directly embeddable video files. Options: (1) BCPS provides the actual video files so they can be rehosted natively in the bcpsai repo the same way the home page video and symposium photos were, removing the password gate for the public site, or (2) the videos stay behind their existing password and the site links out with the password shown on the page. Needs a decision before either goes live.</p>
+</div>
+
 <h2>Completed</h2>
+
+<details class="done">
+<summary>Real MagicSchool AI adoption metrics added (July 22)</summary>
+<div class="body">
+<p>Replaced the absence of MagicSchool-specific metrics with the real numbers from the July 21-22 Framework document, in Approved Tools right after Leader resources: AI Liaisons trained 117 of 206 (57%, 4 sessions/90 participants), Schools participating 205 of 226 (91%, 230+ schools districtwide/276 total sites), Administrators trained 27, PL hours documented 401.5 (19 sessions/254 educators through 5/15/26), PL hours estimated ~461 for the full quarter (projection only). Also carried over BCPS's own caveats honestly: teachers-trained is flagged as not currently available since BCPS reporting combines "educators and staff," and parents trained, parent events, and student AI literacy participation are all shown as 0, pending the Fall 2026 MagicStudent rollout. Verified live.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools, MagicSchool AI: adoption metrics &#8599;</a></p></div>
+</details>
+
+<details class="done">
+<summary>Two Parent Resources FAQ answers rewritten with Manny's exact language (July 22)</summary>
+<div class="body">
+<p>The "What are my rights as a parent?" and "How are tools checked before students use them?" FAQ answers previously read as generic sample copy. Per Manny's exact revised language from the July 21-22 Framework document, both were rewritten: parent rights now leads with "Parents have the right to know what AI tools are being used in their child's education and how they are being used, and to request that their child be excluded from the use of AI where practicable," and the tool-vetting answer now leads with "All student-facing tools are subjected to a rigorous review process...real-time threat detection and moderation, with immediate notification to teachers and administrators of any inappropriate usage." Kept the existing FERPA/PPRA and COPPA/vendor detail as a second sentence in each, rather than deleting it, so no legal grounding was lost. Verified live.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources, FAQ &#8599;</a></p></div>
+</details>
+
+<details class="done">
+<summary>New Timeline section: Past / Coming up (July 22)</summary>
+<div class="body">
+<p>Added a Timeline block to Accountability, right under the Public Transparency Dashboard tiles, using the exact milestones from the July 21-22 Framework document. Past: AI Task Force formed, Copilot Premium deployed to 20,000+ staff for operational and administrative use, MagicSchool deployed to teachers. Coming up: Microsoft Challenge, MagicStudent rollout, Willow Discovery stage (connecting district assets to AI), Data Lake Bronze layer completed for student and financial data. Verified live.</p><p class="reflink"><a href="https://browardschools.ai/#accountability" target="_blank" rel="noopener">View on the site: Accountability, Timeline &#8599;</a></p></div>
+</details>
+
+<details class="done">
+<summary>Leadership Days/Symposium presentations added as named Community resources (July 22)</summary>
+<div class="body">
+<p>Added a "Presentations &amp; session materials" list to Community, between Breakout session tracks and More ways to engage, naming all seven files the July 21-22 Framework document identifies as available: AI Symposium Main Session, Better Together (Microsoft/MagicSchool/Copilot), Copilot Teach &ndash; Coach Leadership Day, AI Presentation, June 5th Parent Presentation &amp; Parent/Guardian Support One-Pager, M365 Study and Learn Agent walking deck, and Reading Coach. These match the existing Featured Documents pattern (named, not yet linked) rather than fabricating download links: the connector available this session can extract SharePoint document text but not raw file bytes, so these can't yet be rehosted the way the symposium photos and home page video were. Flagged in place on the page and in Pending below once BCPS confirms a hosting path.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Presentations &amp; session materials &#8599;</a></p></div>
+</details>
 
 <details class="done">
 <summary>Machine translation wired up: English, Español, Kreyòl Ayisyen, Português (July 20)</summary>
@@ -305,9 +344,33 @@
 </details>
 
 <details class="held">
-<summary>Remaining Leadership Days session presentations and photos</summary>
+<summary>Presentation files named live, still need a real hosting path</summary>
 <div class="body">
-<p>Alyssa N. Williams has already gathered the BCPS Academic Leadership Days Program 2026 PDF, session presentations, and photos into the Framework document. The four breakout tracks are already live (see Completed, July 16). Remaining presentations and photos still need to be pulled in.</p><p><b>Status:</b> Queued, LESARUSS building now from material already provided, not blocked on BCPS.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community &#8599;</a></p></div>
+<p>Update from July 22: all seven presentation/PDF files (AI Symposium Main Session, Better Together, Copilot Teach &ndash; Coach Leadership Day, AI Presentation, June 5th Parent Presentation &amp; one-pager, M365 Study and Learn Agent deck, Reading Coach) are now named live on the Community page as a Presentations &amp; session materials list, see Completed above. They are not yet clickable: the SharePoint connector available this session can extract document text but not raw file bytes, so these can't be rehosted the way the symposium photos and home page video were.</p><p><b>Status:</b> Waiting on BCPS, Alyssa N. Williams, for either direct file exports LESARUSS can rehost, or confirmation that linking out to SharePoint/OneDrive is acceptable for a public parent-facing page.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Presentations &amp; session materials &#8599;</a></p></div>
+</details>
+
+<details class="held">
+<summary>Canva policy-explainer resources need BCPS editing before they go live</summary>
+<div class="body">
+<p>New from the July 21-22 Framework document: Manny provided three Canva links distilling the 60-plus page implementation guide into digestible chunks for the Policy page, but flagged himself that they likely need editing to reflect new resources and policy numbers before they're accurate.</p><p><b>Status:</b> Waiting on BCPS, Manny, to confirm the Canva resources are updated before LESARUSS embeds them.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources &#8599;</a></p></div>
+</details>
+
+<details class="held">
+<summary>Copilot: Microsoft Challenge, partnership info, and adoption/timeline stat</summary>
+<div class="body">
+<p>New from the July 21-22 Framework document: Approved Tools should feature Copilot adoption statistics and timeline as prominently as other tools (not buried), plus Microsoft Challenge and Partnership information. The Framework document's own content for this is a single line, including the claim "largest implementation in the world for educational staff," see the open question above on verifying that claim before it's published.</p><p><b>Status:</b> Waiting on BCPS to confirm the "largest implementation" claim and provide the actual Microsoft Challenge/Partnership details; LESARUSS will build the section once content is confirmed.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p></div>
+</details>
+
+<details class="held">
+<summary>ThoughtExchange survey and monitored feedback email</summary>
+<div class="body">
+<p>New from the July 21-22 Framework document: Manny proposed an open-ended ThoughtExchange survey (not Likert-scale) to gather community thoughts on AI, and a clearly linked feedback email address monitored by an AI agent that triages but does not answer questions yet. Neither exists today; the current Community feedback card describes the curated, no-open-form model shipped July 21, which is a different, already-decided piece.</p><p><b>Status:</b> Waiting on BCPS, Manny, to build the ThoughtExchange survey and confirm the monitored feedback email address; LESARUSS will wire up the links and any AI-triage agent once both exist.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community &#8599;</a></p></div>
+</details>
+
+<details class="held">
+<summary>Prisms VR videos are password-gated, need a hosting decision</summary>
+<div class="body">
+<p>New from the July 21-22 Framework document: two Prisms VR videos ("Prisms Implementation" and "Prisms Outcomes," password: prisms) are referenced as password-protected <code>.url</code> shortcut files, not directly embeddable video. See the open question above for the two hosting options being proposed to BCPS.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone and Thomas J. Correll, to choose between rehosting the actual video files (password removed, same treatment as the home page video) or linking out with the existing password shown.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p></div>
 </details>
 
 <footer>
