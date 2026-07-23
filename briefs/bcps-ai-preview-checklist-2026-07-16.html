@@ -43,6 +43,18 @@
   details.done .body p + p, details.held .body p + p{margin-top:14px}
   .question{background:var(--blue-soft, #e8f1fb);border:1px solid #bcd7ee;border-radius:8px;padding:16px 20px;margin:14px 0}
   .question h3{margin:0 0 8px;font-size:16px;color:var(--blue)}
+  details.owner{background:var(--flag-bg);border:1px solid var(--flag-border);border-radius:8px;margin:14px 0;overflow:hidden}
+  details.owner > summary{list-style:none;cursor:pointer;font-weight:700;font-size:17px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;color:var(--navy)}
+  details.owner > summary::-webkit-details-marker{display:none}
+  details.owner > summary::after{content:'+';font-size:20px;font-weight:400;flex:0 0 auto;color:var(--text-50);line-height:1}
+  details[open].owner > summary::after{content:'\2212'}
+  .owner-count{font-size:12px;font-weight:700;background:var(--flag-border);color:var(--flag);border-radius:99px;padding:2px 10px}
+  .owner-body{padding:0 20px 18px}
+  .pend-item{background:#fff;border:1px solid var(--flag-border);border-radius:8px;padding:16px 20px;margin-bottom:12px}
+  .pend-item:last-child{margin-bottom:0}
+  .pend-item h4{margin:0 0 8px;font-size:15px;color:var(--flag)}
+  .pend-item p{margin:0;color:var(--text-75)}
+  .pend-item p + p{margin-top:14px}
 
 
 
@@ -258,165 +270,194 @@
 </div>
 
 <div class="tabpanel" id="tab-pending" role="tabpanel" aria-labelledby="tab-btn-pending" hidden>
-<h2>Pending, needs a BCPS decision or document</h2>
+<h2>Pending</h2>
+<p class="lede">Grouped by who a fix or answer is waiting on, so each person can open their own section and see everything assigned to them in one place. Items with more than one owner appear under each person's section. Manny is Manuel Castaneda's and Tommy is Thomas J. Correll's nickname as used in source material, both merged into their named section below. Flagging this pairing in case either inference is wrong.</p>
 
-<details class="held">
-<summary>Confirm Copilot student-access phrasing</summary>
-<div class="body">
-<p>Sean's reconciling language is live on the site now. Still needs sign-off from whoever owns the Copilot rollout before it is treated as final and permanent.</p><p><b>Status:</b> Waiting on BCPS, Copilot rollout owner (not yet named).</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p></div>
+<details class="owner">
+<summary>Thomas J. Correll <span class="owner-count">10</span></summary>
+<div class="owner-body">
+<div class="pend-item">
+<h4>Digital Learning Blueprint disclosure language</h4>
+<p>The Ethical Implementation Guide is confirmed as an active, unapproved 60-plus page "Review Draft," not a finished policy. Held out of the site entirely pending BCPS's decision on disclosure language. Decided in the July 21 webpage review: the same short-callout treatment used for the AI Policy will apply here too, rather than publishing the draft or a coming-soon label.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone, Alyssa N. Williams, and Thomas J. Correll for the callout copy.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>School-by-school AI Liaison roster</h4>
+<p>Still an open data request to Innovative Learning, not yet available. Update from the July 21 webpage review: the roster is expected to come in as a Forms-linked list rather than a static upload, so the page should be built to point at that live Forms link once it is shared. Also decided: the page will list each liaison with a general availability statement rather than a fixed events calendar the district could be held to.</p><p><b>Status:</b> Waiting on BCPS, principals completing the Forms link, then Thomas J. Correll and Dr. Fabian Cone for approved responsibilities language.</p><p class="reflink"><a href="https://browardschools.ai/#liaisons" target="_blank" rel="noopener">View on the site: AI Liaison Network &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Sources/methodology list needs a BCPS review pass</h4>
+<p>The Sources page is explicitly labeled on the page itself as "for BCPS review and would be refined before publication." Needs a review pass before this is treated as final. Update from the July 21 webpage review: named owners for that review pass are Manuel Castaneda, Dr. Fabian Cone, and Thomas J. Correll.</p><p><b>Status:</b> Waiting on BCPS, Manuel Castaneda, Dr. Fabian Cone, Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#sources" target="_blank" rel="noopener">View on the site: Methodology &amp; Sources &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>AI Policy page callout copy still needed</h4>
+<p>New from the July 21 webpage review: the Policy page needs a short callout explaining BCPS's AI policy stance (safety, security, privacy buckets, plus timeline and board-approval status), replacing the idea of publishing the full 60-plus page Ethical Implementation Guide or a coming-soon label. Copy needs to come from Dr. Fabian Cone, Alyssa N. Williams, and Thomas J. Correll before this can be built. Dr. Cone was sharing the AI Policy draft with the board the same day, July 21.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone, Alyssa N. Williams, Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>MagicSchool AI demonstration video link still needed</h4>
+<p>Thomas J. Correll's bullet-point copy for MagicSchool AI is now live on Approved Tools (see Completed, July 22). One piece from the Framework document did not carry over: it references a demonstration video ("this video (2025)") as a hyperlink, but the link target itself was not captured by the document extraction tool used to review it. The card is fully live without it; this is only about adding the video link once we have the real URL.</p><p><b>Status:</b> Waiting on BCPS, Thomas J. Correll, to confirm the video URL.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools, MagicSchool AI &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Khanmigo/Conmingo tool information needed</h4>
+<p>New from the July 21 webpage review: Thomas J. Correll is providing tool information for Khanmigo (and its Spanish-language counterpart, Conmingo, spelling to be confirmed) for the Approved Tools page, including links and videos already used in family forum sessions. Not yet received.</p><p><b>Status:</b> Waiting on BCPS, Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Prisms VR usage numbers needed</h4>
+<p>New from the July 21 webpage review: Dr. Fabian Cone and Thomas J. Correll are sourcing real usage numbers for Prisms VR to replace placeholder figures. Vignette videos are already in the Framework document. Not yet received.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone and Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#accountability" target="_blank" rel="noopener">View on the site: Accountability &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Family Forum dates and content needed</h4>
+<p>The Community section's "Parent University" card has already been renamed to Family Forum, shipped July 21 (see Completed). Still needed: Thomas J. Correll is providing dates and content for upcoming Family Forum sessions, including the next one currently targeted for August 27, coordinating with Claudia Brights on ongoing event management. Not yet built into the Community section.</p><p><b>Status:</b> Waiting on BCPS, Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Two presentation files still not located: Reading Coach, Parent/Guardian One-Pager</h4>
+<p>Update from July 22: six of the eight Presentations &amp; session materials files are now real, hosted PDFs (see Completed above). The Reading Coach deck and the standalone Parent/Guardian Support One-Pager were not among the files Sean pulled from SharePoint and have not turned up in search under those names.</p><p><b>Status:</b> Waiting on BCPS, Alyssa N. Williams or Thomas J. Correll, to confirm where these two live or provide them directly.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Presentations &amp; session materials &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Community feedback page still needs Tommy's actual compiled content</h4>
+<p>Found in the July 22 re-audit: the Community feedback card correctly describes the curated, QR-code, staff-selected model (shipped July 21), but the actual compiled feedback content Tommy has gathered from families still needs to be provided and turned into a real page link. Right now the card describes the model without linking to any real content.</p><p><b>Status:</b> Waiting on BCPS, Tommy, to provide the compiled feedback for our team to publish.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Community feedback &#8599;</a></p>
+</div>
+</div>
 </details>
 
-<details class="held">
-<summary>Digital Learning Blueprint disclosure language</summary>
-<div class="body">
-<p>The Ethical Implementation Guide is confirmed as an active, unapproved 60-plus page "Review Draft," not a finished policy. Held out of the site entirely pending BCPS's decision on disclosure language. Decided in the July 21 webpage review: the same short-callout treatment used for the AI Policy will apply here too, rather than publishing the draft or a coming-soon label.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone, Alyssa N. Williams, and Thomas J. Correll for the callout copy.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources &#8599;</a></p></div>
+<details class="owner">
+<summary>Dr. Fabian Cone <span class="owner-count">5</span></summary>
+<div class="owner-body">
+<div class="pend-item">
+<h4>Digital Learning Blueprint disclosure language</h4>
+<p>The Ethical Implementation Guide is confirmed as an active, unapproved 60-plus page "Review Draft," not a finished policy. Held out of the site entirely pending BCPS's decision on disclosure language. Decided in the July 21 webpage review: the same short-callout treatment used for the AI Policy will apply here too, rather than publishing the draft or a coming-soon label.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone, Alyssa N. Williams, and Thomas J. Correll for the callout copy.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>School-by-school AI Liaison roster</h4>
+<p>Still an open data request to Innovative Learning, not yet available. Update from the July 21 webpage review: the roster is expected to come in as a Forms-linked list rather than a static upload, so the page should be built to point at that live Forms link once it is shared. Also decided: the page will list each liaison with a general availability statement rather than a fixed events calendar the district could be held to.</p><p><b>Status:</b> Waiting on BCPS, principals completing the Forms link, then Thomas J. Correll and Dr. Fabian Cone for approved responsibilities language.</p><p class="reflink"><a href="https://browardschools.ai/#liaisons" target="_blank" rel="noopener">View on the site: AI Liaison Network &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Sources/methodology list needs a BCPS review pass</h4>
+<p>The Sources page is explicitly labeled on the page itself as "for BCPS review and would be refined before publication." Needs a review pass before this is treated as final. Update from the July 21 webpage review: named owners for that review pass are Manuel Castaneda, Dr. Fabian Cone, and Thomas J. Correll.</p><p><b>Status:</b> Waiting on BCPS, Manuel Castaneda, Dr. Fabian Cone, Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#sources" target="_blank" rel="noopener">View on the site: Methodology &amp; Sources &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>AI Policy page callout copy still needed</h4>
+<p>New from the July 21 webpage review: the Policy page needs a short callout explaining BCPS's AI policy stance (safety, security, privacy buckets, plus timeline and board-approval status), replacing the idea of publishing the full 60-plus page Ethical Implementation Guide or a coming-soon label. Copy needs to come from Dr. Fabian Cone, Alyssa N. Williams, and Thomas J. Correll before this can be built. Dr. Cone was sharing the AI Policy draft with the board the same day, July 21.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone, Alyssa N. Williams, Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Prisms VR usage numbers needed</h4>
+<p>New from the July 21 webpage review: Dr. Fabian Cone and Thomas J. Correll are sourcing real usage numbers for Prisms VR to replace placeholder figures. Vignette videos are already in the Framework document. Not yet received.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone and Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#accountability" target="_blank" rel="noopener">View on the site: Accountability &#8599;</a></p>
+</div>
+</div>
 </details>
 
-<details class="held">
-<summary>One attendance row needs a catalog match</summary>
-<div class="body">
-<p>"Advanced Copilot AI, Pre-built Agents for Non-Instructional Staff" (100 attended) does not have a clear matching line in the existing course catalog, which only lists two Advanced courses. Needs BCPS/ISD PMO confirmation on which course this maps to, or whether it is a new catalog entry.</p><p><b>Status:</b> Waiting on BCPS, ISD PMO.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools, course catalog &#8599;</a></p></div>
+<details class="owner">
+<summary>Alyssa N. Williams <span class="owner-count">5</span></summary>
+<div class="owner-body">
+<div class="pend-item">
+<h4>Digital Learning Blueprint disclosure language</h4>
+<p>The Ethical Implementation Guide is confirmed as an active, unapproved 60-plus page "Review Draft," not a finished policy. Held out of the site entirely pending BCPS's decision on disclosure language. Decided in the July 21 webpage review: the same short-callout treatment used for the AI Policy will apply here too, rather than publishing the draft or a coming-soon label.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone, Alyssa N. Williams, and Thomas J. Correll for the callout copy.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>"Report a concern" contact details are empty</h4>
+<p>The Policy &amp; Privacy section has a "Report a concern" channel for families, but the contact details for the responsible office still need to be added by BCPS. Update from the July 21 webpage review: this likely routes to Manuel Castaneda's department. Alyssa N. Williams is scheduling a separate conversation with that team to confirm.</p><p><b>Status:</b> Waiting on BCPS, Alyssa N. Williams and Manuel Castaneda.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources, Report a concern &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Confirm machine translation is acceptable, or BCPS wants manual translation instead</h4>
+<p>Translation is now live via Google Translate (see Completed, July 20), per Sean's direction not to wait on a manual translation process. Flagging for the team: if BCPS wants official, human-reviewed translations instead of machine translation for a public district site, the switching mechanism already built can point at real translated copy instead, no rebuild needed. Decided in the July 21 webpage review: keep Google Translate as the approach; Alyssa N. Williams is looping in Vicky as a courtesy, no objection expected.</p><p><b>Status:</b> Waiting on BCPS, Alyssa N. Williams confirming with Vicky, expected to close out with no change needed.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home (language switcher) &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>AI Policy page callout copy still needed</h4>
+<p>New from the July 21 webpage review: the Policy page needs a short callout explaining BCPS's AI policy stance (safety, security, privacy buckets, plus timeline and board-approval status), replacing the idea of publishing the full 60-plus page Ethical Implementation Guide or a coming-soon label. Copy needs to come from Dr. Fabian Cone, Alyssa N. Williams, and Thomas J. Correll before this can be built. Dr. Cone was sharing the AI Policy draft with the board the same day, July 21.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone, Alyssa N. Williams, Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Two presentation files still not located: Reading Coach, Parent/Guardian One-Pager</h4>
+<p>Update from July 22: six of the eight Presentations &amp; session materials files are now real, hosted PDFs (see Completed above). The Reading Coach deck and the standalone Parent/Guardian Support One-Pager were not among the files Sean pulled from SharePoint and have not turned up in search under those names.</p><p><b>Status:</b> Waiting on BCPS, Alyssa N. Williams or Thomas J. Correll, to confirm where these two live or provide them directly.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Presentations &amp; session materials &#8599;</a></p>
+</div>
+</div>
 </details>
 
-<details class="held">
-<summary>Remaining Learning-folder source documents</summary>
-<div class="body">
-<p>Learning Map Pathways, AI Integration Focus Areas, LEAD AI Cohort Overview, the Turnitin workshop deck, and the full Leadership Days conference materials are still queued to be read and incorporated. Named explicitly per the July 22 re-audit so nothing stays vague: <i>Magic School Test Results Analysis.docx</i> (Section 9 reference for MagicSchool) and <i>CTACE AI Events 25-26Updated6.23.26.docx</i> (Section 9 reference for AI events, includes photos) are both still unread source files from the Framework document.</p><p><b>Status:</b> Queued, our team to pull from the Framework document as each source is confirmed available.</p><p class="reflink"><a href="https://browardschools.ai/#learning" target="_blank" rel="noopener">View on the site: Learning &#8599;</a></p></div>
+<details class="owner">
+<summary>Manuel Castaneda <span class="owner-count">5</span></summary>
+<div class="owner-body">
+<div class="pend-item">
+<h4>4 of 6 Parent Resources FAQ answers still need legal sign-off</h4>
+<p>Update from July 22: two of the six Policy &amp; Privacy FAQ answers (parent rights, how tools are checked) now carry Manny's final language, see Completed above. The remaining four (what's collected, where it's stored, can AI train on student data, are AI detectors used) are still explicitly labeled on the page as sample answers for layout. Needs BCPS legal and data governance to confirm final wording for those four, including any Florida-specific student privacy law.</p><p><b>Status:</b> Waiting on BCPS, Manuel Castaneda, for the remaining 4 answers.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources, FAQ &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>"Report a concern" contact details are empty</h4>
+<p>The Policy &amp; Privacy section has a "Report a concern" channel for families, but the contact details for the responsible office still need to be added by BCPS. Update from the July 21 webpage review: this likely routes to Manuel Castaneda's department. Alyssa N. Williams is scheduling a separate conversation with that team to confirm.</p><p><b>Status:</b> Waiting on BCPS, Alyssa N. Williams and Manuel Castaneda.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources, Report a concern &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Sources/methodology list needs a BCPS review pass</h4>
+<p>The Sources page is explicitly labeled on the page itself as "for BCPS review and would be refined before publication." Needs a review pass before this is treated as final. Update from the July 21 webpage review: named owners for that review pass are Manuel Castaneda, Dr. Fabian Cone, and Thomas J. Correll.</p><p><b>Status:</b> Waiting on BCPS, Manuel Castaneda, Dr. Fabian Cone, Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#sources" target="_blank" rel="noopener">View on the site: Methodology &amp; Sources &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Canva policy-explainer resources need BCPS editing before they go live</h4>
+<p>New from the July 21-22 Framework document: Manny provided three Canva links distilling the 60-plus page implementation guide into digestible chunks for the Policy page, but flagged himself that they likely need editing to reflect new resources and policy numbers before they're accurate.</p><p><b>Status:</b> Waiting on BCPS, Manny, to confirm the Canva resources are updated before our team embeds them.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>ThoughtExchange survey and monitored feedback email</h4>
+<p>New from the July 21-22 Framework document: Manny proposed an open-ended ThoughtExchange survey (not Likert-scale) to gather community thoughts on AI, and a clearly linked feedback email address monitored by an AI agent that triages but does not answer questions yet. Neither exists today; the current Community feedback card describes the curated, no-open-form model shipped July 21, which is a different, already-decided piece.</p><p><b>Status:</b> Waiting on BCPS, Manny, to build the ThoughtExchange survey and confirm the monitored feedback email address; our team will wire up the links and any AI-triage agent once both exist.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community &#8599;</a></p>
+</div>
+</div>
 </details>
 
-<details class="held">
-<summary>Remaining Community source materials</summary>
-<div class="body">
-<p>Reading Coach demo, Khan Academy Summer Bridge, ESE strategic goals, and the Principal Executive Board's written feedback are still queued to be read and added to the Community section.</p><p><b>Status:</b> Queued, our team to pull from the Framework document as each source is confirmed available.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community &#8599;</a></p></div>
+<details class="owner">
+<summary>BCPS ISD PMO <span class="owner-count">1</span></summary>
+<div class="owner-body">
+<div class="pend-item">
+<h4>One attendance row needs a catalog match</h4>
+<p>"Advanced Copilot AI, Pre-built Agents for Non-Instructional Staff" (100 attended) does not have a clear matching line in the existing course catalog, which only lists two Advanced courses. Needs BCPS/ISD PMO confirmation on which course this maps to, or whether it is a new catalog entry.</p><p><b>Status:</b> Waiting on BCPS, ISD PMO.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools, course catalog &#8599;</a></p>
+</div>
+</div>
 </details>
 
-<details class="held">
-<summary>School-by-school AI Liaison roster</summary>
-<div class="body">
-<p>Still an open data request to Innovative Learning, not yet available. Update from the July 21 webpage review: the roster is expected to come in as a Forms-linked list rather than a static upload, so the page should be built to point at that live Forms link once it is shared. Also decided: the page will list each liaison with a general availability statement rather than a fixed events calendar the district could be held to.</p><p><b>Status:</b> Waiting on BCPS, principals completing the Forms link, then Thomas J. Correll and Dr. Fabian Cone for approved responsibilities language.</p><p class="reflink"><a href="https://browardschools.ai/#liaisons" target="_blank" rel="noopener">View on the site: AI Liaison Network &#8599;</a></p></div>
+<details class="owner">
+<summary>Waiting on BCPS, not yet assigned to a named person <span class="owner-count">5</span></summary>
+<div class="owner-body">
+<div class="pend-item">
+<h4>Confirm Copilot student-access phrasing</h4>
+<p>Sean's reconciling language is live on the site now. Still needs sign-off from whoever owns the Copilot rollout before it is treated as final and permanent.</p><p><b>Status:</b> Waiting on BCPS, Copilot rollout owner (not yet named).</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Professional learning pathway percentages are still placeholder data</h4>
+<p>The top-line Transparency Dashboard tiles are now real (see Completed, July 20). The professional learning pathway completion percentages underneath (AI Foundations, MagicSchool AI, Microsoft Copilot, AI &amp; Literacy, AI &amp; ESE Supports) are still illustrative sample numbers, clearly labeled as such on the page, since no real per-pathway completion source has been provided yet.</p><p><b>Status:</b> Waiting on BCPS for a real per-pathway completion source.</p><p class="reflink"><a href="https://browardschools.ai/#accountability" target="_blank" rel="noopener">View on the site: Accountability &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Governance "last reviewed" date and version are still placeholders</h4>
+<p>The Accountability section's governance card shows "Last reviewed: placeholder date, Version: draft." Needs BCPS to establish a real review date and versioning cadence for this page.</p><p><b>Status:</b> Waiting on BCPS.</p><p class="reflink"><a href="https://browardschools.ai/#accountability" target="_blank" rel="noopener">View on the site: Accountability, Governance card &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Leadership Days photo gallery (June 8-9) not yet built</h4>
+<p>Found in the July 22 re-audit: the Framework document references a separate "Leadership Day Photos" gallery for the June 8-9 Academic Leadership Days event. This is distinct from the June 5 Symposium gallery already live on the Community page (30 photos, native lightbox) and has not been tracked or built.</p><p><b>Status:</b> Waiting on BCPS to confirm the photo source (album link or files) before our team can build it the same way the Symposium gallery was built.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Photo gallery &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Copilot: Microsoft Challenge, partnership info, and adoption/timeline stat</h4>
+<p>New from the July 21-22 Framework document: Approved Tools should feature Copilot adoption statistics and timeline as prominently as other tools (not buried), plus Microsoft Challenge and Partnership information. The Framework document's own content for this is a single line, including the claim "largest implementation in the world for educational staff," see the open question above on verifying that claim before it's published.</p><p><b>Status:</b> Waiting on BCPS to confirm the "largest implementation" claim and provide the actual Microsoft Challenge/Partnership details; our team will build the section once content is confirmed.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p>
+</div>
+</div>
 </details>
 
-<details class="held">
-<summary>Professional learning pathway percentages are still placeholder data</summary>
-<div class="body">
-<p>The top-line Transparency Dashboard tiles are now real (see Completed, July 20). The professional learning pathway completion percentages underneath (AI Foundations, MagicSchool AI, Microsoft Copilot, AI &amp; Literacy, AI &amp; ESE Supports) are still illustrative sample numbers, clearly labeled as such on the page, since no real per-pathway completion source has been provided yet.</p><p><b>Status:</b> Waiting on BCPS for a real per-pathway completion source.</p><p class="reflink"><a href="https://browardschools.ai/#accountability" target="_blank" rel="noopener">View on the site: Accountability &#8599;</a></p></div>
+<details class="owner">
+<summary>Queued, our team building (not blocked on BCPS) <span class="owner-count">5</span></summary>
+<div class="owner-body">
+<div class="pend-item">
+<h4>Remaining Learning-folder source documents</h4>
+<p>Learning Map Pathways, AI Integration Focus Areas, LEAD AI Cohort Overview, the Turnitin workshop deck, and the full Leadership Days conference materials are still queued to be read and incorporated. Named explicitly per the July 22 re-audit so nothing stays vague: <i>Magic School Test Results Analysis.docx</i> (Section 9 reference for MagicSchool) and <i>CTACE AI Events 25-26Updated6.23.26.docx</i> (Section 9 reference for AI events, includes photos) are both still unread source files from the Framework document.</p><p><b>Status:</b> Queued, our team to pull from the Framework document as each source is confirmed available.</p><p class="reflink"><a href="https://browardschools.ai/#learning" target="_blank" rel="noopener">View on the site: Learning &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Remaining Community source materials</h4>
+<p>Reading Coach demo, Khan Academy Summer Bridge, ESE strategic goals, and the Principal Executive Board's written feedback are still queued to be read and added to the Community section.</p><p><b>Status:</b> Queued, our team to pull from the Framework document as each source is confirmed available.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>Dedicated pages for each approved tool</h4>
+<p>Decided in the July 21 webpage review: rather than one shared Approved Tools page, Copilot, MagicSchool, Prisms VR, and Khanmigo each get their own page carrying that tool's professional learning content and video.</p><p><b>Status:</b> Queued, our team building now. Not blocked on BCPS, though MagicSchool and Khanmigo copy above will slot in once received.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>AI in Motion homepage feed</h4>
+<p>Decided in the July 21 webpage review: a new homepage section, working title "AI in Motion," fed by an RSS feed of AI-tagged articles from the district's Finalsite newsroom, shown as a three-column, thumbnail-driven, continuously updating feed. Addresses the concern that the current site is informational but static and parents won't keep returning to reread it.</p><p><b>Status:</b> Queued, our team building now. Needs the district's Finalsite newsroom RSS feed URL and AI tag confirmed to wire up.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home &#8599;</a></p>
+</div>
+<div class="pend-item">
+<h4>BCPS Academic Leadership Days Program 2026 not yet hosted</h4>
+<p>Found in the July 22 re-audit: the Framework document names "BCPS Academic Leadership Days Program 2026.pdf" as its own standalone resource, separate from the seven session/presentation decks already tracked above. It has a known SharePoint location but has not yet been pulled or linked on the site.</p><p><b>Status:</b> Queued, our team to pull once Sean confirms he can export or share the file the same way he did for the six presentation PDFs.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community &#8599;</a></p>
+</div>
+</div>
 </details>
-
-<details class="held">
-<summary>4 of 6 Parent Resources FAQ answers still need legal sign-off</summary>
-<div class="body">
-<p>Update from July 22: two of the six Policy &amp; Privacy FAQ answers (parent rights, how tools are checked) now carry Manny's final language, see Completed above. The remaining four (what's collected, where it's stored, can AI train on student data, are AI detectors used) are still explicitly labeled on the page as sample answers for layout. Needs BCPS legal and data governance to confirm final wording for those four, including any Florida-specific student privacy law.</p><p><b>Status:</b> Waiting on BCPS, Manuel Castaneda, for the remaining 4 answers.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources, FAQ &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>"Report a concern" contact details are empty</summary>
-<div class="body">
-<p>The Policy &amp; Privacy section has a "Report a concern" channel for families, but the contact details for the responsible office still need to be added by BCPS. Update from the July 21 webpage review: this likely routes to Manuel Castaneda's department. Alyssa N. Williams is scheduling a separate conversation with that team to confirm.</p><p><b>Status:</b> Waiting on BCPS, Alyssa N. Williams and Manuel Castaneda.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources, Report a concern &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>Governance "last reviewed" date and version are still placeholders</summary>
-<div class="body">
-<p>The Accountability section's governance card shows "Last reviewed: placeholder date, Version: draft." Needs BCPS to establish a real review date and versioning cadence for this page.</p><p><b>Status:</b> Waiting on BCPS.</p><p class="reflink"><a href="https://browardschools.ai/#accountability" target="_blank" rel="noopener">View on the site: Accountability, Governance card &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>Sources/methodology list needs a BCPS review pass</summary>
-<div class="body">
-<p>The Sources page is explicitly labeled on the page itself as "for BCPS review and would be refined before publication." Needs a review pass before this is treated as final. Update from the July 21 webpage review: named owners for that review pass are Manuel Castaneda, Dr. Fabian Cone, and Thomas J. Correll.</p><p><b>Status:</b> Waiting on BCPS, Manuel Castaneda, Dr. Fabian Cone, Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#sources" target="_blank" rel="noopener">View on the site: Methodology &amp; Sources &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>Confirm machine translation is acceptable, or BCPS wants manual translation instead</summary>
-<div class="body">
-<p>Translation is now live via Google Translate (see Completed, July 20), per Sean's direction not to wait on a manual translation process. Flagging for the team: if BCPS wants official, human-reviewed translations instead of machine translation for a public district site, the switching mechanism already built can point at real translated copy instead, no rebuild needed. Decided in the July 21 webpage review: keep Google Translate as the approach; Alyssa N. Williams is looping in Vicky as a courtesy, no objection expected.</p><p><b>Status:</b> Waiting on BCPS, Alyssa N. Williams confirming with Vicky, expected to close out with no change needed.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home (language switcher) &#8599;</a></p></div>
-</details>
-
-
-<details class="held">
-<summary>AI Policy page callout copy still needed</summary>
-<div class="body">
-<p>New from the July 21 webpage review: the Policy page needs a short callout explaining BCPS's AI policy stance (safety, security, privacy buckets, plus timeline and board-approval status), replacing the idea of publishing the full 60-plus page Ethical Implementation Guide or a coming-soon label. Copy needs to come from Dr. Fabian Cone, Alyssa N. Williams, and Thomas J. Correll before this can be built. Dr. Cone was sharing the AI Policy draft with the board the same day, July 21.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone, Alyssa N. Williams, Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>MagicSchool AI demonstration video link still needed</summary>
-<div class="body">
-<p>Thomas J. Correll's bullet-point copy for MagicSchool AI is now live on Approved Tools (see Completed, July 22). One piece from the Framework document did not carry over: it references a demonstration video ("this video (2025)") as a hyperlink, but the link target itself was not captured by the document extraction tool used to review it. The card is fully live without it; this is only about adding the video link once we have the real URL.</p><p><b>Status:</b> Waiting on BCPS, Thomas J. Correll, to confirm the video URL.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools, MagicSchool AI &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>Khanmigo/Conmingo tool information needed</summary>
-<div class="body">
-<p>New from the July 21 webpage review: Thomas J. Correll is providing tool information for Khanmigo (and its Spanish-language counterpart, Conmingo, spelling to be confirmed) for the Approved Tools page, including links and videos already used in family forum sessions. Not yet received.</p><p><b>Status:</b> Waiting on BCPS, Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>Prisms VR usage numbers needed</summary>
-<div class="body">
-<p>New from the July 21 webpage review: Dr. Fabian Cone and Thomas J. Correll are sourcing real usage numbers for Prisms VR to replace placeholder figures. Vignette videos are already in the Framework document. Not yet received.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone and Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#accountability" target="_blank" rel="noopener">View on the site: Accountability &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>Family Forum dates and content needed</summary>
-<div class="body">
-<p>The Community section's "Parent University" card has already been renamed to Family Forum, shipped July 21 (see Completed). Still needed: Thomas J. Correll is providing dates and content for upcoming Family Forum sessions, including the next one currently targeted for August 27, coordinating with Claudia Brights on ongoing event management. Not yet built into the Community section.</p><p><b>Status:</b> Waiting on BCPS, Thomas J. Correll.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>Dedicated pages for each approved tool</summary>
-<div class="body">
-<p>Decided in the July 21 webpage review: rather than one shared Approved Tools page, Copilot, MagicSchool, Prisms VR, and Khanmigo each get their own page carrying that tool's professional learning content and video.</p><p><b>Status:</b> Queued, our team building now. Not blocked on BCPS, though MagicSchool and Khanmigo copy above will slot in once received.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>AI in Motion homepage feed</summary>
-<div class="body">
-<p>Decided in the July 21 webpage review: a new homepage section, working title "AI in Motion," fed by an RSS feed of AI-tagged articles from the district's Finalsite newsroom, shown as a three-column, thumbnail-driven, continuously updating feed. Addresses the concern that the current site is informational but static and parents won't keep returning to reread it.</p><p><b>Status:</b> Queued, our team building now. Needs the district's Finalsite newsroom RSS feed URL and AI tag confirmed to wire up.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>Two presentation files still not located: Reading Coach, Parent/Guardian One-Pager</summary>
-<div class="body">
-<p>Update from July 22: six of the eight Presentations &amp; session materials files are now real, hosted PDFs (see Completed above). The Reading Coach deck and the standalone Parent/Guardian Support One-Pager were not among the files Sean pulled from SharePoint and have not turned up in search under those names.</p><p><b>Status:</b> Waiting on BCPS, Alyssa N. Williams or Thomas J. Correll, to confirm where these two live or provide them directly.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Presentations &amp; session materials &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>BCPS Academic Leadership Days Program 2026 not yet hosted</summary>
-<div class="body">
-<p>Found in the July 22 re-audit: the Framework document names "BCPS Academic Leadership Days Program 2026.pdf" as its own standalone resource, separate from the seven session/presentation decks already tracked above. It has a known SharePoint location but has not yet been pulled or linked on the site.</p><p><b>Status:</b> Queued, our team to pull once Sean confirms he can export or share the file the same way he did for the six presentation PDFs.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>Leadership Days photo gallery (June 8-9) not yet built</summary>
-<div class="body">
-<p>Found in the July 22 re-audit: the Framework document references a separate "Leadership Day Photos" gallery for the June 8-9 Academic Leadership Days event. This is distinct from the June 5 Symposium gallery already live on the Community page (30 photos, native lightbox) and has not been tracked or built.</p><p><b>Status:</b> Waiting on BCPS to confirm the photo source (album link or files) before our team can build it the same way the Symposium gallery was built.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Photo gallery &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>Community feedback page still needs Tommy's actual compiled content</summary>
-<div class="body">
-<p>Found in the July 22 re-audit: the Community feedback card correctly describes the curated, QR-code, staff-selected model (shipped July 21), but the actual compiled feedback content Tommy has gathered from families still needs to be provided and turned into a real page link. Right now the card describes the model without linking to any real content.</p><p><b>Status:</b> Waiting on BCPS, Tommy, to provide the compiled feedback for our team to publish.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Community feedback &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>Canva policy-explainer resources need BCPS editing before they go live</summary>
-<div class="body">
-<p>New from the July 21-22 Framework document: Manny provided three Canva links distilling the 60-plus page implementation guide into digestible chunks for the Policy page, but flagged himself that they likely need editing to reflect new resources and policy numbers before they're accurate.</p><p><b>Status:</b> Waiting on BCPS, Manny, to confirm the Canva resources are updated before our team embeds them.</p><p class="reflink"><a href="https://browardschools.ai/#policy" target="_blank" rel="noopener">View on the site: Parent Resources &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>Copilot: Microsoft Challenge, partnership info, and adoption/timeline stat</summary>
-<div class="body">
-<p>New from the July 21-22 Framework document: Approved Tools should feature Copilot adoption statistics and timeline as prominently as other tools (not buried), plus Microsoft Challenge and Partnership information. The Framework document's own content for this is a single line, including the claim "largest implementation in the world for educational staff," see the open question above on verifying that claim before it's published.</p><p><b>Status:</b> Waiting on BCPS to confirm the "largest implementation" claim and provide the actual Microsoft Challenge/Partnership details; our team will build the section once content is confirmed.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p></div>
-</details>
-
-<details class="held">
-<summary>ThoughtExchange survey and monitored feedback email</summary>
-<div class="body">
-<p>New from the July 21-22 Framework document: Manny proposed an open-ended ThoughtExchange survey (not Likert-scale) to gather community thoughts on AI, and a clearly linked feedback email address monitored by an AI agent that triages but does not answer questions yet. Neither exists today; the current Community feedback card describes the curated, no-open-form model shipped July 21, which is a different, already-decided piece.</p><p><b>Status:</b> Waiting on BCPS, Manny, to build the ThoughtExchange survey and confirm the monitored feedback email address; our team will wire up the links and any AI-triage agent once both exist.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community &#8599;</a></p></div>
-</details>
-
 </div>
 
 <footer>
