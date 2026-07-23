@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BCPS Powered by AI: Progress Tracker (updated July 22 2026)</title>
+<title>BCPS Powered by AI: Progress Tracker (updated July 23 2026)</title>
 <style>
   :root{
     --text:#1a1a1a;--text-75:rgba(26,26,26,.78);--text-50:rgba(26,26,26,.55);
@@ -67,21 +67,21 @@
 </header>
 
 <h1>BCPS Powered by AI: Progress Tracker</h1>
-<p class="meta">Prepared by Sean Russell &middot; running tracker, last updated July 22, 2026 &middot; companion for the Broward AI Webpage Review meeting</p>
+<p class="meta">Prepared by Sean Russell &middot; running tracker, last updated July 23, 2026 &middot; companion for the Broward AI Webpage Review meeting</p>
 
 <p class="lede">This is the living tracker for the browardschools.ai site: what has shipped, what is still waiting on a BCPS decision or document, and what is next. It replaces the July 16 preview checklist as the single source of truth, folding that session's work in as already-completed.</p>
 
 <p><b>Live site (verified):</b> <a class="cta" href="https://browardschools.ai" target="_blank" rel="noopener">browardschools.ai</a> and <a class="cta" href="https://www.browardschools.ai" target="_blank" rel="noopener">www.browardschools.ai</a><br>This link has been verified: both domains resolve, SSL is active with no warnings, and the content described as "Completed" below is confirmed live on the site as of this update.</p>
 
 <div class="tablist" role="tablist" aria-label="Progress tracker sections">
-  <button class="tab-btn" role="tab" id="tab-btn-questions" aria-controls="tab-questions" aria-selected="true" tabindex="0">Open Questions <span class="count">3</span></button>
-  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">25</span></button>
-  <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">27</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-questions" aria-controls="tab-questions" aria-selected="true" tabindex="0">Open Questions <span class="count">2</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">26</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">26</span></button>
 </div>
 
 <div class="tabpanel" id="tab-questions" role="tabpanel" aria-labelledby="tab-btn-questions">
 <h2>Open Questions</h2>
-<p class="lede">Three real discrepancies or open decisions have surfaced across the board report and the July 21-22 Framework document update. Flagging each here rather than guessing at an answer.</p>
+<p class="lede">Two real discrepancies or open decisions have surfaced across the board report and the July 21-22 Framework document update. Flagging each here rather than guessing at an answer.</p>
 
 <div class="question">
 <h3>Breakout session date conflict: June 5 vs. June 8 &amp; 9</h3>
@@ -93,14 +93,17 @@
 <p>The Framework document asks that Copilot adoption stats and timeline include the framing "largest implementation in the world for educational staff." This is a strong, specific superlative claim for a public parent-facing page. Before adding it: is this BCPS's own verified claim (and if so, from what source), or a placeholder phrase from the person who wrote the Framework doc? Happy to add it as an attributed BCPS statement once confirmed.</p>
 </div>
 
-<div class="question">
-<h3>Password-gated Prisms VR videos need a hosting decision</h3>
-<p>The Framework document references two Prisms VR videos ("Prisms Implementation" and "Prisms Outcomes," both password: prisms) as <code>.url</code> shortcut files, not directly embeddable video files. Options: (1) BCPS provides the actual video files so they can be rehosted natively in the bcpsai repo the same way the home page video and symposium photos were, removing the password gate for the public site, or (2) the videos stay behind their existing password and the site links out with the password shown on the page. Needs a decision before either goes live.</p>
 </div>
 </div>
 
 <div class="tabpanel" id="tab-completed" role="tabpanel" aria-labelledby="tab-btn-completed" hidden>
 <h2>Completed</h2>
+
+<details class="done">
+<summary>Prisms VR videos rehosted, password gate removed (July 23)</summary>
+<div class="body">
+<p>Sean downloaded both Prisms VR videos and their transcript files directly from Eduvision (the password-gated platform BCPS had them on) and shared them with our team. Compressed for the web (Implementation: 90 MB &#8594; 24 MB, Outcomes: 71 MB &#8594; 19 MB) and hosted natively in the bcpsai repo under videos/, the same treatment as the home page video, no password required. Added a new Prisms VR card to Approved Tools plus a "Prisms VR: classroom videos" section with both videos embedded and their transcripts linked below each. One caveat: the Framework document names the videos "Prisms Implementation" and "Prisms Outcomes" but the two downloaded video files themselves weren't labeled by name, so the video-to-title match was inferred from each clip's spoken content and cross-checked against transcript/video length (the clip about running a VR lesson in the classroom was matched to Implementation, the clip about test results and student outcomes was matched to Outcomes). Flagging here so BCPS can confirm the pairing is correct; easy to swap if not. Verified live.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools, Prisms VR &#8599;</a></p></div>
+</details>
 
 <details class="done">
 <summary>Six of eight Community presentation files now real, hosted PDFs (July 22)</summary>
@@ -413,11 +416,6 @@
 <p>New from the July 21-22 Framework document: Manny proposed an open-ended ThoughtExchange survey (not Likert-scale) to gather community thoughts on AI, and a clearly linked feedback email address monitored by an AI agent that triages but does not answer questions yet. Neither exists today; the current Community feedback card describes the curated, no-open-form model shipped July 21, which is a different, already-decided piece.</p><p><b>Status:</b> Waiting on BCPS, Manny, to build the ThoughtExchange survey and confirm the monitored feedback email address; our team will wire up the links and any AI-triage agent once both exist.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community &#8599;</a></p></div>
 </details>
 
-<details class="held">
-<summary>Prisms VR videos are password-gated, need a hosting decision</summary>
-<div class="body">
-<p>New from the July 21-22 Framework document: two Prisms VR videos ("Prisms Implementation" and "Prisms Outcomes," password: prisms) are referenced as password-protected <code>.url</code> shortcut files, not directly embeddable video. See the open question above for the two hosting options being proposed to BCPS.</p><p><b>Status:</b> Waiting on BCPS, Dr. Fabian Cone and Thomas J. Correll, to choose between rehosting the actual video files (password removed, same treatment as the home page video) or linking out with the existing password shown.</p><p class="reflink"><a href="https://browardschools.ai/#tools" target="_blank" rel="noopener">View on the site: Approved Tools &#8599;</a></p></div>
-</details>
 </div>
 
 <footer>
