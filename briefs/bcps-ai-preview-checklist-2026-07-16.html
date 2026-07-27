@@ -108,7 +108,7 @@
 <div class="tablist" role="tablist" aria-label="Progress tracker sections">
   <button class="tab-btn" role="tab" id="tab-btn-questions" aria-controls="tab-questions" aria-selected="true" tabindex="0">Open Questions <span class="count">2</span></button>
   <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">24</span></button>
-  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">32</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">33</span></button>
 </div>
 
 <div class="tabpanel" id="tab-questions" role="tabpanel" aria-labelledby="tab-btn-questions">
@@ -321,6 +321,11 @@
 <div class="tabpanel" id="tab-completed" role="tabpanel" aria-labelledby="tab-btn-completed" hidden>
 <h2>Completed</h2>
 
+<details class="done">
+<summary>Language switcher (English/Espa&#241;ol/Kreyol Ayisyen/Portugu&#234;s) fixed (July 27)</summary>
+<div class="body">
+<p>Sean caught that the top-nav language links had stopped translating the page. Root cause: the site used a cookie-and-reload trick to trigger Google's translate widget, and Google silently stopped honoring that trick sometime after July 20 (the widget itself was never broken). Rebuilt the switcher to drive Google's own translate control directly: Espa&#241;ol/Kreyol/Portugu&#234;s now translate instantly with no reload, and English/original uses a more reliable reset method so it correctly returns to English even for a browser that had already translated the site before. Verified live with real clicks through all four languages, both directions, including a worst-case browser state from testing.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home &#8599;</a></p></div>
+</details>
 <details class="done">
 <summary>Dedicated pages for each approved tool shipped (July 27)</summary>
 <div class="body">
