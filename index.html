@@ -1200,15 +1200,25 @@ footer.site b{color:#fff}
     if(location.hash!=='#'+id){ history.pushState({section:id},'','#'+id); }
   }
   function setLanguage(lang){
-    var expired='expires=Thu, 01 Jan 1970 00:00:00 UTC';
-    document.cookie='googtrans=; '+expired+'; path=/;';
-    document.cookie='googtrans=; '+expired+'; path=/; domain=.'+location.hostname+';';
-    if(lang!=='en'){
-      var value='/en/'+lang;
-      document.cookie='googtrans='+value+'; path=/;';
-      document.cookie='googtrans='+value+'; path=/; domain=.'+location.hostname+';';
+    if(lang==='en'){ location.reload(); return; }
+    var combo=document.querySelector('.goog-te-combo');
+    if(combo){
+      combo.value=lang;
+      combo.dispatchEvent(new Event('change'));
+      return;
     }
-    location.reload();
+    var tries=0;
+    var iv=setInterval(function(){
+      tries++;
+      var c=document.querySelector('.goog-te-combo');
+      if(c){
+        clearInterval(iv);
+        c.value=lang;
+        c.dispatchEvent(new Event('change'));
+      } else if(tries>20){
+        clearInterval(iv);
+      }
+    },250);
   }
   document.querySelectorAll('[data-lang]').forEach(function(el){
     el.addEventListener('click',function(e){ e.preventDefault(); setLanguage(el.getAttribute('data-lang')); });
