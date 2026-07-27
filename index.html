@@ -1200,7 +1200,11 @@ footer.site b{color:#fff}
     if(location.hash!=='#'+id){ history.pushState({section:id},'','#'+id); }
   }
   function setLanguage(lang){
-    if(lang==='en'){ location.reload(); return; }
+    if(lang==='en'){
+      location.hash='googtrans(en|en)';
+      location.reload();
+      return;
+    }
     var combo=document.querySelector('.goog-te-combo');
     if(combo){
       combo.value=lang;
