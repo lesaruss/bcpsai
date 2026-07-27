@@ -52,6 +52,24 @@
   .owner-count{font-size:12px;font-weight:700;background:var(--flag-border);color:var(--flag);border-radius:99px;padding:2px 10px}
   .owner-body{padding:0 20px 18px}
   .pend-item{background:#fff;border:1px solid var(--flag-border);border-radius:8px;padding:16px 20px;margin-bottom:12px}
+  .pill-tabs{display:inline-flex;gap:4px;background:var(--blue-soft);padding:4px;border-radius:99px;margin:6px 0 20px}
+  .pill-btn{appearance:none;border:none;background:none;cursor:pointer;font:inherit;font-weight:700;font-size:13px;color:var(--navy);padding:8px 18px;border-radius:99px}
+  .pill-btn[aria-selected="true"]{background:var(--navy);color:#fff}
+  .pill-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .pending-view[hidden]{display:none}
+  details.pend-task{background:#fff;border:1px solid var(--flag-border);border-radius:8px;margin-bottom:12px;overflow:hidden}
+  details.pend-task > summary{list-style:none;cursor:pointer;padding:14px 18px;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  details.pend-task > summary::-webkit-details-marker{display:none}
+  details.pend-task > summary::after{content:'+';font-size:20px;font-weight:400;flex:0 0 auto;color:var(--text-50);line-height:1}
+  details[open].pend-task > summary::after{content:'\2212'}
+  .task-summary-text{display:flex;flex-direction:column;gap:6px}
+  .task-title{font-weight:700;font-size:15px;color:var(--navy)}
+  .task-owners{display:flex;flex-wrap:wrap;gap:6px}
+  .owner-tag{font-size:12px;font-weight:600;background:var(--flag-bg);color:var(--flag);border:1px solid var(--flag-border);border-radius:99px;padding:2px 10px;white-space:nowrap}
+  details.pend-task .body{padding:0 18px 16px}
+  details.pend-task .body p{margin:0;color:var(--text-75)}
+  details.pend-task .body p + p{margin-top:10px}
+
   .pend-item:last-child{margin-bottom:0}
   .pend-item h4{margin:0 0 8px;font-size:15px;color:var(--flag)}
   .pend-item p{margin:0;color:var(--text-75)}
@@ -111,7 +129,17 @@
 
 <div class="tabpanel" id="tab-pending" role="tabpanel" aria-labelledby="tab-btn-pending" hidden>
 <h2>Pending</h2>
-<p class="lede">Grouped by who a fix or answer is waiting on, so each person can open their own section and see everything assigned to them in one place. Items with more than one owner appear under each person's section. Manny is Manuel Castaneda's and Tommy is Thomas J. Correll's nickname as used in source material, both merged into their named section below. Flagging this pairing in case either inference is wrong.</p>
+<p class="lede">24 open items across BCPS and our own team. Switch between viewing them by task, with who's assigned shown right on each item, or by person, to see everything one individual owns in one place. Manny is Manuel Castaneda's and Tommy is Thomas J. Correll's nickname as used in source material.</p>
+
+<div class="pill-tabs" role="tablist" aria-label="Pending view">
+<button class="pill-btn" role="tab" id="pill-btn-task" aria-controls="pending-view-task" aria-selected="true" tabindex="0">By Task</button>
+<button class="pill-btn" role="tab" id="pill-btn-person" aria-controls="pending-view-person" aria-selected="false" tabindex="-1">By Person</button>
+</div>
+
+<div class="pending-view" id="pending-view-task" role="tabpanel" aria-labelledby="pill-btn-task"></div>
+
+<div class="pending-view" id="pending-view-person" role="tabpanel" aria-labelledby="pill-btn-person" hidden>
+
 
 <details class="owner">
 <summary><span class="owner-name">Thomas J. Correll <span class="owner-count">9</span></span></summary>
@@ -286,6 +314,8 @@
 </div>
 </div>
 </details>
+
+</div>
 </div>
 
 <div class="tabpanel" id="tab-completed" role="tabpanel" aria-labelledby="tab-btn-completed" hidden>
@@ -500,6 +530,68 @@
     });
     btn.addEventListener('keydown', function(e){
       var arr = Array.prototype.slice.call(tabs);
+      var i = arr.indexOf(btn);
+      if(e.key === 'ArrowRight'){ arr[(i+1) % arr.length].click(); e.preventDefault(); }
+      if(e.key === 'ArrowLeft'){ arr[(i-1+arr.length) % arr.length].click(); e.preventDefault(); }
+    });
+  });
+})();
+
+(function(){
+  // Build the "By Task" view from the "By Person" markup, so there is one
+  // source of truth and the two views can never drift apart.
+  var personView = document.getElementById('pending-view-person');
+  var taskView = document.getElementById('pending-view-task');
+  var ownerGroups = personView.querySelectorAll('details.owner');
+  var tasks = new Map();
+  var order = [];
+
+  ownerGroups.forEach(function(group){
+    var ownerName = group.querySelector('.owner-name').childNodes[0].textContent.trim();
+    group.querySelectorAll('.pend-item').forEach(function(item){
+      var title = item.querySelector('h4').textContent.trim();
+      if(!tasks.has(title)){
+        tasks.set(title, {bodyHTML: item.innerHTML, owners: []});
+        order.push(title);
+      }
+      tasks.get(title).owners.push(ownerName);
+    });
+  });
+
+  var html = '';
+  order.forEach(function(title){
+    var t = tasks.get(title);
+    var ownerTags = t.owners.map(function(o){
+      return '<span class="owner-tag">' + o + '</span>';
+    }).join('');
+    // bodyHTML is the pend-item's innerHTML, which starts with the <h4>title</h4>
+    // strip that since the title is already shown in the summary above.
+    var body = t.bodyHTML.replace(/^\s*<h4>[\s\S]*?<\/h4>/, '');
+    html += '<details class="pend-task">'
+      + '<summary><span class="task-summary-text">'
+      + '<span class="task-title">' + title + '</span>'
+      + '<span class="task-owners">' + ownerTags + '</span>'
+      + '</span></summary>'
+      + '<div class="body">' + body + '</div>'
+      + '</details>';
+  });
+  taskView.innerHTML = html;
+
+  var pills = document.querySelectorAll('.pill-btn');
+  pills.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      pills.forEach(function(b){
+        b.setAttribute('aria-selected','false');
+        b.tabIndex = -1;
+        document.getElementById(b.getAttribute('aria-controls')).hidden = true;
+      });
+      btn.setAttribute('aria-selected','true');
+      btn.tabIndex = 0;
+      document.getElementById(btn.getAttribute('aria-controls')).hidden = false;
+      btn.focus();
+    });
+    btn.addEventListener('keydown', function(e){
+      var arr = Array.prototype.slice.call(pills);
       var i = arr.indexOf(btn);
       if(e.key === 'ArrowRight'){ arr[(i+1) % arr.length].click(); e.preventDefault(); }
       if(e.key === 'ArrowLeft'){ arr[(i-1+arr.length) % arr.length].click(); e.preventDefault(); }
