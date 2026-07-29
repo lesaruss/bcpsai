@@ -122,7 +122,8 @@ section.band.soft{background:var(--bg-soft);border-top:1px solid var(--line);bor
 .checklist.yes li svg{stroke:var(--teal)}
 .checklist.no li svg{stroke:#c0556b}
 
-.samplenote{display:inline-flex;align-items:flex-start;gap:9px;background:#fff7e6;border:1px solid #f0dca6;color:#8a6a16;font-size:.82rem;font-weight:600;padding:9px 13px;border-radius:9px;margin-top:18px;max-width:70ch;line-height:1.4}
+/* Hidden 2026-07-29 per Alyssa N. Williams, ahead of tonight's parent presentation: yellow draft/flag boxes should not show to parents. Content is untouched and still tracked in the Tracker; remove this display:none to restore visibility. */
+.samplenote{display:none;align-items:flex-start;gap:9px;background:#fff7e6;border:1px solid #f0dca6;color:#8a6a16;font-size:.82rem;font-weight:600;padding:9px 13px;border-radius:9px;margin-top:18px;max-width:70ch;line-height:1.4}
 .samplenote svg{width:16px;height:16px;flex:0 0 auto;margin-top:1px}
 .cite{font-size:.78rem;color:var(--muted);margin-top:14px}
 .cite b{color:var(--navy-2)}
@@ -225,7 +226,8 @@ footer.site{background:var(--navy);color:#cdd9ec;padding:38px 0;margin-top:0;fon
 footer.site .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
 footer.site b{color:#fff}
 
-.mockflag{position:fixed;right:14px;bottom:14px;z-index:50;background:var(--navy);color:#fff;font-size:.72rem;font-weight:600;padding:8px 13px;border-radius:999px;box-shadow:var(--shadow);opacity:.92}
+/* Hidden 2026-07-29 alongside the samplenote flags, same reason: no draft indicators visible during tonight's parent presentation. */
+.mockflag{display:none;position:fixed;right:14px;bottom:14px;z-index:50;background:var(--navy);color:#fff;font-size:.72rem;font-weight:600;padding:8px 13px;border-radius:999px;box-shadow:var(--shadow);opacity:.92}
 
 @media(max-width:900px){
   .hero .grid{grid-template-columns:1fr;gap:28px}
