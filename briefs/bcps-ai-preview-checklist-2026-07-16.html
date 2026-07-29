@@ -108,7 +108,7 @@
 <div class="tablist" role="tablist" aria-label="Progress tracker sections">
   <button class="tab-btn" role="tab" id="tab-btn-questions" aria-controls="tab-questions" aria-selected="true" tabindex="0">Open Questions <span class="count">1</span></button>
   <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">16</span></button>
-  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">47</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">49</span></button>
 </div>
 
 <div class="tabpanel" id="tab-questions" role="tabpanel" aria-labelledby="tab-btn-questions">
@@ -259,6 +259,18 @@
 
 <div class="tabpanel" id="tab-completed" role="tabpanel" aria-labelledby="tab-btn-completed" hidden>
 <h2>Completed</h2>
+
+<details class="done">
+<summary>All draft/flag indicators hidden ahead of tonight's parent presentation (July 29)</summary>
+<div class="body">
+<p>Alyssa N. Williams asked for the yellow "draft" boxes to stop showing before she presents to parents this evening. These are the 11 in-progress samplenote flags scattered across the site (things like "sample answers for layout," "flagged for BCPS confirmation," "queued to add") plus the small "Working draft &middot; bcps-ai" pill in the corner of every page. Hid both via a single CSS rule each (display:none on .samplenote and .mockflag) rather than deleting any of the underlying flagged content, since that content is still actively tracked here in Pending. Fully reversible: removing the two display:none lines restores visibility with no data loss. Verified live sitewide.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home &#8599;</a></p></div>
+</details>
+
+<details class="done">
+<summary>Full Pending-tab re-audit, all 16 remaining items confirmed still accurate (July 29)</summary>
+<div class="body">
+<p>Sean asked us to confirm every item marked Pending is actually still open and the tracker is current. Checked all 16 remaining Pending items individually against the live site's current content rather than trusting the tracker text: the Ethical Implementation Guide/Digital Learning Blueprint disclosure callout, the AI Policy callout, Khanmigo/Conmingo tool details, Tommy's compiled Community Feedback content, Report a concern contact details, the professional learning pathway percentages and Governance "last reviewed"/version fields on Accountability, the 4 remaining Parent Resources FAQ answers, the Canva policy-explainer embeds, the monitored feedback email address, the "What Students Learn, by grade band" matrix conversion, the remaining Learning-folder and Community source documents, the AI in Motion homepage feed, and the BCPS Academic Leadership Days Program 2026 PDF hosting. Result: all 16 are accurate as written, no drift found, nothing was quietly resolved without the tracker catching up.</p><p class="reflink"><a href="https://browardschools.ai/briefs/bcps-ai-preview-checklist-2026-07-16.html" target="_blank" rel="noopener">View the Pending tab &#8599;</a></p></div>
+</details>
 
 <details class="done">
 <summary>Parent/Guardian Support One-Pager found: it's inside the June 5th Parent Presentation deck (July 29)</summary>
