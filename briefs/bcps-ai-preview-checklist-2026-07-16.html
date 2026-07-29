@@ -108,7 +108,7 @@
 <div class="tablist" role="tablist" aria-label="Progress tracker sections">
   <button class="tab-btn" role="tab" id="tab-btn-questions" aria-controls="tab-questions" aria-selected="true" tabindex="0">Open Questions <span class="count">0</span></button>
   <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">16</span></button>
-  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">54</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">55</span></button>
 </div>
 
 <div class="tabpanel" id="tab-questions" role="tabpanel" aria-labelledby="tab-btn-questions">
@@ -254,6 +254,12 @@
 
 <div class="tabpanel" id="tab-completed" role="tabpanel" aria-labelledby="tab-btn-completed" hidden>
 <h2>Completed</h2>
+<details class="done">
+<summary>Google Analytics (GA4) wired for browardschools.ai, registered under BCPS own Browardschools.com account (July 29)</summary>
+<div class="body">
+<p>Sean asked to get analytics in place ahead of BCPS sending traffic to the page, so he could report visit counts back to them. Rather than register the site under LESARUSS infrastructure, confirmed with Sean the tracking should live under BCPS's own Google account so it is theirs going forward, not ours. Sean logged into the BCPS Google account himself in the connected browser (per the standing rule: credentials are never handled on his behalf), and a new GA4 property, "Broward Powered by AI," was created under the district's existing "Browardschools.com" Analytics account (account 2096321), a separate account from their main "BCPS Analytics" account so it does not get mixed in with the district's main site traffic. New web data stream "Broward Powered by AI - browardschools.ai," Stream ID 15349205216, Measurement ID G-2FREMYSFP4, Enhanced Measurement on (page views, scrolls, outbound clicks, and more). Added the standard gtag.js snippet to the top of index.html's head and pushed live. Verified after deploy, not just assumed: confirmed the Vercel deployment was READY and aliased to browardschools.ai, then reloaded the live site and checked the GA4 Realtime report directly, which showed an active user and page_view/first_visit/session_start events under the page title "Broward Powered by AI," confirming the tag is genuinely collecting data, not just present in the page source.</p><p class="reflink"><a href="https://browardschools.ai/" target="_blank" rel="noopener">View the live site &#8599;</a></p></div>
+</details>
+
 
 <details class="done">
 <summary>Second draft-indicator banner found and hidden: top-of-page "Working draft for BCPS review" bar (July 29)</summary>
