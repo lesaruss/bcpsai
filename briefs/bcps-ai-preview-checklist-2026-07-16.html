@@ -108,7 +108,7 @@
 <div class="tablist" role="tablist" aria-label="Progress tracker sections">
   <button class="tab-btn" role="tab" id="tab-btn-questions" aria-controls="tab-questions" aria-selected="true" tabindex="0">Open Questions <span class="count">0</span></button>
   <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">16</span></button>
-  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">53</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">54</span></button>
 </div>
 
 <div class="tabpanel" id="tab-questions" role="tabpanel" aria-labelledby="tab-btn-questions">
@@ -254,6 +254,12 @@
 
 <div class="tabpanel" id="tab-completed" role="tabpanel" aria-labelledby="tab-btn-completed" hidden>
 <h2>Completed</h2>
+
+<details class="done">
+<summary>Second draft-indicator banner found and hidden: top-of-page "Working draft for BCPS review" bar (July 29)</summary>
+<div class="body">
+<p>Sean asked whether the earlier draft-indicator cleanup (samplenote boxes, mockflag pill) had actually covered everything, since he was still seeing a "Working draft for BCPS review" message before sharing the site. It had not: that message lives in a separate full-width bar at the very top of every page (class .placeholder-bar), which the earlier pass missed entirely since it only targeted .samplenote and .mockflag. Confirmed live via direct screenshot before touching anything, then hid it the same way: a single display:none rule, content untouched underneath, fully reversible. Verified live on the homepage. Also checked for the same bar elsewhere in the repo: not present on the Tracker page, admin.html, or login.html. It does exist on one unlinked legacy file, preview-2026-07-16.html, which is not referenced from the live site or the Tracker and was already superseded by this Tracker per this page's own intro text, left alone since nothing currently points to it.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home &#8599;</a></p></div>
+</details>
 
 <details class="done">
 <summary>AI Liaison training tiles corrected to match the Framework document exactly (July 29)</summary>
