@@ -1,0 +1,24 @@
+# Robots.txt for browardschools.ai
+# Prevents search engines from indexing draft/preview versions
+
+User-agent: *
+Disallow: /draft/
+Disallow: /_next/
+Allow: /
+
+# Google
+User-agent: Googlebot
+Disallow: /draft/
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Disallow: /draft/
+Allow: /
+
+# Other crawlers
+User-agent: *
+Disallow: /draft/
+
+# Sitemap (if applicable)
+# Sitemap: https://browardschools.ai/sitemap.xml

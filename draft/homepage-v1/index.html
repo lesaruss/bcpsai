@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broward Powered by AI - Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            color: #333;
+            background: #f5f8fc;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .language-bar {
+            background: #0c2340;
+            color: #fff;
+            padding: 8px 40px;
+            font-size: 12px;
+            text-align: right;
+        }
+
+        .language-bar a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: 600;
+            color: #0c2340;
+            text-decoration: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0c2340 0%, #13315c 100%);
+            color: #fff;
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin: 20px 0;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin: 16px 0;
+            opacity: 0.9;
+        }
+
+        .accent-bar {
+            width: 4px;
+            height: 60px;
+            background: #c8a24a;
+            margin: 20px 0;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #fff;
+            color: #0c2340;
+        }
+
+        .video-placeholder {
+            background: #1a2230;
+            border-radius: 8px;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+
+        /* Five Commitments Section */
+        .commitments {
+            padding: 60px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            color: #1672a7;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 40px;
+            color: #0c2340;
+        }
+
+        .commitment-cards {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            padding: 30px 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .card-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+            color: #1672a7;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin: 12px 0;
+            color: #0c2340;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* NEW: Past Events Section */
+        .past-events {
+            padding: 80px 40px;
+            background: linear-gradient(to bottom, #fff7e6 0%, #fff 50%);
+            border-top: 4px solid #c8a24a;
+        }
+
+        .past-events-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .past-events .section-label {
+            color: #c8a24a;
+        }
+
+        .past-events .section-title {
+            margin-bottom: 50px;
+        }
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .event-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .image-accent {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: #c8a24a;
+        }
+
+        .event-content h3 {
+            font-size: 28px;
+            color: #0c2340;
+            margin-bottom: 20px;
+        }
+
+        .event-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .meta-item {
+            padding: 16px;
+            background: #fff;
+            border-left: 4px solid #c8a24a;
+            border-radius: 4px;
+        }
+
+        .meta-label {
+            font-size: 11px;
+            font-weight: 700;
+            color: #c8a24a;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .meta-value {
+            font-size: 16px;
+            color: #0c2340;
+            font-weight: 500;
+        }
+
+        .event-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin: 30px 0;
+        }
+
+        .highlight-text {
+            color: #c8a24a;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .commitment-cards {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            nav {
+                padding: 16px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Bar -->
+    <div class="language-bar">
+        Broward County Public Schools | <a href="#">English</a> <a href="#">Español</a> <a href="#">Kreyòl Ayisyen</a> <a href="#">Português</a>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🏫 Broward Powered by AI</div>
+            <div style="display: flex; gap: 20px; font-size: 14px;">
+                <a href="#" style="color: #0c2340; text-decoration: none;">Home</a>
+                <a href="#" style="color: #0c2340; text-decoration: none;">Our Principles</a>
+                <a href="#" style="color: #0c2340; text-decoration: none;">Resources</a>
+                <a href="#" style="color: #0c2340; text-decoration: none;">Community</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div style="color: #c8a24a; font-size: 12px; font-weight: 600; letter-spacing: 1px;">DISTRICTWIDE INITIATIVE</div>
+            <h1>Broward Powered by AI</h1>
+            <p>Preparing students for a world that doesn't exist yet.</p>
+            <div class="accent-bar"></div>
+            <p style="margin-top: 20px;"><strong>Human Intelligence First. Artificial Intelligence Second.</strong></p>
+            <div class="buttons">
+                <button>Our Principles</button>
+                <button>Parent Resources</button>
+                <button>Accountability</button>
+                <button>For Staff & Leaders</button>
+            </div>
+        </div>
+        <div class="video-placeholder">
+            📹 Featured Video Player
+        </div>
+    </section>
+
+    <!-- Five Commitments Section -->
+    <section class="commitments">
+        <div class="section-label">WHAT IS BROWARD POWERED BY AI</div>
+        <h2 class="section-title">Five commitments to every family</h2>
+        <div class="commitment-cards">
+            <div class="card">
+                <div class="card-icon">👁️</div>
+                <h3>Transparency</h3>
+                <p>Know exactly what AI is used, why, and how it is monitored.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛡️</div>
+                <h3>Trust</h3>
+                <p>Clear safeguards, governance, and ethical guardianship.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🎓</div>
+                <h3>Education</h3>
+                <p>Help families understand AI and the skills students need next.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">👥</div>
+                <h3>Engagement</h3>
+                <p>Ways for parents, students, and educators to take part.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Accountability</h3>
+                <p>Public progress, metrics, reports, and continuous review.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Past Events Section -->
+    <section class="past-events">
+        <div class="past-events-container">
+            <div class="section-label">BCPS AI EVENTS & INITIATIVES</div>
+            <h2 class="section-title">Community Spotlight</h2>
+
+            <div class="events-grid">
+                <div class="event-image">
+                    <img src="https://browardschools.ai/images/symposium/photo-20.jpg" alt="Parent AI Symposium 2026 - Attendees in the auditorium">
+                    <div class="image-accent"></div>
+                </div>
+
+                <div class="event-content">
+                    <h3>Parent AI Symposium 2026</h3>
+
+                    <div class="event-meta">
+                        <div class="meta-item">
+                            <div class="meta-label">DATE</div>
+                            <div class="meta-value">June 5, 2026</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-label">LOCATION</div>
+                            <div class="meta-value">Nova High School, Davie</div>
+                        </div>
+                    </div>
+
+                    <p class="event-description">
+                        Broward Powered by AI brought together <span class="highlight-text">parents, students, educators, and school leaders</span> for an in-person event focused on understanding how artificial intelligence is transforming education.
+                    </p>
+
+                    <p class="event-description">
+                        The symposium featured keynote presentations, breakout sessions, and direct conversations with district leadership. Families explored both the <span class="highlight-text">benefits and concerns around AI</span>, with a main focus on what families need to know about AI in our schools.
+                    </p>
+
+                    <p class="event-description">
+                        <em>"A highlight of the day was students themselves demonstrating how they use AI in their learning, alongside district leaders answering questions directly from parents."</em>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #0c2340; color: #fff; padding: 40px; text-align: center; margin-top: 40px;">
+        <p>&copy; 2026 Broward County Public Schools. Broward Powered by AI.</p>
+    </footer>
+</body>
+</html>
