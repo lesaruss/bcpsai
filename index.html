@@ -26,7 +26,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Ar
 a{color:var(--blue);text-decoration:none}
 h1,h2,h3,h4{line-height:1.18;color:var(--navy);margin:0}
 p{margin:0 0 1rem}
-.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.wrap{max-width:1600px;margin:0 auto;padding:0 32px}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 
 /* Placeholder banner: hidden 2026-07-29 per Alyssa N. Williams, same draft-indicator request as .samplenote/.mockflag earlier today - this top-of-page bar was missed in that pass. Content untouched below; remove display:none to restore. */
@@ -73,7 +73,7 @@ nav.main .navlogin:hover{background:var(--navy)}
 /* Hero */
 .hero{background:radial-gradient(1200px 480px at 80% -10%,rgba(22,114,167,.26),transparent 60%),linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 70%);color:#fff;position:relative;overflow:hidden}
 .hero .wrap{padding:60px 22px 66px}
-.hero .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center}
+.hero .grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
 .kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#dce7f7;padding:6px 13px;border-radius:999px;font-size:.76rem;font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-bottom:18px}
 .kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
 .hero h1{color:#fff;font-size:2.8rem;letter-spacing:-.5px;margin-bottom:14px}
@@ -381,7 +381,7 @@ footer.site b{color:#fff}
             </div>
           </div>
           <div class="dots" id="heroCarouselDots"></div>
-          <p class="cite" style="color:#cdd9ec;margin-top:8px" id="heroCarouselCaption">Featured video: Broward's own introduction to Broward Powered by AI, provided by BCPS. Captions to be added once a caption file is available from the District.</p>
+          <p class="cite" style="color:#cdd9ec;margin-top:8px" id="heroCarouselCaption">An introduction from Broward County Public Schools to the Broward Powered by AI initiative: what it is, why it matters, and what families can expect.</p>
         </div>
       </div>
     </div>
@@ -392,11 +392,11 @@ footer.site b{color:#fff}
       <div class="eyebrow">What's new</div>
       <h2 class="h2">Recent updates</h2>
       <div class="whatsnew-grid">
-        <div class="card"><img class="thumb" src="/images/leadership-days/photo-14.jpg" alt="District and school leaders gathered together on stage at Academic Leadership Days" loading="lazy"><div class="card-body"><span class="tag-new">Board action</span><p>School Board Resolution No. 26-132 was approved, formally adopting the districtwide AI approach.</p><button class="btn btn-outline" data-go="policy" style="width:100%;justify-content:center">Read the resolution &rarr;</button></div></div>
+        <div class="card"><img class="thumb" src="/images/card-board-action.jpg" alt="Broward County School Board" loading="lazy"><div class="card-body"><span class="tag-new">Board action</span><p>School Board Resolution No. 26-132 was approved, formally adopting the districtwide AI approach.</p><button class="btn btn-outline" data-go="policy" style="width:100%;justify-content:center">Read the resolution &rarr;</button></div></div>
         <div class="card"><img class="thumb" src="/images/symposium/photo-02.jpg" alt="Parent AI Symposium 2026, district leader addressing attendees" loading="lazy"><div class="card-body"><span class="tag-new">Event</span><p>Parent AI Symposium 2026 sessions are underway, open to parents, educators, and community leaders.</p><button class="btn btn-outline" data-go="community" style="width:100%;justify-content:center">See dates &rarr;</button></div></div>
-        <div class="card"><img class="thumb" src="/images/symposium/photo-05.jpg" alt="Parents and educators seated in the audience at a Broward Powered by AI session" loading="lazy"><div class="card-body"><span class="tag-new">Ongoing</span><p>Family Forum (formerly Parent University) continues its ongoing AI-literacy sessions for families.</p><button class="btn btn-outline" data-go="family-forum" style="width:100%;justify-content:center">View details &rarr;</button></div></div>
+        <div class="card"><img class="thumb" src="/images/card-family-forum.jpg" alt="Family Forum, virtual AI-literacy sessions for families" loading="lazy"><div class="card-body"><span class="tag-new">Ongoing</span><p>Family Forum continues its ongoing AI-literacy sessions for families.</p><button class="btn btn-outline" data-go="family-forum" style="width:100%;justify-content:center">View details &rarr;</button></div></div>
       </div>
-      <div class="samplenote" style="max-width:none">Updated manually by the district communications team until the weekly-editable version is wired to a content source. Every item above links to real, already-published content on this site. Photos are representative community imagery from Broward Powered by AI events, not a photo of the specific resolution/session itself where a dedicated one doesn't yet exist.</div>
+      <div class="samplenote" style="max-width:none">Updated manually by the district communications team until the weekly-editable version is wired to a content source. Every item above links to real, already-published content on this site. The Event card uses a real Parent AI Symposium photo. Board Action and Family Forum use a branded graphic since we don't yet have a School Board or virtual-session photo on file.</div>
     </div>
   </section>
 
@@ -1105,7 +1105,7 @@ footer.site b{color:#fff}
 
       <h3 class="h3sec">More ways to engage</h3>
       <div class="grid3">
-        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 9v5c0 1.5 2.2 3 5 3s5-1.5 5-3V9"/></svg></span><h3>Family Forum</h3><p>Ongoing sessions and recordings that help families build AI literacy at home. Formerly called Parent University. Next session: July 29, 2026.</p><p style="margin-top:10px"><button class="btn btn-outline" data-go="family-forum" style="width:100%;justify-content:center">View dates &amp; details &rarr;</button></p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 9v5c0 1.5 2.2 3 5 3s5-1.5 5-3V9"/></svg></span><h3>Family Forum</h3><p>Ongoing sessions and recordings that help families build AI literacy at home. Next session: July 29, 2026.</p><p style="margin-top:10px"><button class="btn btn-outline" data-go="family-forum" style="width:100%;justify-content:center">View dates &amp; details &rarr;</button></p></div>
         <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span><h3>Community feedback</h3><p>Positive feedback and resolved items gathered from sessions, curated here for families. There is no open form for commenting on a specific tool or vendor.</p><p style="margin-top:10px"><button class="btn btn-outline" data-go="community-feedback" style="width:100%;justify-content:center">View details &rarr;</button></p></div>
         <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 11h16"/></svg></span><h3>Upcoming events</h3><p>A calendar of Family Forums, symposiums, workshops, and school-based sessions.</p><p style="margin-top:10px"><button class="btn btn-outline" data-go="upcoming-events" style="width:100%;justify-content:center">View calendar &rarr;</button></p></div>
       </div>
@@ -1120,7 +1120,7 @@ footer.site b{color:#fff}
       <p><button class="btn btn-outline" data-go="community">&larr; Back to Community Engagement</button></p>
       <div class="eyebrow">Community &middot; Parent &amp; Community Engagement</div>
       <h2 class="h2">Family Forum</h2>
-      <p class="lead">A series of three parent-facing sessions this summer, each recorded for families who cannot attend live. Formerly called Parent University.</p>
+      <p class="lead">A series of three parent-facing sessions this summer, each recorded for families who cannot attend live.</p>
 
       <div class="grid3">
         <div class="tile"><div class="num">July 29</div><div class="lbl">Family Forum #1 &middot; recorded for families unable to attend live</div></div>
@@ -1609,10 +1609,10 @@ function googleTranslateElementInit(){
   var nextBtn=document.getElementById('heroCarouselNext');
   if(!slides.length||!dotsWrap){ return; }
   var CAPTIONS=[
-    'Featured video: Broward\'s own introduction to Broward Powered by AI, provided by BCPS. Captions to be added once a caption file is available from the District.',
-    'Copilot demonstration video.',
-    'Prisms VR: Implementation, real classroom footage provided by BCPS.',
-    'Prisms VR: Outcomes, real classroom footage provided by BCPS.'
+    'An introduction from Broward County Public Schools to the Broward Powered by AI initiative: what it is, why it matters, and what families can expect.',
+    'A walkthrough of Microsoft Copilot in the classroom, showing how teachers use it for lesson planning, feedback, and everyday instructional tasks.',
+    'Real Broward classroom footage of teachers rolling out Prisms VR, guiding students through hands-on virtual reality math and science lessons.',
+    'Real Broward classroom footage on student outcomes with Prisms VR, from stronger engagement to deeper understanding of math and science concepts.'
   ];
   var idx=0, timer=null, paused=false;
   slides.forEach(function(s,i){
