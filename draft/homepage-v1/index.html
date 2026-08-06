@@ -349,12 +349,30 @@ footer.site b{color:#fff}
           </div>
         </div>
         <div>
-          <div class="video real" aria-label="Featured video: Broward Powered by AI introduction">
-            <video controls preload="metadata" playsinline poster="/images/broward-ai-home-poster.jpg">
-              <source src="/videos/broward-ai-home.mp4" type="video/mp4">
-              Your browser does not support embedded video. <a href="videos/broward-ai-home.mp4">Download the video</a> instead.
-            </video>
+          <div class="video real hero-carousel" id="heroCarousel" aria-label="Featured videos: Broward Powered by AI">
+            <div class="slide active" data-slide="0">
+              <video controls preload="metadata" playsinline poster="/images/broward-ai-home-poster.jpg">
+                <source src="/videos/broward-ai-home.mp4" type="video/mp4">
+                Your browser does not support embedded video. <a href="videos/broward-ai-home.mp4">Download the video</a> instead.
+              </video>
+            </div>
+            <div class="slide" data-slide="1">
+              <div class="yt-embed"><iframe src="https://www.youtube.com/embed/yjMIZOWdLXk" title="Copilot demonstration video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+            </div>
+            <div class="slide" data-slide="2">
+              <video controls preload="metadata" playsinline style="width:100%;height:100%;border-radius:var(--radius);display:block;background:#000">
+                <source src="/videos/prisms-implementation.mp4" type="video/mp4">
+                Your browser does not support embedded video. <a href="/videos/prisms-implementation.mp4">Download the video</a> instead.
+              </video>
+            </div>
+            <div class="slide" data-slide="3">
+              <video controls preload="metadata" playsinline style="width:100%;height:100%;border-radius:var(--radius);display:block;background:#000">
+                <source src="videos/prisms-outcomes.mp4" type="video/mp4">
+                Your browser does not support embedded video. <a href="videos/prisms-outcomes.mp4">Download the video</a> instead.
+              </video>
+            </div>
           </div>
+          <div class="dots" id="heroCarouselDots"></div>
           <p class="cite" style="color:#cdd9ec;margin-top:8px">Featured video: Broward's own introduction to Broward Powered by AI, provided by BCPS. Captions to be added once a caption file is available from the District.</p>
         </div>
       </div>
