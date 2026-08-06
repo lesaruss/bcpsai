@@ -250,6 +250,40 @@ footer.site b{color:#fff}
   nav.main{right:0;min-width:210px}
   .bar{grid-template-columns:120px 1fr 44px}
 }
+
+/* Hero video carousel (added 2026-08-06, homepage review session follow-up) */
+.hero-carousel{position:relative;overflow:hidden;border-radius:var(--radius)}
+.hero-carousel .slide{display:none}
+.hero-carousel .slide.active{display:block}
+.hero-carousel .dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.hero-carousel .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);border:0;cursor:pointer;padding:0}
+.hero-carousel .dot.active{background:#fff}
+.hero-carousel .yt-embed{position:relative;width:100%;height:100%;aspect-ratio:16/9;background:#000;border-radius:var(--radius);overflow:hidden}
+.hero-carousel .yt-embed iframe{width:100%;height:100%;border:0;display:block}
+
+/* What's New strip */
+.whatsnew-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.whatsnew-grid .card{padding:18px}
+.whatsnew-grid .tag-new{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.whatsnew-grid p{margin:0 0 10px;color:var(--muted);font-size:.92rem;line-height:1.55}
+
+/* Ecosystem node buttons + modal */
+.flow .node{cursor:pointer;border:0;font:inherit;transition:background .15s,color .15s}
+.flow .node:hover,.flow .node:focus-visible{background:var(--blue-soft);color:var(--navy)}
+.ecomodal-backdrop{position:fixed;inset:0;background:rgba(12,35,64,.55);display:none;align-items:center;justify-content:center;z-index:60;padding:20px}
+.ecomodal-backdrop.open{display:flex}
+.ecomodal{background:#fff;border-radius:var(--radius);max-width:480px;width:100%;padding:28px;box-shadow:var(--shadow);position:relative}
+.ecomodal h3{margin-bottom:10px}
+.ecomodal p{color:var(--muted);font-size:.94rem;line-height:1.6;margin-bottom:14px}
+.ecomodal .ecoclose{position:absolute;top:14px;right:14px;border:0;background:none;cursor:pointer;color:var(--muted);width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px}
+.ecomodal .ecoclose:hover{background:var(--bg-soft)}
+
+/* FAQ search */
+.faq-search{position:relative;max-width:480px;margin:18px 0 22px}
+.faq-search input{width:100%;padding:12px 16px 12px 40px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:.95rem}
+.faq-search input:focus{outline:2px solid var(--blue);outline-offset:1px}
+.faq-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
+.faq-noresults{display:none;color:var(--muted);font-size:.9rem;padding:10px 0}
 </style>
 </head>
 <body>
