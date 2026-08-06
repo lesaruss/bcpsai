@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BCPS Powered by AI: Progress Tracker (updated July 27 2026)</title>
+<title>BCPS Powered by AI: Progress Tracker (updated August 6 2026)</title>
 <style>
   :root{
     --text:#1a1a1a;--text-75:rgba(26,26,26,.78);--text-50:rgba(26,26,26,.55);
@@ -99,7 +99,7 @@
 </header>
 
 <h1>BCPS Powered by AI: Progress Tracker</h1>
-<p class="meta">Prepared by Sean Russell &middot; running tracker, last updated July 29, 2026 &middot; companion for the Broward AI Webpage Review meeting</p>
+<p class="meta">Prepared by Sean Russell &middot; running tracker, last updated August 6, 2026 &middot; companion for the Broward AI Webpage Review meeting</p>
 
 <p class="lede">This is the living tracker for the browardschools.ai site: what has shipped, what is still waiting on a BCPS decision or document, and what is next. It replaces the July 16 preview checklist as the single source of truth, folding that session's work in as already-completed.</p>
 
@@ -108,7 +108,7 @@
 <div class="tablist" role="tablist" aria-label="Progress tracker sections">
   <button class="tab-btn" role="tab" id="tab-btn-questions" aria-controls="tab-questions" aria-selected="true" tabindex="0">Open Questions <span class="count">0</span></button>
   <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">14</span></button>
-  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">57</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">62</span></button>
 </div>
 
 <div class="tabpanel" id="tab-questions" role="tabpanel" aria-labelledby="tab-btn-questions">
@@ -226,6 +226,36 @@
 
 <div class="tabpanel" id="tab-completed" role="tabpanel" aria-labelledby="tab-btn-completed" hidden>
 <h2>Completed</h2>
+<details class="done">
+<summary>Homepage hero rebuilt as a 4-slide rotating video carousel (August 6)</summary>
+<div class="body">
+<p>Per the Broward AI Webpage Review meeting (August 5): replaced the single static hero video with a rotating carousel of four real videos, auto-advancing every 9 seconds with manual dot navigation and pause-on-hover. Slide 1 is the existing Broward AI introduction video; slide 2 is the Microsoft Copilot demonstration video, embedded directly from YouTube; slides 3 and 4 are the two real Prisms VR classroom videos (Implementation and Outcomes), the same files already hosted on the Approved Tools page. No placeholder or stock footage used. Built and QA-gated in draft/homepage-v1 first (zero console errors, verified live via Chrome browser interaction), then promoted to production. Pushed to lesaruss/bcpsai, verified live.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home (hero carousel) &#8599;</a></p></div>
+</details>
+
+<details class="done">
+<summary>"District Vetted AI Tools" and "FAQ" added as prominent hero buttons (August 6)</summary>
+<div class="body">
+<p>Per the Broward AI Webpage Review meeting (August 5): added two new buttons to the homepage hero action row, alongside the existing Our Principles, Parent Resources, Accountability, and For Staff &amp; Leaders buttons, giving Approved Tools and the FAQ section top-of-page visibility instead of requiring a scroll or nav-menu open. Both route to existing site sections. QA-gated and verified live.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home (hero buttons) &#8599;</a></p></div>
+</details>
+
+<details class="done">
+<summary>"What's New" module added to the homepage (August 6)</summary>
+<div class="body">
+<p>Per the Broward AI Webpage Review meeting (August 5): added a three-card "Recent updates" strip directly under the hero, surfacing School Board Resolution No. 26-132 (adopting the districtwide AI approach), the Parent AI Symposium 2026 sessions, and the ongoing Family Forum series. Each card links through to real, already-published content on the site (Parent Resources, Community, and Family Forum respectively) rather than a new standalone page. Marked in the module itself as manually updated by the district communications team until a weekly-editable content source is wired up. QA-gated (mobile breakpoint issue found and fixed before promotion, see internal QA notes) and verified live.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home, What's New &#8599;</a></p></div>
+</details>
+
+<details class="done">
+<summary>Ecosystem diagram (Students &#8594; Future Workforce) made clickable with modal detail (August 6)</summary>
+<div class="body">
+<p>Per the Broward AI Webpage Review meeting (August 5): the "connected ecosystem of learning" flow diagram on the homepage (Students, Teachers, Schools, Families, Community, Future Workforce) is now six clickable buttons instead of static labels. Each opens a modal with a real, sourced description of that group's role and, where a natural next step exists, a jump-through button to the relevant page (e.g. Teachers links to AI in the Classroom, Schools links to District Vetted AI Tools). Students shows an honest placeholder noting the Student AI Council roster is still being finalized by BCPS rather than inventing member names. Keyboard-accessible (Escape closes, focus-visible states), verified live with zero console errors.</p><p class="reflink"><a href="https://browardschools.ai/#home" target="_blank" rel="noopener">View on the site: Home, connected ecosystem of learning &#8599;</a></p></div>
+</details>
+
+<details class="done">
+<summary>Live FAQ search widget added to the data-privacy FAQ (August 6)</summary>
+<div class="body">
+<p>Per the Broward AI Webpage Review meeting (August 5): added a search box above the FAQ section's Data privacy questions that filters the three verified, legally-answered questions live as the user types, with a no-results message when nothing matches. Scoped only to the three questions that are already final and published; the remaining 35 Family Forum FAQ questions are unaffected and still shown as pending the district committee's review (see Pending tab). Verified live: typing "rights" correctly narrows to the single matching question.</p><p class="reflink"><a href="https://browardschools.ai/#faq" target="_blank" rel="noopener">View on the site: FAQ, search &#8599;</a></p></div>
+</details>
+
 <details class="done">
 <summary>"Report a concern" contact details added: AIFeedback@browardschools.com now live on the Policy page (July 30)</summary>
 <div class="body">
