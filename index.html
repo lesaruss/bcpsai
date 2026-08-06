@@ -73,7 +73,7 @@ nav.main .navlogin:hover{background:var(--navy)}
 /* Hero */
 .hero{background:radial-gradient(1200px 480px at 80% -10%,rgba(22,114,167,.26),transparent 60%),linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 70%);color:#fff;position:relative;overflow:hidden}
 .hero .wrap{padding:60px 22px 66px}
-.hero .grid{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.hero .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:36px;align-items:center}
 .kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#dce7f7;padding:6px 13px;border-radius:999px;font-size:.76rem;font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-bottom:18px}
 .kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
 .hero h1{color:#fff;font-size:2.8rem;letter-spacing:-.5px;margin-bottom:14px}
@@ -249,8 +249,6 @@ footer.site b{color:#fff}
 /* Updated 2026-08-06 (review follow-up): moved to a large centered block below the
    hero text instead of a cramped side column, made the auto-advance/toggle affordance
    explicit (badge + arrows + bigger dots), and wired real autoplay for the active slide. */
-.hero .grid{grid-template-columns:1fr;gap:36px}
-.hero .grid > div:last-child{max-width:960px;width:100%;margin:0 auto;text-align:center}
 .hero-carousel{position:relative;overflow:hidden;border-radius:var(--radius)}
 .hero-carousel .slide{display:none}
 .hero-carousel .slide.active{display:block}
