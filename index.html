@@ -235,16 +235,49 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:
 footer.site b{color:#fff}
 
 /* Hidden 2026-07-29 alongside the samplenote flags, same reason: no draft indicators visible during tonight's parent presentation. */
-.mockflag{display:none;position:fixed;right:14px;bottom:14px;z-index:50;background:var(--navy);color:#fff;font-size:.72rem;font-weight:600;padding:8px 13px;border-radius:999px;box-shadow:var(--shadow);opacity:.92}
 
 @media(max-width:900px){
   .hero .grid{grid-template-columns:1fr;gap:28px}
   .hero h1{font-size:2.1rem}
-  .grid2,.grid3,.tools,.docrow,.sourcelist{grid-template-columns:1fr}
+  .grid2,.grid3,.tools,.docrow,.sourcelist,.whatsnew-grid{grid-template-columns:1fr}
   .grid4,.grid5,.steps{grid-template-columns:repeat(2,1fr)}
   nav.main{right:0;min-width:210px}
   .bar{grid-template-columns:120px 1fr 44px}
 }
+
+/* Hero video carousel (added 2026-08-06, homepage review session follow-up) */
+.hero-carousel{position:relative;overflow:hidden;border-radius:var(--radius)}
+.hero-carousel .slide{display:none}
+.hero-carousel .slide.active{display:block}
+.hero-carousel .dots{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.hero-carousel .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);border:0;cursor:pointer;padding:0}
+.hero-carousel .dot.active{background:#fff}
+.hero-carousel .yt-embed{position:relative;width:100%;height:100%;aspect-ratio:16/9;background:#000;border-radius:var(--radius);overflow:hidden}
+.hero-carousel .yt-embed iframe{width:100%;height:100%;border:0;display:block}
+
+/* What's New strip */
+.whatsnew-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.whatsnew-grid .card{padding:18px}
+.whatsnew-grid .tag-new{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#5c4310;margin-bottom:8px}
+.whatsnew-grid p{margin:0 0 10px;color:var(--muted);font-size:.92rem;line-height:1.55}
+
+/* Ecosystem node buttons + modal */
+.flow .node{cursor:pointer;border:0;font:inherit;transition:background .15s,color .15s}
+.flow .node:hover,.flow .node:focus-visible{background:var(--blue-soft);color:var(--navy)}
+.ecomodal-backdrop{position:fixed;inset:0;background:rgba(12,35,64,.55);display:none;align-items:center;justify-content:center;z-index:60;padding:20px}
+.ecomodal-backdrop.open{display:flex}
+.ecomodal{background:#fff;border-radius:var(--radius);max-width:480px;width:100%;padding:28px;box-shadow:var(--shadow);position:relative}
+.ecomodal h3{margin-bottom:10px}
+.ecomodal p{color:var(--muted);font-size:.94rem;line-height:1.6;margin-bottom:14px}
+.ecomodal .ecoclose{position:absolute;top:14px;right:14px;border:0;background:none;cursor:pointer;color:var(--muted);width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:8px}
+.ecomodal .ecoclose:hover{background:var(--bg-soft)}
+
+/* FAQ search */
+.faq-search{position:relative;max-width:480px;margin:18px 0 22px}
+.faq-search input{width:100%;padding:12px 16px 12px 40px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:.95rem}
+.faq-search input:focus{outline:2px solid var(--blue);outline-offset:1px}
+.faq-search svg{position:absolute;left:12px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--muted)}
+.faq-noresults{display:none;color:var(--muted);font-size:.9rem;padding:10px 0}
 </style>
 </head>
 <body>
@@ -305,18 +338,51 @@ footer.site b{color:#fff}
             <button class="btn btn-ghost" data-go="policy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg> Parent Resources</button>
             <button class="btn btn-ghost" data-go="accountability"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg> Accountability</button>
             <button class="btn btn-ghost" data-go="staffleaders"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.5 3.5-6 8-6s8 2.5 8 6"/></svg> For Staff &amp; Leaders</button>
+            <button class="btn btn-ghost" data-go="tools"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg> District Vetted AI Tools</button>
+            <button class="btn btn-ghost" data-go="faq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 115 .5c0 1.5-2 1.7-2.5 3"/><path d="M12 17h.01"/></svg> FAQ</button>
           </div>
         </div>
         <div>
-          <div class="video real" aria-label="Featured video: Broward Powered by AI introduction">
-            <video controls preload="metadata" playsinline poster="images/broward-ai-home-poster.jpg">
-              <source src="videos/broward-ai-home.mp4" type="video/mp4">
-              Your browser does not support embedded video. <a href="videos/broward-ai-home.mp4">Download the video</a> instead.
-            </video>
+          <div class="video real hero-carousel" id="heroCarousel" aria-label="Featured videos: Broward Powered by AI">
+            <div class="slide active" data-slide="0">
+              <video controls preload="metadata" playsinline poster="/images/broward-ai-home-poster.jpg">
+                <source src="/videos/broward-ai-home.mp4" type="video/mp4">
+                Your browser does not support embedded video. <a href="videos/broward-ai-home.mp4">Download the video</a> instead.
+              </video>
+            </div>
+            <div class="slide" data-slide="1">
+              <div class="yt-embed"><iframe src="https://www.youtube.com/embed/yjMIZOWdLXk" title="Copilot demonstration video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+            </div>
+            <div class="slide" data-slide="2">
+              <video controls preload="metadata" playsinline style="width:100%;height:100%;border-radius:var(--radius);display:block;background:#000">
+                <source src="/videos/prisms-implementation.mp4" type="video/mp4">
+                Your browser does not support embedded video. <a href="/videos/prisms-implementation.mp4">Download the video</a> instead.
+              </video>
+            </div>
+            <div class="slide" data-slide="3">
+              <video controls preload="metadata" playsinline style="width:100%;height:100%;border-radius:var(--radius);display:block;background:#000">
+                <source src="videos/prisms-outcomes.mp4" type="video/mp4">
+                Your browser does not support embedded video. <a href="videos/prisms-outcomes.mp4">Download the video</a> instead.
+              </video>
+            </div>
           </div>
-          <p class="cite" style="color:#cdd9ec;margin-top:8px">Featured video: Broward's own introduction to Broward Powered by AI, provided by BCPS. Captions to be added once a caption file is available from the District.</p>
+          <div class="dots" id="heroCarouselDots"></div>
+          <p class="cite" style="color:#cdd9ec;margin-top:8px" id="heroCarouselCaption">Featured video: Broward's own introduction to Broward Powered by AI, provided by BCPS. Captions to be added once a caption file is available from the District.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-bottom:8px">
+    <div class="wrap">
+      <div class="eyebrow">What's new</div>
+      <h2 class="h2">Recent updates</h2>
+      <div class="whatsnew-grid">
+        <div class="card"><span class="tag-new">Board action</span><p>School Board Resolution No. 26-132 was approved, formally adopting the districtwide AI approach.</p><button class="btn btn-outline" data-go="policy" style="width:100%;justify-content:center">Read the resolution &rarr;</button></div>
+        <div class="card"><span class="tag-new">Event</span><p>Parent AI Symposium 2026 sessions are underway, open to parents, educators, and community leaders.</p><button class="btn btn-outline" data-go="community" style="width:100%;justify-content:center">See dates &rarr;</button></div>
+        <div class="card"><span class="tag-new">Ongoing</span><p>Family Forum (formerly Parent University) continues its ongoing AI-literacy sessions for families.</p><button class="btn btn-outline" data-go="family-forum" style="width:100%;justify-content:center">View details &rarr;</button></div>
+      </div>
+      <div class="samplenote" style="max-width:none">Updated manually by the district communications team until the weekly-editable version is wired to a content source. Every item above links to real, already-published content on this site.</div>
     </div>
   </section>
 
@@ -335,24 +401,52 @@ footer.site b{color:#fff}
     </div>
   </section>
 
+  <section class="band" style="border-top: 3px solid var(--gold); padding-top: 48px;">
+    <div class="wrap">
+      <div class="eyebrow" style="color: var(--gold); text-transform: uppercase; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.5px;">Community Spotlight</div>
+      <h2 class="h2">Events and Initiatives</h2>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; margin-top: 32px;">
+        <div>
+          <img src="/images/symposium/photo-20.jpg" alt="Parent AI Symposium 2026 - panelists on stage" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);">
+        </div>
+        <div>
+          <h3 style="color: var(--navy); margin-bottom: 12px; font-size: 1.5rem;">Parent AI Symposium 2026</h3>
+          <p style="color: var(--muted); margin-bottom: 16px; font-size: 1.05rem; line-height: 1.6;">Join us for an engaging conversation with district leaders, educators, and technology experts about AI in education. Learn how Broward Powered by AI is transforming classrooms while keeping students, families, and teachers at the center.</p>
+          <div style="display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap;">
+            <div style="border-left: 3px solid var(--gold); padding-left: 16px;">
+              <div style="color: var(--gold); font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">Date & Time</div>
+              <p style="margin: 4px 0 0; color: var(--ink);">2026 - Multiple Sessions</p>
+            </div>
+            <div style="border-left: 3px solid var(--gold); padding-left: 16px;">
+              <div style="color: var(--gold); font-weight: 600; font-size: 0.9rem; text-transform: uppercase;">Who Should Attend</div>
+              <p style="margin: 4px 0 0; color: var(--ink);">Parents, Educators, Community Leaders</p>
+            </div>
+          </div>
+          <p style="color: var(--muted); margin-top: 20px; font-size: 0.9rem;">More events coming soon. Check back regularly for updates on community engagement opportunities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="band soft">
     <div class="wrap">
       <div class="eyebrow">Why now</div>
       <h2 class="h2">A connected ecosystem of learning</h2>
       <p class="lead">AI, virtual reality, and extended reality are reshaping how students learn and the careers they will enter. Broward Powered by AI connects every level of the system so progress reaches the classroom and the future workforce.</p>
       <div class="flow" aria-label="Framework flow from students to future workforce">
-        <span class="node">Students</span>
+        <button type="button" class="node" data-eco="students">Students</button>
         <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        <span class="node">Teachers</span>
+        <button type="button" class="node" data-eco="teachers">Teachers</button>
         <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        <span class="node">Schools</span>
+        <button type="button" class="node" data-eco="schools">Schools</button>
         <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        <span class="node">Families</span>
+        <button type="button" class="node" data-eco="families">Families</button>
         <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        <span class="node">Community</span>
+        <button type="button" class="node" data-eco="community">Community</button>
         <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        <span class="node">Future Workforce</span>
+        <button type="button" class="node" data-eco="workforce">Future Workforce</button>
       </div>
+      <p class="cite" style="margin-top:10px">Click any step to see its role in the ecosystem.</p>
     </div>
   </section>
 
@@ -499,6 +593,30 @@ footer.site b{color:#fff}
   </section>
 </div>
 
+<div class="view" id="faq">
+  <section class="band">
+    <div class="wrap">
+      <div class="eyebrow">Frequently Asked Questions</div>
+      <h2 class="h2">Straight answers, in one place</h2>
+      <p class="lead">The questions families and staff ask most, gathered from the Family Forum sessions and reviewed by the district before publishing.</p>
+      <div class="faq-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+        <input type="search" id="faqSearch" placeholder="Search questions..." aria-label="Search frequently asked questions">
+      </div>
+      <p class="faq-noresults" id="faqNoResults">No questions match your search yet. The full 38-question list is still being finalized by the district committee.</p>
+      <div class="samplenote" style="max-width:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> The full Family Forum FAQ (38 questions, deduplicated) is with the district committee for review and has not been finalized yet. This page will be completed once Thomas J. Correll and Alyssa N. Williams send the approved list. The data privacy questions below are already live and answered.</div>
+
+      <h3 class="h3sec">Data privacy</h3>
+      <div class="acc">
+        <details open data-q="faq" style="display:block"><summary>What information is collected, and why? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">Approved tools collect only what is needed to deliver the educational service. Information is used for that purpose alone, not for advertising or any unrelated commercial use.</div></details>
+        <details data-q="faq" style="display:block"><summary>Can AI train on my child's information? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">No. Approved tools are configured so student and staff information is not used to train public AI models. This is a condition of approval for every tool listed on this site.</div></details>
+        <details data-q="faq" style="display:block"><summary>What are my rights as a parent? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">Parents have the right to know what AI tools are being used in their child's education and how they are being used, and to request that their child be excluded from the use of AI where practicable. Under FERPA you may also inspect and review your child's education records and request corrections; under PPRA, certain surveys require notice and the chance to opt out.</div></details>
+      </div>
+      <p class="cite">See <button class="btn btn-outline" data-go="policy" style="display:inline;padding:2px 10px">Parent Resources</button> for the full data privacy section, and <button class="btn btn-outline" data-go="tools" style="display:inline;padding:2px 10px">District Vetted AI Tools</button> for what is approved and why.</p>
+    </div>
+  </section>
+</div>
+
 <div class="view" id="tool-copilot">
   <section class="band">
     <div class="wrap">
@@ -621,10 +739,10 @@ footer.site b{color:#fff}
       <div class="grid2">
         <div>
           <video controls preload="metadata" playsinline style="width:100%;border-radius:10px;display:block;background:#000">
-            <source src="videos/prisms-implementation.mp4" type="video/mp4">
-            Your browser does not support embedded video. <a href="videos/prisms-implementation.mp4">Download the video</a> instead.
+            <source src="/videos/prisms-implementation.mp4" type="video/mp4">
+            Your browser does not support embedded video. <a href="/videos/prisms-implementation.mp4">Download the video</a> instead.
           </video>
-          <p class="cite">Prisms VR: Implementation &middot; <a href="documents/tools/prisms-implementation-transcript.txt" target="_blank" rel="noopener">Read the transcript &#8599;</a></p>
+          <p class="cite">Prisms VR: Implementation &middot; <a href="/documents/tools/prisms-implementation-transcript.txt" target="_blank" rel="noopener">Read the transcript &#8599;</a></p>
         </div>
         <div>
           <video controls preload="metadata" playsinline style="width:100%;border-radius:10px;display:block;background:#000">
@@ -1279,8 +1397,6 @@ footer.site b{color:#fff}
   </div>
 </footer>
 
-<div class="mockflag">Working draft &middot; bcps-ai</div>
-
 <script>
 (function(){
   var views=document.querySelectorAll('.view');
@@ -1418,5 +1534,109 @@ function googleTranslateElementInit(){
 }
 </script>
 <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<div class="ecomodal-backdrop" id="ecomodalBackdrop" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="ecomodal">
+    <button type="button" class="ecoclose" id="ecomodalClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <h3 id="ecomodalTitle"></h3>
+    <p id="ecomodalBody"></p>
+    <button type="button" class="btn btn-outline" id="ecomodalAction" style="display:none;width:100%;justify-content:center"></button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var ECO_CONTENT={
+    students:{title:'Students',body:'Every Broward student is part of the Student AI Council, which gives students a direct voice in how AI is used across the district. This was a School Board directive. The council roster is still being finalized; this section will be updated with member names once seated.',action:null},
+    teachers:{title:'Teachers',body:'Teachers work with the district AI Task Force (convened November 2024) on responsible classroom use of approved tools like Copilot and MagicSchool, always staying the human decision-maker in the loop.',action:{label:'See AI in the Classroom \u2192',go:'learning'}},
+    schools:{title:'Schools',body:'All 222 Broward schools operate under the same districtwide review process: every AI tool clears privacy, security, and accessibility review before it reaches a classroom.',action:{label:'See District Vetted AI Tools \u2192',go:'tools'}},
+    families:{title:'Families',body:'Families get plain-language answers through Parent Resources and the Family Forum series, plus a direct channel to raise questions or concerns.',action:{label:'See Parent Resources \u2192',go:'policy'}},
+    community:{title:'Community',body:'Community members take part through the Parent AI Symposium and ongoing Family Forum sessions, and can review published progress and metrics.',action:{label:'See Community events \u2192',go:'community'}},
+    workforce:{title:'Future Workforce',body:'AI, VR, and XR literacy in the classroom today is meant to connect directly to the skills students will need in the careers and workforce of tomorrow.',action:{label:'See accountability metrics \u2192',go:'accountability'}}
+  };
+  var backdrop=document.getElementById('ecomodalBackdrop');
+  var titleEl=document.getElementById('ecomodalTitle');
+  var bodyEl=document.getElementById('ecomodalBody');
+  var actionEl=document.getElementById('ecomodalAction');
+  var closeBtn=document.getElementById('ecomodalClose');
+  function openEco(key){
+    var c=ECO_CONTENT[key];
+    if(!c){ return; }
+    titleEl.textContent=c.title;
+    bodyEl.textContent=c.body;
+    if(c.action){
+      actionEl.style.display='block';
+      actionEl.textContent=c.action.label;
+      actionEl.onclick=function(){ closeEco(); var el=document.querySelector('[data-go="'+c.action.go+'"]'); if(el){ el.click(); } };
+    } else {
+      actionEl.style.display='none';
+    }
+    backdrop.classList.add('open');
+    backdrop.setAttribute('aria-hidden','false');
+  }
+  function closeEco(){
+    backdrop.classList.remove('open');
+    backdrop.setAttribute('aria-hidden','true');
+  }
+  document.querySelectorAll('[data-eco]').forEach(function(btn){
+    btn.addEventListener('click',function(){ openEco(btn.getAttribute('data-eco')); });
+  });
+  closeBtn.addEventListener('click',closeEco);
+  backdrop.addEventListener('click',function(e){ if(e.target===backdrop){ closeEco(); } });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){ closeEco(); } });
+})();
+
+(function(){
+  var slides=document.querySelectorAll('#heroCarousel .slide');
+  var dotsWrap=document.getElementById('heroCarouselDots');
+  var caption=document.getElementById('heroCarouselCaption');
+  if(!slides.length||!dotsWrap){ return; }
+  var CAPTIONS=[
+    'Featured video: Broward\'s own introduction to Broward Powered by AI, provided by BCPS. Captions to be added once a caption file is available from the District.',
+    'Copilot demonstration video.',
+    'Prisms VR: Implementation, real classroom footage provided by BCPS.',
+    'Prisms VR: Outcomes, real classroom footage provided by BCPS.'
+  ];
+  var idx=0, timer=null;
+  slides.forEach(function(s,i){
+    var dot=document.createElement('button');
+    dot.type='button'; dot.className='dot'+(i===0?' active':''); dot.setAttribute('aria-label','Show video '+(i+1));
+    dot.addEventListener('click',function(){ show(i); resetTimer(); });
+    dotsWrap.appendChild(dot);
+  });
+  function show(i){
+    idx=i;
+    slides.forEach(function(s,j){ s.classList.toggle('active', j===i); });
+    dotsWrap.querySelectorAll('.dot').forEach(function(d,j){ d.classList.toggle('active', j===i); });
+    if(caption&&CAPTIONS[i]){ caption.textContent=CAPTIONS[i]; }
+    slides.forEach(function(s){ var v=s.querySelector('video'); if(v&&!s.classList.contains('active')){ v.pause(); } });
+  }
+  function resetTimer(){
+    if(timer){ clearInterval(timer); }
+    timer=setInterval(function(){ show((idx+1)%slides.length); },9000);
+  }
+  resetTimer();
+  document.getElementById('heroCarousel').addEventListener('mouseenter',function(){ if(timer){ clearInterval(timer); } });
+  document.getElementById('heroCarousel').addEventListener('mouseleave',resetTimer);
+})();
+
+(function(){
+  var input=document.getElementById('faqSearch');
+  if(!input){ return; }
+  var items=document.querySelectorAll('#faq [data-q="faq"]');
+  var noResults=document.getElementById('faqNoResults');
+  input.addEventListener('input',function(){
+    var q=input.value.trim().toLowerCase();
+    var visible=0;
+    items.forEach(function(el){
+      var text=el.textContent.toLowerCase();
+      var match=q===''||text.indexOf(q)!==-1;
+      el.style.display=match?'block':'none';
+      if(match){ visible++; }
+    });
+    noResults.style.display=(visible===0)?'block':'none';
+  });
+})();
+</script>
 </body>
 </html>
