@@ -37,7 +37,7 @@ p{margin:0 0 1rem}
 
 /* Top bar */
 .topbar{background:var(--navy);color:#fff;font-size:.82rem}
-.topbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;gap:14px}
+.topbar .wrap{display:flex;justify-content:center;align-items:center;height:38px;gap:14px}
 .topbar .langs{display:flex;gap:14px;flex-wrap:wrap}
 .topbar .langs button{background:none;border:0;color:#cdd9ec;cursor:pointer;font:inherit;padding:0}
 .topbar .langs button:hover{color:#fff;text-decoration:underline}
@@ -244,6 +244,24 @@ footer.site b{color:#fff}
   .grid4,.grid5,.steps{grid-template-columns:repeat(2,1fr)}
   nav.main{right:0;min-width:210px}
   .bar{grid-template-columns:120px 1fr 44px}
+  .events-init-grid{grid-template-columns:1fr!important}
+  .events-init-grid > div:first-child{order:1}
+  .events-init-grid > div:last-child{order:2}
+  .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:16px}
+  .flow .arrow{display:none}
+  .flow .node{flex:none;min-width:0;font-size:.82rem;padding:12px 6px}
+}
+@media(max-width:680px){
+  .hero-playlist{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+  .hero-playlist button{width:calc((100% - 20px)/3);height:auto;aspect-ratio:16/9;scroll-snap-align:start}
+  .grid5.commit-carousel{display:flex!important;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:6px;gap:12px}
+  .grid5.commit-carousel .card{flex:0 0 calc((100% - 12px)/2);scroll-snap-align:start}
+  .commit-dots{display:flex;justify-content:center;gap:8px;margin-top:14px}
+  .commit-dots span{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:background .15s,transform .15s}
+  .commit-dots span.active{background:var(--blue);transform:scale(1.2)}
+}
+@media(min-width:681px){
+  .commit-dots{display:none}
 }
 
 /* Hero video carousel (added 2026-08-06, homepage review session follow-up) */
@@ -269,8 +287,6 @@ footer.site b{color:#fff}
 .hero-carousel:hover .car-nav,.hero-carousel:focus-within .car-nav{opacity:1}
 .hero-carousel .car-nav.prev{left:10px}
 .hero-carousel .car-nav.next{right:10px}
-.hero-carousel .car-autoplay-badge{position:absolute;top:10px;left:10px;background:rgba(10,22,45,.6);color:#fff;font-size:.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:0;border-radius:99px;padding:6px 13px;cursor:pointer;z-index:5}
-.hero-carousel .car-autoplay-badge:hover{background:rgba(10,22,45,.8)}
 
 /* What's New strip */
 .whatsnew-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px}
@@ -311,7 +327,6 @@ footer.site b{color:#fff}
 
 <div class="topbar">
   <div class="wrap">
-    <span>Broward County Public Schools</span>
     <div class="langs" aria-label="Language options">
       <button class="notranslate" translate="no" data-lang="en">English</button><button class="notranslate" translate="no" data-lang="es">Español</button><button class="notranslate" translate="no" data-lang="ht">Kreyòl Ayisyen</button><button class="notranslate" translate="no" data-lang="pt">Português</button>
     </div>
@@ -364,7 +379,6 @@ footer.site b{color:#fff}
         </div>
         <div>
           <div class="video real hero-carousel" id="heroCarousel" aria-label="Featured videos: Broward Powered by AI">
-            <button type="button" class="car-autoplay-badge" id="heroCarouselAutoBadge" aria-pressed="false">&#10074;&#10074; Auto-playing &#8211; click to pause</button>
             <button type="button" class="car-nav prev" id="heroCarouselPrev" aria-label="Previous video">&#8249;</button>
             <button type="button" class="car-nav next" id="heroCarouselNext" aria-label="Next video">&#8250;</button>
             <div class="slide active" data-slide="0">
@@ -415,13 +429,14 @@ footer.site b{color:#fff}
       <div class="eyebrow">What is Broward Powered by AI</div>
       <h2 class="h2">Five commitments to every family</h2>
       <p class="lead">A districtwide approach to artificial intelligence built on transparency, trust, education, engagement, and accountability. Technology that supports the relationships and experiences essential to learning, never replaces them.</p>
-      <div class="grid5">
+      <div class="grid5 commit-carousel" id="commitCarousel">
         <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Transparency</h3><p>Know exactly what AI is used, why, and how it is monitored.</p></div>
         <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/></svg></span><h3>Trust</h3><p>Clear safeguards, governance, and ethical guardrails.</p></div>
         <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 9v5c0 1.5 2.2 3 5 3s5-1.5 5-3V9"/></svg></span><h3>Education</h3><p>Help families understand AI and the skills students need next.</p></div>
         <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><path d="M17 8h4M19 6v4"/></svg></span><h3>Engagement</h3><p>Ways for parents, students, and educators to take part.</p></div>
         <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg></span><h3>Accountability</h3><p>Public progress, metrics, reports, and continuous review.</p></div>
       </div>
+      <div class="commit-dots" id="commitDots" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -429,7 +444,7 @@ footer.site b{color:#fff}
     <div class="wrap">
       <div class="eyebrow" style="color: var(--gold); text-transform: uppercase; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.5px;">Community Spotlight</div>
       <h2 class="h2">Events and Initiatives</h2>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; margin-top: 32px;">
+      <div class="events-init-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; margin-top: 32px;">
         <div>
           <img src="/images/symposium/photo-20.jpg" alt="Parent AI Symposium 2026 - panelists on stage" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow);">
         </div>
@@ -1615,7 +1630,6 @@ function googleTranslateElementInit(){
   var playlistWrap=document.getElementById('heroCarouselPlaylist');
   var caption=document.getElementById('heroCarouselCaption');
   var titleEl=document.getElementById('heroCarouselTitle');
-  var badge=document.getElementById('heroCarouselAutoBadge');
   var prevBtn=document.getElementById('heroCarouselPrev');
   var nextBtn=document.getElementById('heroCarouselNext');
   if(!slides.length||!playlistWrap){ return; }
@@ -1637,13 +1651,15 @@ function googleTranslateElementInit(){
     '/images/prisms-implementation-poster.jpg',
     '/images/prisms-outcomes-poster.jpg'
   ];
-  var idx=0, timer=null, paused=false;
+  // Auto-advance removed 2026-08-07: navigation is via the playlist rail / prev-next
+  // controls only, so a video the user is watching never changes on its own.
+  var idx=0;
   slides.forEach(function(s,i){
     var tile=document.createElement('button');
     tile.type='button'; tile.className=(i===0?'active':'');
     tile.setAttribute('aria-label','Play video '+(i+1)+' of '+slides.length+': '+TITLES[i]);
     tile.innerHTML='<img src="'+PLAYLIST_THUMBS[i]+'" alt="" loading="lazy"><span class="playing">Playing</span><span class="label">'+TITLES[i]+'</span>';
-    tile.addEventListener('click',function(){ show(i); resetTimer(); });
+    tile.addEventListener('click',function(){ show(i); });
     playlistWrap.appendChild(tile);
   });
   function playActiveMedia(s){
@@ -1670,29 +1686,47 @@ function googleTranslateElementInit(){
     if(titleEl&&TITLES[i]){ titleEl.textContent=TITLES[i]; }
     if(caption&&CAPTIONS[i]){ caption.textContent=CAPTIONS[i]; }
     if(prevSlide){ stopMedia(prevSlide); }
-    if(!paused){ playActiveMedia(slides[idx]); }
+    playActiveMedia(slides[idx]);
+    var activeTile=playlistWrap.querySelectorAll('button')[i];
+    if(activeTile&&activeTile.scrollIntoView){ activeTile.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'}); }
   }
-  function resetTimer(){
-    if(timer){ clearInterval(timer); }
-    if(paused){ return; }
-    timer=setInterval(function(){ show((idx+1)%slides.length); },9000);
-  }
-  function setPaused(p){
-    paused=p;
-    if(badge){
-      badge.innerHTML=paused ? '&#9654; Paused &#8211; click to auto-play' : '&#10074;&#10074; Auto-playing &#8211; click to pause';
-      badge.setAttribute('aria-pressed', paused?'true':'false');
-    }
-    if(paused){ if(timer){ clearInterval(timer); } stopMedia(slides[idx]); }
-    else { playActiveMedia(slides[idx]); resetTimer(); }
-  }
-  if(badge){ badge.addEventListener('click', function(){ setPaused(!paused); }); }
-  if(prevBtn){ prevBtn.addEventListener('click', function(){ show((idx-1+slides.length)%slides.length); resetTimer(); }); }
-  if(nextBtn){ nextBtn.addEventListener('click', function(){ show((idx+1)%slides.length); resetTimer(); }); }
-  resetTimer();
+  if(prevBtn){ prevBtn.addEventListener('click', function(){ show((idx-1+slides.length)%slides.length); }); }
+  if(nextBtn){ nextBtn.addEventListener('click', function(){ show((idx+1)%slides.length); }); }
   playActiveMedia(slides[0]);
-  document.getElementById('heroCarousel').addEventListener('mouseenter',function(){ if(timer){ clearInterval(timer); } });
-  document.getElementById('heroCarousel').addEventListener('mouseleave',function(){ if(!paused){ resetTimer(); } });
+})();
+
+(function(){
+  var wrap=document.getElementById('commitCarousel');
+  var dotsWrap=document.getElementById('commitDots');
+  if(!wrap||!dotsWrap){ return; }
+  var cards=wrap.querySelectorAll('.card');
+  if(!cards.length){ return; }
+  cards.forEach(function(c,i){
+    var dot=document.createElement('span');
+    dot.setAttribute('role','button');
+    dot.setAttribute('aria-label','Go to commitment '+(i+1)+' of '+cards.length);
+    if(i===0){ dot.className='active'; }
+    dot.addEventListener('click',function(){
+      c.scrollIntoView({behavior:'smooth',inline:'start',block:'nearest'});
+    });
+    dotsWrap.appendChild(dot);
+  });
+  var dots=dotsWrap.querySelectorAll('span');
+  function syncActive(){
+    var wrapRect=wrap.getBoundingClientRect();
+    var closest=0, bestDist=Infinity;
+    cards.forEach(function(c,i){
+      var r=c.getBoundingClientRect();
+      var dist=Math.abs(r.left-wrapRect.left);
+      if(dist<bestDist){ bestDist=dist; closest=i; }
+    });
+    dots.forEach(function(d,i){ d.classList.toggle('active', i===closest); });
+  }
+  var scrollTimer=null;
+  wrap.addEventListener('scroll',function(){
+    if(scrollTimer){ clearTimeout(scrollTimer); }
+    scrollTimer=setTimeout(syncActive,80);
+  });
 })();
 
 (function(){
