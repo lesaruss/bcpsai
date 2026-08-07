@@ -26,7 +26,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Ar
 a{color:var(--blue);text-decoration:none}
 h1,h2,h3,h4{line-height:1.18;color:var(--navy);margin:0}
 p{margin:0 0 1rem}
-.wrap{max-width:1600px;margin:0 auto;padding:0 32px}
+.wrap{max-width:1600px;margin:0 auto;padding:0 40px}
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 
 /* Placeholder banner: hidden 2026-07-29 per Alyssa N. Williams, same draft-indicator request as .samplenote/.mockflag earlier today - this top-of-page bar was missed in that pass. Content untouched below; remove display:none to restore. */
@@ -71,9 +71,9 @@ nav.main .navlogin:hover{background:var(--navy)}
 @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 
 /* Hero */
-.hero{background:radial-gradient(1200px 480px at 80% -10%,rgba(22,114,167,.26),transparent 60%),linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 70%);color:#fff;position:relative;overflow:hidden}
-.hero .wrap{padding:60px 22px 66px}
-.hero .grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center}
+.hero{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0ODAiIGhlaWdodD0iNDgwIiB2aWV3Qm94PSIwIDAgNDgwIDQ4MCI+Cjxwb2x5Z29uIHBvaW50cz0iMTE1LjAsNjAuMCA4Ny41LDEwNy42IDMyLjUsMTA3LjYgNS4wLDYwLjAgMzIuNSwxMi40IDg3LjUsMTIuNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLW9wYWNpdHk9IjAuMTAiLz4KPHBvbHlnb24gcG9pbnRzPSIyNjAuMCw0MC4wIDI0MC4wLDc0LjYgMjAwLjAsNzQuNiAxODAuMCw0MC4wIDIwMC4wLDUuNCAyNDAuMCw1LjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIxLjQiIHN0cm9rZS1vcGFjaXR5PSIwLjEwIi8+Cjxwb2x5Z29uIHBvaW50cz0iNDQwLjAsOTAuMCA0MTAuMCwxNDIuMCAzNTAuMCwxNDIuMCAzMjAuMCw5MC4wIDM1MC4wLDM4LjAgNDEwLjAsMzguMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjEuNCIgc3Ryb2tlLW9wYWNpdHk9IjAuMTAiLz4KPHBvbHlnb24gcG9pbnRzPSIxODUuMCwxODAuMCAxNjIuNSwyMTkuMCAxMTcuNSwyMTkuMCA5NS4wLDE4MC4wIDExNy41LDE0MS4wIDE2Mi41LDE0MS4wIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2Utb3BhY2l0eT0iMC4xMCIvPgo8cG9seWdvbiBwb2ludHM9IjM3MC4wLDIyMC4wIDM0NS4wLDI2My4zIDI5NS4wLDI2My4zIDI3MC4wLDIyMC4wIDI5NS4wLDE3Ni43IDM0NS4wLDE3Ni43IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2Utb3BhY2l0eT0iMC4xMCIvPgo8cG9seWdvbiBwb2ludHM9IjQ5Mi4wLDI2MC4wIDQ3MS4wLDI5Ni40IDQyOS4wLDI5Ni40IDQwOC4wLDI2MC4wIDQyOS4wLDIyMy42IDQ3MS4wLDIyMy42IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2Utb3BhY2l0eT0iMC4xMCIvPgo8cG9seWdvbiBwb2ludHM9Ijg4LjAsMzAwLjAgNjQuMCwzNDEuNiAxNi4wLDM0MS42IC04LjAsMzAwLjAgMTYuMCwyNTguNCA2NC4wLDI1OC40IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2Utb3BhY2l0eT0iMC4xMCIvPgo8cG9seWdvbiBwb2ludHM9IjI1NS4wLDM0MC4wIDIyNy41LDM4Ny42IDE3Mi41LDM4Ny42IDE0NS4wLDM0MC4wIDE3Mi41LDI5Mi40IDIyNy41LDI5Mi40IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2Utb3BhY2l0eT0iMC4xMCIvPgo8cG9seWdvbiBwb2ludHM9IjQyNS4wLDQwMC4wIDQwMi41LDQzOS4wIDM1Ny41LDQzOS4wIDMzNS4wLDQwMC4wIDM1Ny41LDM2MS4wIDQwMi41LDM2MS4wIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2Utb3BhY2l0eT0iMC4xMCIvPgo8cG9seWdvbiBwb2ludHM9Ijk4LjAsNDQwLjAgNzkuMCw0NzIuOSA0MS4wLDQ3Mi45IDIyLjAsNDQwLjAgNDEuMCw0MDcuMSA3OS4wLDQwNy4xIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2Utb3BhY2l0eT0iMC4xMCIvPgo8cG9seWdvbiBwb2ludHM9IjMzMC4wLDYwLjAgMzE1LjAsODYuMCAyODUuMCw4Ni4wIDI3MC4wLDYwLjAgMjg1LjAsMzQuMCAzMTUuMCwzNC4wIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2Utb3BhY2l0eT0iMC4xMCIvPgo8cG9seWdvbiBwb2ludHM9IjQ1NS4wLDQyMC4wIDQzNy41LDQ1MC4zIDQwMi41LDQ1MC4zIDM4NS4wLDQyMC4wIDQwMi41LDM4OS43IDQzNy41LDM4OS43IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMS40IiBzdHJva2Utb3BhY2l0eT0iMC4xMCIvPgo8Y2lyY2xlIGN4PSIxMTUuMCIgY3k9IjYwLjAiIHI9IjMiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xMiIvPgo8Y2lyY2xlIGN4PSIzMi41IiBjeT0iMTA3LjYiIHI9IjMiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xMiIvPgo8Y2lyY2xlIGN4PSIzMi41IiBjeT0iMTIuNCIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjI2MC4wIiBjeT0iNDAuMCIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjIwMC4wIiBjeT0iNzQuNiIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjIwMC4wIiBjeT0iNS40IiByPSIzIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMTIiLz4KPGNpcmNsZSBjeD0iNDQwLjAiIGN5PSI5MC4wIiByPSIzIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMTIiLz4KPGNpcmNsZSBjeD0iMzUwLjAiIGN5PSIxNDIuMCIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjM1MC4wIiBjeT0iMzguMCIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjE4NS4wIiBjeT0iMTgwLjAiIHI9IjMiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xMiIvPgo8Y2lyY2xlIGN4PSIxMTcuNSIgY3k9IjIxOS4wIiByPSIzIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMTIiLz4KPGNpcmNsZSBjeD0iMTE3LjUiIGN5PSIxNDEuMCIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjM3MC4wIiBjeT0iMjIwLjAiIHI9IjMiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xMiIvPgo8Y2lyY2xlIGN4PSIyOTUuMCIgY3k9IjI2My4zIiByPSIzIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMTIiLz4KPGNpcmNsZSBjeD0iMjk1LjAiIGN5PSIxNzYuNyIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjQ5Mi4wIiBjeT0iMjYwLjAiIHI9IjMiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xMiIvPgo8Y2lyY2xlIGN4PSI0MjkuMCIgY3k9IjI5Ni40IiByPSIzIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMTIiLz4KPGNpcmNsZSBjeD0iNDI5LjAiIGN5PSIyMjMuNiIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9Ijg4LjAiIGN5PSIzMDAuMCIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjE2LjAiIGN5PSIzNDEuNiIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjE2LjAiIGN5PSIyNTguNCIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjI1NS4wIiBjeT0iMzQwLjAiIHI9IjMiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xMiIvPgo8Y2lyY2xlIGN4PSIxNzIuNSIgY3k9IjM4Ny42IiByPSIzIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMTIiLz4KPGNpcmNsZSBjeD0iMTcyLjUiIGN5PSIyOTIuNCIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjQyNS4wIiBjeT0iNDAwLjAiIHI9IjMiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xMiIvPgo8Y2lyY2xlIGN4PSIzNTcuNSIgY3k9IjQzOS4wIiByPSIzIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMTIiLz4KPGNpcmNsZSBjeD0iMzU3LjUiIGN5PSIzNjEuMCIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9Ijk4LjAiIGN5PSI0NDAuMCIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjQxLjAiIGN5PSI0NzIuOSIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjQxLjAiIGN5PSI0MDcuMSIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjMzMC4wIiBjeT0iNjAuMCIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjI4NS4wIiBjeT0iODYuMCIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjI4NS4wIiBjeT0iMzQuMCIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+CjxjaXJjbGUgY3g9IjQ1NS4wIiBjeT0iNDIwLjAiIHI9IjMiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xMiIvPgo8Y2lyY2xlIGN4PSI0MDIuNSIgY3k9IjQ1MC4zIiByPSIzIiBmaWxsPSIjZmZmZmZmIiBmaWxsLW9wYWNpdHk9IjAuMTIiLz4KPGNpcmNsZSBjeD0iNDAyLjUiIGN5PSIzODkuNyIgcj0iMyIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1vcGFjaXR5PSIwLjEyIi8+Cjwvc3ZnPg=="),radial-gradient(1200px 480px at 80% -10%,rgba(22,114,167,.26),transparent 60%),linear-gradient(160deg,var(--navy) 0%,var(--navy-2) 70%);background-repeat:repeat,no-repeat,no-repeat;background-size:480px 480px,auto,auto;color:#fff;position:relative;overflow:hidden}
+.hero .wrap{padding:60px 48px 66px;position:relative;z-index:1}
+.hero .grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
 .kicker{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#dce7f7;padding:6px 13px;border-radius:999px;font-size:.76rem;font-weight:600;letter-spacing:.4px;text-transform:uppercase;margin-bottom:18px}
 .kicker .dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
 .hero h1{color:#fff;font-size:2.8rem;letter-spacing:-.5px;margin-bottom:14px}
@@ -249,12 +249,19 @@ footer.site b{color:#fff}
 /* Updated 2026-08-06 (review follow-up): moved to a large centered block below the
    hero text instead of a cramped side column, made the auto-advance/toggle affordance
    explicit (badge + arrows + bigger dots), and wired real autoplay for the active slide. */
-.hero-carousel{position:relative;overflow:hidden;border-radius:var(--radius)}
-.hero-carousel .slide{display:none}
+.hero-carousel{position:relative;overflow:hidden;border-radius:var(--radius);align-items:stretch;justify-content:flex-start}
+.hero-carousel .slide{display:none;width:100%;height:100%}
 .hero-carousel .slide.active{display:block}
-.hero-carousel .dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
-.hero-carousel .dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.35);border:0;cursor:pointer;padding:0}
-.hero-carousel .dot.active{background:#fff;box-shadow:0 0 0 3px rgba(200,162,74,.55)}
+.hero-video-title{font-weight:700;color:#fff;font-size:1.02rem;margin-top:14px}
+.hero-playlist{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.hero-playlist button{position:relative;width:132px;height:75px;flex:0 0 auto;border-radius:8px;overflow:hidden;border:2px solid rgba(255,255,255,.28);padding:0;cursor:pointer;background:#000}
+.hero-playlist button img{width:100%;height:100%;object-fit:cover;display:block;opacity:.7;transition:opacity .15s}
+.hero-playlist button .label{position:absolute;left:0;right:0;bottom:0;padding:5px 6px 4px;font-size:.66rem;font-weight:700;color:#fff;background:linear-gradient(to top,rgba(0,0,0,.85),transparent);text-align:left;line-height:1.2}
+.hero-playlist button .playing{position:absolute;top:5px;right:5px;font-size:.6rem;font-weight:800;letter-spacing:.03em;text-transform:uppercase;color:var(--gold);background:rgba(10,22,45,.75);border-radius:4px;padding:2px 5px;display:none}
+.hero-playlist button:hover img{opacity:1}
+.hero-playlist button.active{border-color:var(--gold)}
+.hero-playlist button.active img{opacity:1}
+.hero-playlist button.active .playing{display:block}
 .hero-carousel .yt-embed{position:relative;width:100%;height:100%;aspect-ratio:16/9;background:#000;border-radius:var(--radius);overflow:hidden}
 .hero-carousel .yt-embed iframe{width:100%;height:100%;border:0;display:block}
 .hero-carousel .car-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(10,22,45,.45);color:#fff;border:0;width:38px;height:38px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;z-index:5}
@@ -380,8 +387,9 @@ footer.site b{color:#fff}
               </video>
             </div>
           </div>
-          <div class="dots" id="heroCarouselDots"></div>
-          <p class="cite" style="color:#cdd9ec;margin-top:8px" id="heroCarouselCaption">An introduction from Broward County Public Schools to the Broward Powered by AI initiative: what it is, why it matters, and what families can expect.</p>
+          <div class="hero-video-title" id="heroCarouselTitle">Introduction to Broward Powered by AI</div>
+          <p class="cite" style="color:#cdd9ec;margin-top:4px" id="heroCarouselCaption">An introduction from Broward County Public Schools to the Broward Powered by AI initiative: what it is, why it matters, and what families can expect.</p>
+          <div class="hero-playlist" id="heroCarouselPlaylist"></div>
         </div>
       </div>
     </div>
@@ -1602,24 +1610,39 @@ function googleTranslateElementInit(){
 
 (function(){
   var slides=document.querySelectorAll('#heroCarousel .slide');
-  var dotsWrap=document.getElementById('heroCarouselDots');
+  var playlistWrap=document.getElementById('heroCarouselPlaylist');
   var caption=document.getElementById('heroCarouselCaption');
+  var titleEl=document.getElementById('heroCarouselTitle');
   var badge=document.getElementById('heroCarouselAutoBadge');
   var prevBtn=document.getElementById('heroCarouselPrev');
   var nextBtn=document.getElementById('heroCarouselNext');
-  if(!slides.length||!dotsWrap){ return; }
+  if(!slides.length||!playlistWrap){ return; }
+  var TITLES=[
+    'Introduction to Broward Powered by AI',
+    'Microsoft Copilot in the Classroom',
+    'Prisms VR: Implementation',
+    'Prisms VR: Outcomes'
+  ];
   var CAPTIONS=[
     'An introduction from Broward County Public Schools to the Broward Powered by AI initiative: what it is, why it matters, and what families can expect.',
     'A walkthrough of Microsoft Copilot in the classroom, showing how teachers use it for lesson planning, feedback, and everyday instructional tasks.',
     'Real Broward classroom footage of teachers rolling out Prisms VR, guiding students through hands-on virtual reality math and science lessons.',
     'Real Broward classroom footage on student outcomes with Prisms VR, from stronger engagement to deeper understanding of math and science concepts.'
   ];
+  var PLAYLIST_THUMBS=[
+    '/images/broward-ai-home-poster.jpg',
+    'https://img.youtube.com/vi/yjMIZOWdLXk/hqdefault.jpg',
+    '/images/prisms-implementation-poster.jpg',
+    '/images/prisms-outcomes-poster.jpg'
+  ];
   var idx=0, timer=null, paused=false;
   slides.forEach(function(s,i){
-    var dot=document.createElement('button');
-    dot.type='button'; dot.className='dot'+(i===0?' active':''); dot.setAttribute('aria-label','Show video '+(i+1)+' of '+slides.length);
-    dot.addEventListener('click',function(){ show(i); resetTimer(); });
-    dotsWrap.appendChild(dot);
+    var tile=document.createElement('button');
+    tile.type='button'; tile.className=(i===0?'active':'');
+    tile.setAttribute('aria-label','Play video '+(i+1)+' of '+slides.length+': '+TITLES[i]);
+    tile.innerHTML='<img src="'+PLAYLIST_THUMBS[i]+'" alt="" loading="lazy"><span class="playing">Playing</span><span class="label">'+TITLES[i]+'</span>';
+    tile.addEventListener('click',function(){ show(i); resetTimer(); });
+    playlistWrap.appendChild(tile);
   });
   function playActiveMedia(s){
     if(!s){ return; }
@@ -1641,7 +1664,8 @@ function googleTranslateElementInit(){
     var prevSlide=slides[idx];
     idx=i;
     slides.forEach(function(s,j){ s.classList.toggle('active', j===i); });
-    dotsWrap.querySelectorAll('.dot').forEach(function(d,j){ d.classList.toggle('active', j===i); });
+    playlistWrap.querySelectorAll('button').forEach(function(d,j){ d.classList.toggle('active', j===i); });
+    if(titleEl&&TITLES[i]){ titleEl.textContent=TITLES[i]; }
     if(caption&&CAPTIONS[i]){ caption.textContent=CAPTIONS[i]; }
     if(prevSlide){ stopMedia(prevSlide); }
     if(!paused){ playActiveMedia(slides[idx]); }
