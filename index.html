@@ -238,30 +238,30 @@ footer.site b{color:#fff}
 /* Hidden 2026-07-29 alongside the samplenote flags, same reason: no draft indicators visible during tonight's parent presentation. */
 
 @media(max-width:900px){
-  .hero .grid{grid-template-columns:1fr;gap:28px}
+  .hero .grid{grid-template-columns:1fr!important;gap:28px}
   .hero h1{font-size:2.1rem}
-  .grid2,.grid3,.tools,.docrow,.sourcelist,.whatsnew-grid{grid-template-columns:1fr}
-  .grid4,.grid5,.steps{grid-template-columns:repeat(2,1fr)}
+  .grid2,.grid3,.tools,.docrow,.sourcelist,.whatsnew-grid{grid-template-columns:1fr!important}
+  .grid4,.grid5,.steps{grid-template-columns:repeat(2,1fr)!important}
   nav.main{right:0;min-width:210px}
-  .bar{grid-template-columns:120px 1fr 44px}
+  .bar{grid-template-columns:120px 1fr 44px!important}
   .events-init-grid{grid-template-columns:1fr!important}
-  .events-init-grid > div:first-child{order:1}
-  .events-init-grid > div:last-child{order:2}
-  .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:16px}
-  .flow .arrow{display:none}
-  .flow .node{flex:none;min-width:0;font-size:.82rem;padding:12px 6px}
+  .events-init-grid > div:first-child{order:1!important}
+  .events-init-grid > div:last-child{order:2!important}
+  .flow{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:10px!important;padding:16px!important}
+  .flow .arrow{display:none!important}
+  .flow .node{flex:none!important;min-width:0!important;font-size:.82rem!important;padding:12px 6px!important}
 }
 @media(max-width:680px){
-  .hero-playlist{flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:4px}
-  .hero-playlist button{width:calc((100% - 20px)/3);height:auto;aspect-ratio:16/9;scroll-snap-align:start}
-  .grid5.commit-carousel{display:flex!important;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:6px;gap:12px}
-  .grid5.commit-carousel .card{flex:0 0 calc((100% - 12px)/2);scroll-snap-align:start}
-  .commit-dots{display:flex;justify-content:center;gap:8px;margin-top:14px}
+  .hero-playlist{flex-wrap:nowrap!important;overflow-x:auto!important;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:4px!important}
+  .hero-playlist button{width:calc((100% - 20px)/3)!important;height:auto!important;aspect-ratio:16/9;scroll-snap-align:start}
+  .grid5.commit-carousel{display:flex!important;flex-wrap:nowrap!important;overflow-x:auto!important;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:6px!important;gap:12px!important}
+  .grid5.commit-carousel .card{flex:0 0 calc((100% - 12px)/2)!important;scroll-snap-align:start}
+  .commit-dots{display:flex!important;justify-content:center;gap:8px;margin-top:14px}
   .commit-dots span{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:background .15s,transform .15s}
   .commit-dots span.active{background:var(--blue);transform:scale(1.2)}
 }
 @media(min-width:681px){
-  .commit-dots{display:none}
+  .commit-dots{display:none!important}
 }
 
 /* Hero video carousel (added 2026-08-06, homepage review session follow-up) */
