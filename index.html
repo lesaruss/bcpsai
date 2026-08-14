@@ -506,13 +506,6 @@ footer.site b{color:#fff}
         <button type="button" class="node" data-eco="workforce">Future Workforce</button>
       </div>
       <p class="cite" style="margin-top:10px">Click any step to see its role in the ecosystem.</p>
-
-      <h3 class="h3sec" style="margin-top:26px">Student AI Council</h3>
-      <p class="lead">Every Broward student is part of the Student AI Council, a School Board directive giving students a direct voice in how AI is used across the district. Explore its structure, guiding principles, and how to engage below.</p>
-      <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#fff">
-        <iframe src="/draft/student-ai-council/" title="Student AI Council interactive overview" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
-      </div>
-      <p class="cite" style="margin-top:10px"><b>Source:</b> Student AI Council interactive overview, Broward Powered by AI, approved for public placement August 14, 2026.</p>
     </div>
   </section>
 
@@ -1182,9 +1175,20 @@ footer.site b{color:#fff}
 <div class="view" id="liaisons">
   <section class="band">
     <div class="wrap">
-      <div class="eyebrow">Learning &middot; Department of Instructional Innovation &amp; Digital Learning</div>
-      <h2 class="h2">AI Liaisons and AI Student Leaders</h2>
-      <p class="lead">A structured, districtwide leadership program, not just a directory. AI Liaisons and AI Student Leaders work together at each school to build responsible AI use, student voice, and digital citizenship.</p>
+      <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:start" class="liaisons-top-grid">
+        <div>
+          <div class="eyebrow">Learning &middot; Department of Instructional Innovation &amp; Digital Learning</div>
+          <h2 class="h2">AI Liaisons and AI Student Leaders</h2>
+          <p class="lead">A structured, districtwide leadership program, not just a directory. AI Liaisons and AI Student Leaders work together at each school to build responsible AI use, student voice, and digital citizenship.</p>
+        </div>
+        <div>
+          <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#fff">
+            <iframe src="/draft/student-ai-council/" title="Student AI Council interactive overview" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+          </div>
+          <p class="cite" style="margin-top:8px">Every Broward student is part of the Student AI Council, a School Board directive giving students a direct voice in how AI is used across the district.</p>
+        </div>
+      </div>
+      <style>@media(max-width:900px){.liaisons-top-grid{grid-template-columns:1fr!important}}</style>
 
       <div class="callout">
         <h3 style="color:#fff">A message from the Department of Instructional Innovation &amp; Digital Learning</h3>
