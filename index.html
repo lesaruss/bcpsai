@@ -1183,12 +1183,19 @@ footer.site b{color:#fff}
         </div>
         <div>
           <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#fff">
-            <iframe src="/draft/student-ai-council/" title="Student AI Council interactive overview" loading="lazy" allow="fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+            <iframe id="sac-embed-frame" src="/draft/student-ai-council/" title="Student AI Council interactive overview" loading="lazy" allow="fullscreen" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
           </div>
           <p class="cite" style="margin-top:8px">Every Broward student is part of the Student AI Council, a School Board directive giving students a direct voice in how AI is used across the district.</p>
         </div>
       </div>
-      <style>@media(max-width:900px){.liaisons-top-grid{grid-template-columns:1fr!important}}</style>
+      <style>@media(max-width:900px){.liaisons-top-grid{grid-template-columns:1fr!important}}
+/* Student AI Council deck: lightbox mode driven directly by the embedded
+   deck's own JS (same-origin cross-frame DOM access) so expand/close works
+   consistently on desktop and mobile, since iOS Safari does not support the
+   Fullscreen API for arbitrary elements. */
+#sac-embed-frame.sac-lightbox{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;z-index:99999;border-radius:0!important;box-shadow:none!important}
+body.sac-noscroll{overflow:hidden!important}
+</style>
 
       <div class="callout">
         <h3 style="color:#fff">A message from the Department of Instructional Innovation &amp; Digital Learning</h3>
