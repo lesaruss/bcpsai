@@ -86,6 +86,10 @@ section.band{padding:48px 0}
 .reslink:hover{background:var(--bg-soft)}
 .reslink .fi{flex:0 0 auto;width:38px;height:38px;border-radius:9px;background:var(--blue-soft);color:var(--blue);display:flex;align-items:center;justify-content:center}
 .reslink .fi svg{width:19px;height:19px}
+.reslink .meta b{display:block;color:var(--navy);font-size:.92rem}
+.reslink .meta span{color:var(--muted);font-size:.76rem}
+.update-card .thumb{width:100%;height:140px;object-fit:cover;border-radius:10px;margin-bottom:12px;display:block}
+.spark-hero{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);box-shadow:var(--shadow);display:block;margin-top:20px}
 
 .event{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;margin-top:24px;align-items:start}
 .eventfacts{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
@@ -127,7 +131,7 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:
 <div class="mockbar">
   <div class="wrap">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg>
-    <span><b>Design concept, not live.</b> v2 of the Community redesign mock &mdash; now with Family Forum (July 29) and the Aug 17 Vision to System Readiness briefing as their own event pages, plus a homepage Recent Updates concept with the SPARK item and pagination. Nothing on the real site has changed.</span>
+    <span><b>Design concept, not live.</b> v2 of the Community redesign mock &mdash; now with Family Forum (July 29) and the Aug 17 "Back to School AI: What Parents Need to Know" briefing as their own event pages, plus a homepage Recent Updates concept with the SPARK item and pagination. Nothing on the real site has changed.</span>
   </div>
 </div>
 
@@ -148,30 +152,35 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:
 
       <div class="updates-grid" id="updatesGrid">
         <div class="update-card spark on" data-page="1">
+          <img class="thumb" src="https://browardschools.ai/images/community/spark-announcement-graphic.jpg" alt="Impact Florida SPARK announcement graphic" loading="lazy">
           <span class="tag-new">Recognition</span>
           <h3 style="font-size:1.05rem;margin-bottom:6px">Broward selected for Impact Florida's SPARK cadre</h3>
           <p style="font-size:.9rem;color:var(--muted);margin:0">BCPS is one of six Florida districts selected for SPARK, an 18-month initiative supporting responsible AI use in education, led by Impact Florida with UF's CS Everyone Center, Microsoft, and Google.</p>
           <p style="margin-top:14px"><button class="btn btn-outline" data-go="event-spark" style="width:100%;justify-content:center">Read more &rarr;</button></p>
         </div>
         <div class="update-card on" data-page="1">
+          <img class="thumb" src="https://browardschools.ai/images/card-board-action.jpg" alt="Broward County School Board" loading="lazy">
           <span class="tag-new">Board Action</span>
           <h3 style="font-size:1.05rem;margin-bottom:6px">School Board Resolution No. 26-132</h3>
           <p style="font-size:.9rem;color:var(--muted);margin:0">School Board Resolution No. 26-132 was approved, formally adopting the districtwide AI approach.</p>
           <p style="margin-top:14px"><button class="btn btn-outline" style="width:100%;justify-content:center">Read the resolution &rarr;</button></p>
         </div>
         <div class="update-card on" data-page="1">
+          <img class="thumb" src="https://browardschools.ai/images/symposium/photo-01.jpg" alt="Parent AI Symposium 2026 opening remarks" loading="lazy">
           <span class="tag-new">Event</span>
           <h3 style="font-size:1.05rem;margin-bottom:6px">Parent AI Symposium 2026</h3>
           <p style="font-size:.9rem;color:var(--muted);margin:0">Parent AI Symposium 2026 sessions are underway, open to parents, educators, and community leaders.</p>
           <p style="margin-top:14px"><button class="btn btn-outline" data-go="event-symposium" style="width:100%;justify-content:center">See dates &rarr;</button></p>
         </div>
         <div class="update-card" data-page="2">
+          <img class="thumb" src="https://browardschools.ai/images/card-family-forum.jpg" alt="Family Forum, virtual AI-literacy sessions for families" loading="lazy">
           <span class="tag-new">Ongoing</span>
           <h3 style="font-size:1.05rem;margin-bottom:6px">Family Forum</h3>
           <p style="font-size:.9rem;color:var(--muted);margin:0">Family Forum continues its ongoing AI-literacy sessions for families. Next session: August 27, 2026.</p>
           <p style="margin-top:14px"><button class="btn btn-outline" data-go="event-family-forum" style="width:100%;justify-content:center">View details &rarr;</button></p>
         </div>
         <div class="update-card" data-page="2">
+          <img class="thumb" src="https://browardschools.ai/images/community/back-to-school-ai-flyer.png" alt="Back to School AI: What Parents Need to Know event flyer" loading="lazy">
           <span class="tag-new">Event</span>
           <h3 style="font-size:1.05rem;margin-bottom:6px">Back to School AI: What Parents Need to Know</h3>
           <p style="font-size:.9rem;color:var(--muted);margin:0">District 4 parent event at El Mariachi Restaurant, Coral Springs, on approved AI tools, online safety, and supporting learning at home, August 17, 2026.</p>
@@ -416,6 +425,8 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:
       <h2 class="h2">Broward selected for Impact Florida's SPARK cadre</h2>
       <p class="lead">Broward County Public Schools is one of six Florida districts selected to join SPARK, Supporting Practical AI for Real K-12 Classrooms, an 18-month statewide initiative examining and supporting responsible AI use in education.</p>
 
+      <img class="spark-hero" src="https://browardschools.ai/images/community/spark-announcement-graphic.jpg" alt="Impact Florida SPARK announcement graphic">
+
       <div class="event">
         <div>
           <p>SPARK is led by Impact Florida in partnership with the University of Florida's CS Everyone Center, in collaboration with Microsoft and Google. Through the program, district teams work on both policy governance and practice: developing or refining guidance on ethics, data privacy, procurement, academic integrity, and responsible use, while testing practical instructional approaches rooted in real classroom needs.</p>
@@ -432,8 +443,9 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:
 
       <h3 class="h3sec">Resources</h3>
       <div class="docrow">
-        <a class="reslink" href="https://impactfl.org/our-work/programs/spark" target="_blank"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6M10 14L21 3"/></svg></span><div class="meta"><b>Learn more about the SPARK program</b><span>impactfl.org</span></div></a>
-        <a class="reslink" href="https://www.linkedin.com/company/broward-county-schools/" target="_blank"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 018 0v8"/></svg></span><div class="meta"><b>Impact Florida's LinkedIn announcement</b><span>Tags all six SPARK cadre districts</span></div></a>
+        <a class="reslink" href="https://impactfl.org/news/six-florida-districts-selected-to-join-new-ai-focused-initiative" target="_blank"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6M10 14L21 3"/></svg></span><div class="meta"><b>Read the Impact Florida press release</b><span>impactfl.org</span></div></a>
+        <a class="reslink" href="https://lnkd.in/eUXaJ77H" target="_blank"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 018 0v8"/></svg></span><div class="meta"><b>Impact Florida's LinkedIn announcement</b><span>Tags all six SPARK cadre districts</span></div></a>
+        <a class="reslink" href="https://browardschools.ai/#principles" target="_blank"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg></span><div class="meta"><b>Broward's AI principles</b><span>browardschools.ai</span></div></a>
       </div>
       <div class="samplenote" style="max-width:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg> Text drawn directly from Impact Florida's press release and LinkedIn post, condensed for a family-facing update card. Full press release available if BCPS wants the complete text hosted here too.</div>
       <p class="cite"><b>Source:</b> Impact Florida, "Six Florida districts selected to join new AI-focused initiative," August 18, 2026; Impact Florida LinkedIn post, August 2026.</p>
@@ -454,7 +466,7 @@ footer.site .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:
     'community-landing':'Events',
     'event-symposium':'Parent AI Symposium 2026',
     'event-family-forum':'Family Forum',
-    'event-aug17':'Vision to System Readiness',
+    'event-aug17':'Back to School AI: What Parents Need to Know',
     'event-spark':'SPARK Announcement'
   };
   function go(id){
