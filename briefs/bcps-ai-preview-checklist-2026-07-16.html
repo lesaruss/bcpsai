@@ -99,7 +99,7 @@
 </header>
 
 <h1>BCPS Powered by AI: Progress Tracker</h1>
-<p class="meta">Prepared by Sean Russell &middot; running tracker, last updated August 13, 2026 &middot; companion for the Broward AI Webpage Review meeting</p>
+<p class="meta">Prepared by Sean Russell &middot; running tracker, last updated August 19, 2026 &middot; companion for the Broward AI Webpage Review meeting</p>
 
 <p class="lede">This is the living tracker for the browardschools.ai site: what has shipped, what is still waiting on a BCPS decision or document, and what is next. It replaces the July 16 preview checklist as the single source of truth, folding that session's work in as already-completed.</p>
 
@@ -107,8 +107,8 @@
 
 <div class="tablist" role="tablist" aria-label="Progress tracker sections">
   <button class="tab-btn" role="tab" id="tab-btn-questions" aria-controls="tab-questions" aria-selected="true" tabindex="0">Open Questions <span class="count">0</span></button>
-  <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">13</span></button>
-  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">76</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">14</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">80</span></button>
 </div>
 
 <div class="tabpanel" id="tab-questions" role="tabpanel" aria-labelledby="tab-btn-questions">
@@ -119,7 +119,7 @@
 
 <div class="tabpanel" id="tab-pending" role="tabpanel" aria-labelledby="tab-btn-pending" hidden>
 <h2>Pending</h2>
-<p class="lede">13 open items across BCPS and our own team. Switch between viewing them by task, with who's assigned shown right on each item, or by person, to see everything one individual owns in one place. Manny is Manuel Castaneda's and Tommy is Thomas J. Correll's nickname as used in source material.</p>
+<p class="lede">14 open items across BCPS and our own team. Switch between viewing them by task, with who's assigned shown right on each item, or by person, to see everything one individual owns in one place. Manny is Manuel Castaneda's and Tommy is Thomas J. Correll's nickname as used in source material.</p>
 
 <div class="pill-tabs" role="tablist" aria-label="Pending view">
 <button class="pill-btn" role="tab" id="pill-btn-task" aria-controls="pending-view-task" aria-selected="true" tabindex="0">By Task</button>
@@ -188,6 +188,16 @@
 </details>
 
 <details class="owner">
+<summary><span class="owner-name">Sean Russell <span class="owner-count">1</span></span></summary>
+<div class="owner-body">
+<div class="pend-item">
+<h4>Community Events redesign and SPARK announcement awaiting sign-off to go live</h4>
+<p>The Community Events page redesign (standalone Symposium/Family Forum/August 17 event cards, paginated Recent Updates), the corrected August 17 event page, and the SPARK announcement page are all built and verified in the preview mock (see Completed, August 19), but the live Community page has not been restructured yet. This also covers both items from the Framework document's PENDING ITEMS 8/19/26 (posting the August 17 slide deck for attendees, and posting the SPARK news item) &mdash; both are ready in the mock and only need the go-ahead to publish. The SPARK item to the monthly board newsletter is separate and remains with BCPS.</p><p><b>Status:</b> Waiting on Sean to review the preview and confirm it should replace the live Community page.</p><p class="reflink"><a href="https://browardschools.ai/briefs/community-events-redesign-preview-v2.html" target="_blank" rel="noopener">View the preview: Community Events redesign mock &#8599;</a></p>
+</div>
+</div>
+</details>
+
+<details class="owner">
 <summary><span class="owner-name">Queued, our team building (not blocked on BCPS) <span class="owner-count">5</span></span></summary>
 <div class="owner-body">
 <div class="pend-item">
@@ -218,6 +228,30 @@
 
 <div class="tabpanel" id="tab-completed" role="tabpanel" aria-labelledby="tab-btn-completed" hidden>
 <h2>Completed</h2>
+<details class="done">
+<summary>Symposium photo gallery curated down to the 15 team-approved photos (August 19)</summary>
+<div class="body">
+<p>Sean flagged that the Symposium photo gallery was showing all 30 photos, when the team (Dr. Cone, Manuel Castaneda, Thomas J. Correll, and Sean) had done a photo-by-photo review to select a curated set, a decision that had never made it into the live gallery or this tracker. No record of that specific review was found in Teams/Fieldy transcripts after checking the meeting Sean pointed to (Aug 5 Website and AI Implementation Plan) and a full-archive keyword search, so rather than guess, Sean re-walked the selection from memory against a numbered contact sheet of all 30 live photos, confirmed row by row. Final kept set: photos 1, 4, 5, 7, 9, 14, 15, 16, 18, 19, 20, 25, 27, 28, 30 (15 of 30). Applied to the live Community page gallery and to the matching sample in the community-events-redesign-preview-v2 mock. Verified live via direct DOM query, not just a source read.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community, Photo gallery &#8599;</a></p>
+</div>
+</details>
+<details class="done">
+<summary>Community Events page redesign built as a preview: standalone event cards, paginated Recent Updates (August 19)</summary>
+<div class="body">
+<p>Per Sean's direction: everything from the top of the Community page down to "More ways to engage" is restructured so the Parent AI Symposium, the July 29 Family Forum, and the August 17 event each become their own standalone clickable card, opening to a full page with that event's specific content. Built as a preview mock (not yet live) at briefs/community-events-redesign-preview-v2.html, reusing the real, already-approved Symposium and Family Forum content byte-for-byte. Also mocked the homepage "Recent Updates" module as paginated, 3 items at a time with a page toggle, ready to carry the SPARK announcement as its newest item once approved to go live. Awaiting Sean's sign-off before this replaces the live Community page structure, see Pending.</p><p class="reflink"><a href="https://browardschools.ai/briefs/community-events-redesign-preview-v2.html" target="_blank" rel="noopener">View the preview: Community Events redesign mock &#8599;</a></p>
+</div>
+</details>
+<details class="done">
+<summary>August 17 "Back to School AI" event page corrected with real flyer and slide deck details (August 19)</summary>
+<div class="body">
+<p>Initial draft of this event page (built from SharePoint text-extraction of the deck alone, before the flyer was available) incorrectly guessed it was an abstract "Division of Academics briefing," 40 slides, no location. Once Sean provided the real event flyer and the actual 32-slide PDF, corrected the page to the real details: District 4's in-person parent event, "Back to School AI: What Parents Need to Know," Monday August 17, 11:30 AM&ndash;1:00 PM, El Mariachi Restaurant in Coral Springs. Hosted the real slide deck PDF (1.7 MB, 32 slides) in the repo and linked it as a working download, replacing a placeholder note. Lives in the same preview mock as the Community redesign above, pending sign-off to go live.</p><p class="reflink"><a href="https://browardschools.ai/briefs/community-events-redesign-preview-v2.html" target="_blank" rel="noopener">View the preview: August 17 event page &#8599;</a></p>
+</div>
+</details>
+<details class="done">
+<summary>SPARK announcement page drafted in preview mock from the Impact Florida press release and LinkedIn post (August 19)</summary>
+<div class="body">
+<p>New from the Framework document, PENDING ITEMS 8/19/26: Sean provided the Impact Florida SPARK press release and LinkedIn post text. Condensed into a full event-style page (eyebrow, headline, lead, event facts, real hyperlinks to impactfl.org and LinkedIn) and wired it in as the intended newest "Recent Updates" card. Currently lives only in the preview mock; posting it live to the site and to the monthly board newsletter is still pending, see Pending.</p><p class="reflink"><a href="https://browardschools.ai/briefs/community-events-redesign-preview-v2.html" target="_blank" rel="noopener">View the preview: SPARK announcement page &#8599;</a></p>
+</div>
+</details>
 <details class="done">
 <summary>Family Forum July 29 session recording published and embedded, resolving the Eduvision-hosting pending item (August 14)</summary>
 <div class="body">
