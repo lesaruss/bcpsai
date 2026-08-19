@@ -107,8 +107,8 @@
 
 <div class="tablist" role="tablist" aria-label="Progress tracker sections">
   <button class="tab-btn" role="tab" id="tab-btn-questions" aria-controls="tab-questions" aria-selected="true" tabindex="0">Open Questions <span class="count">0</span></button>
-  <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">14</span></button>
-  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">80</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">13</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">83</span></button>
 </div>
 
 <div class="tabpanel" id="tab-questions" role="tabpanel" aria-labelledby="tab-btn-questions">
@@ -119,7 +119,7 @@
 
 <div class="tabpanel" id="tab-pending" role="tabpanel" aria-labelledby="tab-btn-pending" hidden>
 <h2>Pending</h2>
-<p class="lede">14 open items across BCPS and our own team. Switch between viewing them by task, with who's assigned shown right on each item, or by person, to see everything one individual owns in one place. Manny is Manuel Castaneda's and Tommy is Thomas J. Correll's nickname as used in source material.</p>
+<p class="lede">13 open items across BCPS and our own team. Switch between viewing them by task, with who's assigned shown right on each item, or by person, to see everything one individual owns in one place. Manny is Manuel Castaneda's and Tommy is Thomas J. Correll's nickname as used in source material.</p>
 
 <div class="pill-tabs" role="tablist" aria-label="Pending view">
 <button class="pill-btn" role="tab" id="pill-btn-task" aria-controls="pending-view-task" aria-selected="true" tabindex="0">By Task</button>
@@ -188,16 +188,6 @@
 </details>
 
 <details class="owner">
-<summary><span class="owner-name">Sean Russell <span class="owner-count">1</span></span></summary>
-<div class="owner-body">
-<div class="pend-item">
-<h4>Community Events redesign and SPARK announcement awaiting sign-off to go live</h4>
-<p>The Community Events page redesign (standalone Symposium/Family Forum/August 17 event cards, paginated Recent Updates), the corrected August 17 event page, and the SPARK announcement page are all built and verified in the preview mock (see Completed, August 19), but the live Community page has not been restructured yet. This also covers both items from the Framework document's PENDING ITEMS 8/19/26 (posting the August 17 slide deck for attendees, and posting the SPARK news item) &mdash; both are ready in the mock and only need the go-ahead to publish. The SPARK item to the monthly board newsletter is separate and remains with BCPS.</p><p><b>Status:</b> Waiting on Sean to review the preview and confirm it should replace the live Community page.</p><p class="reflink"><a href="https://browardschools.ai/briefs/community-events-redesign-preview-v2.html" target="_blank" rel="noopener">View the preview: Community Events redesign mock &#8599;</a></p>
-</div>
-</div>
-</details>
-
-<details class="owner">
 <summary><span class="owner-name">Queued, our team building (not blocked on BCPS) <span class="owner-count">5</span></span></summary>
 <div class="owner-body">
 <div class="pend-item">
@@ -228,6 +218,24 @@
 
 <div class="tabpanel" id="tab-completed" role="tabpanel" aria-labelledby="tab-btn-completed" hidden>
 <h2>Completed</h2>
+<details class="done">
+<summary>Reslink resource-card title/subtext bleeding onto the same line fixed site-wide (August 19)</summary>
+<div class="body">
+<p>Sean flagged that on the SPARK page's Resources section, each resource's bold title and its lighter subtext (e.g. "Read the Impact Florida press release" / "impactfl.org") were bleeding onto the same line. Root cause: the <code>.reslink .meta</code> CSS rule that drops the subtext to its own row existed for the similar <code>.doc</code> card style but had never been added for <code>.reslink</code>, so the browser's default inline rendering ran the two together. Added the missing <code>.reslink .meta b</code>/<code>.reslink .meta span</code> rules (block display, matching the <code>.doc</code> pattern). This fixes every resource-link card sitewide, not just SPARK: the Copilot, MagicSchool, and Khan for Educators demo videos, the Microsoft Reading Coach and ThoughtExchange survey links, and Broward's AI principles link on the SPARK page all now show title and subtext on separate rows. Pushed, verified byte-for-byte, and confirmed live.</p><p class="reflink"><a href="https://browardschools.ai/#event-spark" target="_blank" rel="noopener">View on the site: SPARK announcement, Resources &#8599;</a></p>
+</div>
+</details>
+<details class="done">
+<summary>Community landing page: dropped the stale "30-photo gallery" count from the Symposium card (August 19)</summary>
+<div class="body">
+<p>Sean flagged that the Symposium event card on the new Community Engagement landing page still said "30-photo gallery," a number left over from before the gallery was trimmed down to the 15 team-approved photos (see below). Changed the checkmark to a plain "Event photo gallery" with no count attached, so it won't go stale again if the gallery size changes. Pushed, verified byte-for-byte, and confirmed live.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community Engagement &#8599;</a></p>
+</div>
+</details>
+<details class="done">
+<summary>Community Engagement redesign, August 17 event page, and SPARK announcement page pushed live (August 19)</summary>
+<div class="body">
+<p>Sean reviewed and signed off on the preview mock (see the three entries below) and gave the go-ahead to publish. Replaced the live Community page's flat, Symposium-only layout with a 3-event landing page (Symposium, Family Forum, and the August 17 "Back to School AI" event, each its own clickable card), added the new August 17 event page and the new SPARK announcement page as their own views, and rebuilt the homepage "Recent Updates" module as 5 cards with pagination (SPARK and Back to School AI now lead, ahead of the Symposium; Board Resolution and Family Forum sit on page 2). This also resolves both outstanding items from the Framework document's PENDING ITEMS 8/19/26 (posting the August 17 slide deck for attendees, and posting the SPARK news item) &mdash; the SPARK item to the monthly board newsletter remains a separate BCPS action, not a website task. Carried the existing, team-curated 15-photo Symposium gallery and the "AI infrastructure and training, by the numbers" section over unchanged into their own dedicated event page, and left the Family Forum page completely untouched since it already matched the target design. Before pushing, took a full backup of the prior live index.html as a rollback point. Verified byte-for-byte via a GitHub content read-back, confirmed the Vercel deployment reached READY on production, and confirmed the new content live via a direct fetch of the deployed page (16-photo gallery, new views, and the new homepage module all present).</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community Engagement &#8599;</a></p>
+</div>
+</details>
 <details class="done">
 <summary>Symposium photo gallery curated down to the 15 team-approved photos (August 19)</summary>
 <div class="body">
