@@ -245,7 +245,7 @@ footer.site b{color:#fff}
 @media(max-width:900px){
   .hero .grid{grid-template-columns:1fr!important;gap:28px}
   .hero h1{font-size:2.1rem}
-  .grid2,.grid3,.tools,.docrow,.sourcelist,.whatsnew-grid{grid-template-columns:1fr!important}
+  .grid2,.grid3,.tools,.docrow,.sourcelist,.whatsnew-grid,.updates-grid{grid-template-columns:1fr!important}
   .grid4,.grid5,.steps{grid-template-columns:repeat(2,1fr)!important}
   nav.main{right:0;min-width:210px}
   .bar{grid-template-columns:120px 1fr 44px!important}
@@ -296,10 +296,25 @@ footer.site b{color:#fff}
 /* What's New strip */
 .whatsnew-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px}
 .whatsnew-grid .card{padding:0;overflow:hidden;display:flex;flex-direction:column}
-.whatsnew-grid .thumb{width:100%;height:180px;object-fit:cover;display:block}
-.whatsnew-grid .card-body{padding:22px}
+.whatsnew-grid .thumb{width:100%;aspect-ratio:5/2;object-fit:cover;object-position:top;display:block}
+.whatsnew-grid .card-body{padding:22px;display:flex;flex-direction:column;flex:1}
 .whatsnew-grid .tag-new{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#5c4310;margin-bottom:8px}
 .whatsnew-grid p{margin:0 0 12px;color:var(--muted);font-size:.95rem;line-height:1.55}
+.whatsnew-grid .card-body .btn{margin-top:auto}
+.event-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.event-card .top{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px}
+.datechip{flex:0 0 auto;width:58px;height:58px;border-radius:11px;background:var(--navy);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;line-height:1.05}
+.datechip .mon{font-size:.62rem;letter-spacing:.6px;text-transform:uppercase;opacity:.85}
+.datechip .day{font-size:1.1rem}
+.updates-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:22px}
+.update-card{background:#fff;border:1px solid var(--line);overflow:hidden;padding:0;box-shadow:var(--shadow);display:none;flex-direction:column}
+.update-card.on{display:flex}
+.update-card .thumb{width:100%;aspect-ratio:5/2;object-fit:cover;object-position:top;display:block}
+.update-card .card-body{padding:22px;display:flex;flex-direction:column;flex:1}
+.update-nav{display:flex;align-items:center;justify-content:space-between;margin-top:18px}
+.pager{display:flex;gap:8px}
+.pager button{width:30px;height:30px;border-radius:999px;border:1px solid var(--line);background:#fff;cursor:pointer;font-weight:700;color:var(--navy)}
+.pager button.on{background:var(--navy);color:#fff;border-color:var(--navy)}
 
 /* Ecosystem node buttons + modal */
 .flow .node{cursor:pointer;border:0;font:inherit;transition:background .15s,color .15s}
@@ -420,12 +435,21 @@ footer.site b{color:#fff}
     <div class="wrap">
       <div class="eyebrow">What's new</div>
       <h2 class="h2">Recent updates</h2>
-      <div class="whatsnew-grid">
-        <div class="card"><img class="thumb" src="/images/card-board-action.jpg" alt="Broward County School Board" loading="lazy"><div class="card-body"><span class="tag-new">Board action</span><p>School Board Resolution No. 26-132 was approved, formally adopting the districtwide AI approach.</p><button class="btn btn-outline" data-go="policy" style="width:100%;justify-content:center">Read the resolution &rarr;</button></div></div>
-        <div class="card"><img class="thumb" src="/images/symposium/photo-02.jpg" alt="Parent AI Symposium 2026, district leader addressing attendees" loading="lazy"><div class="card-body"><span class="tag-new">Event</span><p>Parent AI Symposium 2026 sessions are underway, open to parents, educators, and community leaders.</p><button class="btn btn-outline" data-go="community" style="width:100%;justify-content:center">See dates &rarr;</button></div></div>
-        <div class="card"><img class="thumb" src="/images/card-family-forum.jpg" alt="Family Forum, virtual AI-literacy sessions for families" loading="lazy"><div class="card-body"><span class="tag-new">Ongoing</span><p>Family Forum continues its ongoing AI-literacy sessions for families.</p><button class="btn btn-outline" data-go="family-forum" style="width:100%;justify-content:center">View details &rarr;</button></div></div>
+      <div class="updates-grid" id="updatesGrid">
+        <div class="update-card on" data-page="1"><img class="thumb" src="/images/community/spark-announcement-graphic.jpg" alt="Impact Florida SPARK announcement graphic" loading="lazy"><div class="card-body"><span class="tag-new">Recognition</span><p>Broward selected for Impact Florida's SPARK cadre, an 18-month initiative supporting responsible AI use in education.</p><button class="btn btn-outline" data-go="event-spark" style="width:100%;justify-content:center">Read more &rarr;</button></div></div>
+        <div class="update-card on" data-page="1"><img class="thumb" src="/images/community/back-to-school-ai-title-slide.jpg" alt="Broward Powered by AI: From Vision to System Readiness, Division of Academics title slide" loading="lazy"><div class="card-body"><span class="tag-new">Event</span><p>Back to School AI: What Parents Need to Know &mdash; District 4 parent event on approved AI tools, online safety, and supporting learning at home.</p><button class="btn btn-outline" data-go="event-aug17" style="width:100%;justify-content:center">View briefing &rarr;</button></div></div>
+        <div class="update-card on" data-page="1"><img class="thumb" src="/images/symposium/photo-02.jpg" alt="Parent AI Symposium 2026, district leader addressing attendees" loading="lazy"><div class="card-body"><span class="tag-new">Event</span><p>Parent AI Symposium 2026 sessions are underway, open to parents, educators, and community leaders.</p><button class="btn btn-outline" data-go="event-symposium" style="width:100%;justify-content:center">See dates &rarr;</button></div></div>
+        <div class="update-card" data-page="2"><img class="thumb" src="/images/card-board-action.jpg" alt="Broward County School Board" loading="lazy"><div class="card-body"><span class="tag-new">Board action</span><p>School Board Resolution No. 26-132 was approved, formally adopting the districtwide AI approach.</p><button class="btn btn-outline" data-go="policy" style="width:100%;justify-content:center">Read the resolution &rarr;</button></div></div>
+        <div class="update-card" data-page="2"><img class="thumb" src="/images/card-family-forum.jpg" alt="Family Forum, virtual AI-literacy sessions for families" loading="lazy"><div class="card-body"><span class="tag-new">Ongoing</span><p>Family Forum continues its ongoing AI-literacy sessions for families. Next session: August 27, 2026.</p><button class="btn btn-outline" data-go="family-forum" style="width:100%;justify-content:center">View details &rarr;</button></div></div>
       </div>
-      <div class="samplenote" style="max-width:none">Updated manually by the district communications team until the weekly-editable version is wired to a content source. Every item above links to real, already-published content on this site. The Event card uses a real Parent AI Symposium photo. Board Action and Family Forum use a branded graphic since we don't yet have a School Board or virtual-session photo on file.</div>
+      <div class="update-nav">
+        <span style="font-size:.84rem;color:var(--muted)">Showing 3 of 5 updates</span>
+        <div class="pager" id="pager">
+          <button data-page="1" class="on">1</button>
+          <button data-page="2">2</button>
+        </div>
+      </div>
+      <div class="samplenote" style="max-width:none">Updated manually by the district communications team until the weekly-editable version is wired to a content source. Every item above links to real, already-published content on this site.</div>
     </div>
   </section>
 
@@ -467,7 +491,7 @@ footer.site b{color:#fff}
             </div>
           </div>
           <p style="color: var(--muted); margin-top: 20px; font-size: 0.9rem;">More events coming soon. Check back regularly for updates on community engagement opportunities.</p>
-          <button class="btn btn-primary" data-go="community" style="margin-top:20px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> View the Symposium &rarr;</button>
+          <button class="btn btn-primary" data-go="event-symposium" style="margin-top:20px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg> View the Symposium &rarr;</button>
         </div>
       </div>
     </div>
@@ -1284,13 +1308,78 @@ body.sac-noscroll{overflow:hidden!important}
   </section>
 </div>
 
-<!-- ===================== COMMUNITY ===================== -->
+<!-- ===================== COMMUNITY (landing) ===================== -->
 <div class="view" id="community">
   <section class="band">
     <div class="wrap">
       <div class="eyebrow">Community engagement</div>
+      <h2 class="h2">Community Engagement</h2>
+      <p class="lead">Broward Powered by AI is built with families, not just for them. Explore what's happened, what to expect next, and how to get involved.</p>
+
+      <h3 class="h3sec">Events</h3>
+      <p class="lead">Each event gets its own page: the full story, quotes, photos where we have them, and every material families or staff can download.</p>
+      <div class="grid3">
+
+        <div class="event-card">
+          <div class="top">
+            <div class="datechip"><span class="mon">Jun</span><span class="day">5</span></div>
+            <div><h3 style="font-size:1rem">Parent AI Symposium 2026</h3><span class="tag">Completed</span></div>
+          </div>
+          <p style="color:var(--muted);font-size:.9rem">Nova High School, Davie. Parents, students, educators, and school leaders learned how AI is shaping education, with a main session, breakouts, and networking.</p>
+          <ul class="feat">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> 30-photo gallery</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Superintendent &amp; Board quotes</li>
+          </ul>
+          <p style="margin-top:14px"><button class="btn btn-outline" data-go="event-symposium" style="width:100%;justify-content:center">View full event &rarr;</button></p>
+        </div>
+
+        <div class="event-card">
+          <div class="top">
+            <div class="datechip"><span class="mon">Jul</span><span class="day">29</span></div>
+            <div><h3 style="font-size:1rem">Family Forum</h3><span class="tag">Completed</span></div>
+          </div>
+          <p style="color:var(--muted);font-size:.9rem">Virtual. First of three Family Forum sessions: what AI is, approved tools, privacy safeguards, and a live parent Q&amp;A.</p>
+          <ul class="feat">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Full session recording</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Leader quotes &amp; Q&amp;A themes</li>
+          </ul>
+          <p style="margin-top:14px"><button class="btn btn-outline" data-go="family-forum" style="width:100%;justify-content:center">View full event &rarr;</button></p>
+        </div>
+
+        <div class="event-card">
+          <div class="top">
+            <div class="datechip"><span class="mon">Aug</span><span class="day">17</span></div>
+            <div><h3 style="font-size:1rem">Back to School AI: District 4</h3><span class="tag">Completed</span></div>
+          </div>
+          <p style="color:var(--muted);font-size:.9rem">El Mariachi Restaurant, Coral Springs. A parent event on approved AI tools, online safety, and supporting learning at home.</p>
+          <ul class="feat">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Presentation deck</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Approved-tools &amp; milestone summary</li>
+          </ul>
+          <p style="margin-top:14px"><button class="btn btn-outline" data-go="event-aug17" style="width:100%;justify-content:center">View full event &rarr;</button></p>
+        </div>
+
+      </div>
+
+      <h3 class="h3sec">More ways to engage</h3>
+      <p class="lead">Not tied to a single past event, these run continuously through the school year.</p>
+      <div class="grid3">
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 9v5c0 1.5 2.2 3 5 3s5-1.5 5-3V9"/></svg></span><h3>Family Forum</h3><p>Ongoing sessions and recordings that help families build AI literacy at home. Next session: August 27, 2026.</p><p style="margin-top:10px"><button class="btn btn-outline" data-go="family-forum" style="width:100%;justify-content:center">View dates &amp; details &rarr;</button></p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span><h3>Community feedback</h3><p>Positive feedback and resolved items gathered from sessions, curated here for families. There is no open form for commenting on a specific tool or vendor.</p><p style="margin-top:10px"><button class="btn btn-outline" data-go="community-feedback" style="width:100%;justify-content:center">View details &rarr;</button></p></div>
+        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 11h16"/></svg></span><h3>Upcoming events</h3><p>A calendar of Family Forums, symposiums, workshops, and school-based sessions.</p><p style="margin-top:10px"><button class="btn btn-outline" data-go="upcoming-events" style="width:100%;justify-content:center">View calendar &rarr;</button></p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== SYMPOSIUM DETAIL (unchanged content, own view now) ===================== -->
+<div class="view" id="event-symposium">
+  <section class="band">
+    <div class="wrap">
+      <p><button class="btn btn-outline" data-go="community">&larr; Back to Community Events</button></p>
+      <div class="eyebrow">Community &middot; Event</div>
       <h2 class="h2">Parent AI Symposium 2026</h2>
-      <p class="lead">Broward Powered by AI is built with families, not just for them. On June 5, 2026, the District brought parents, students, educators, and school leaders together to learn how AI is shaping education and how Broward is using it responsibly.</p>
+      <p class="lead">On June 5, 2026, the District brought parents, students, educators, and school leaders together to learn how AI is shaping education and how Broward is using it responsibly.</p>
 
       <div class="event">
         <div>
@@ -1342,13 +1431,6 @@ body.sac-noscroll{overflow:hidden!important}
         <a class="reslink" href="https://coach.microsoft.com/reading" target="_blank" rel="noopener"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 5v14l11-7z"/></svg></span><div class="meta"><b>Microsoft Reading Coach</b><span>Parent session, presented by Nashira Moore &middot; June 5, 2026 symposium</span></div></a>
       </div>
       <div class="samplenote" style="max-width:none">All Symposium-day materials are now accounted for, either hosted directly on this site, linked to their live demo, or included within another session deck (the Parent/Guardian Support One-Pager is part of the June 5th Parent Presentation, not a separate file). Academic Leadership Days photos, breakout tracks, and materials are posted separately under For Staff and Leaders, since that event was for administrators, not families.</div>
-
-      <h3 class="h3sec">More ways to engage</h3>
-      <div class="grid3">
-        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M7 9v5c0 1.5 2.2 3 5 3s5-1.5 5-3V9"/></svg></span><h3>Family Forum</h3><p>Ongoing sessions and recordings that help families build AI literacy at home. Next session: August 27, 2026.</p><p style="margin-top:10px"><button class="btn btn-outline" data-go="family-forum" style="width:100%;justify-content:center">View dates &amp; details &rarr;</button></p></div>
-        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span><h3>Community feedback</h3><p>Positive feedback and resolved items gathered from sessions, curated here for families. There is no open form for commenting on a specific tool or vendor.</p><p style="margin-top:10px"><button class="btn btn-outline" data-go="community-feedback" style="width:100%;justify-content:center">View details &rarr;</button></p></div>
-        <div class="card"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 11h16"/></svg></span><h3>Upcoming events</h3><p>A calendar of Family Forums, symposiums, workshops, and school-based sessions.</p><p style="margin-top:10px"><button class="btn btn-outline" data-go="upcoming-events" style="width:100%;justify-content:center">View calendar &rarr;</button></p></div>
-      </div>
       <p class="cite"><b>Sources:</b> WSVN 7News coverage of the BCPS Parent AI Symposium (June 2026); browardschools.com. Quotes verbatim from WSVN reporting. Infrastructure figures: AI Symposium Main Session (6.5.26), Approved Documents / 6 Community, BCPS SharePoint.</p>
     </div>
   </section>
@@ -1419,6 +1501,97 @@ body.sac-noscroll{overflow:hidden!important}
         <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Jacqui Luscombe, ESE Advisory Council Chair</li>
       </ul>
       <p class="cite"><b>Sources:</b> DRAFT July 29 Family Forum Web Page Content (rev. 8-10-2026); Broward Powered by AI Monthly Board Implementation Report, July 2026 (rev. 7-23-2026), Parent &amp; Community Engagement.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== AUG 17 BRIEFING DETAIL ===================== -->
+<div class="view" id="event-aug17">
+  <section class="band">
+    <div class="wrap">
+      <p><button class="btn btn-outline" data-go="community">&larr; Back to Community Events</button></p>
+      <div class="eyebrow">Community &middot; Event &middot; District 4</div>
+      <h2 class="h2">Back to School AI: What Parents Need to Know</h2>
+      <p class="lead">On August 17, 2026, District 4 hosted a Back to School AI parent event at El Mariachi Restaurant in Coral Springs, walking families through how AI is shaping education at BCPS, how to keep kids safe online, and practical ways to support learning and creativity at home.</p>
+
+      <div class="event">
+        <div>
+          <p>Presented by Dr. Fabian Cone (Chief Academic Officer), Thomas Correll (Director, Instructional Innovation &amp; Digital Learning), Jaclyn Sherman (Professional Development Specialist), and Nathan Clock (Instructional &amp; Digital Materials Analyst) from the Division of Academics, the session (titled "Broward Powered by AI: From Vision to System Readiness") walked families through why AI matters now, the five commitments to every family, which AI tools are approved and for which grade bands, and what has been completed so far &mdash; from the AI Task Force and School Board Resolution No. 26-132 to the June 5 Symposium and Family Forum sessions.</p>
+          <div class="quote">"Teachers remain central to learning."<span>From the presentation, on what AI is and is not used for</span></div>
+        </div>
+        <div class="eventfacts">
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><div><b>Date</b>Monday, August 17, 2026, 11:30 AM&ndash;1:00 PM</div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><b>Location</b>El Mariachi Restaurant, 2153 N. University Dr, Coral Springs, FL 33071</div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><path d="M16 5a3 3 0 010 6M19 20c0-2-1-3.5-2.5-4.3"/></svg><div><b>Presented by</b>Division of Academics, District 4</div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Format</b>In-person parent presentation, 32 slides</div></div>
+        </div>
+      </div>
+
+      <h3 class="h3sec">Approved AI tools and current access</h3>
+      <div class="grid2">
+        <div class="card"><h3>Staff and teacher tools</h3><p>Microsoft Copilot Premium (staff productivity and operations), MagicSchool (teacher planning, differentiation, communication, efficiency).</p></div>
+        <div class="card"><h3>Student-facing tools, by grade band</h3><p>Khanmigo through Khan Academy: grades 6-12. HMH Writable revision support: grades 6-12. Prisms VR: teacher-directed immersive math and science. Elementary: no student-facing AI tool access at this time.</p></div>
+      </div>
+
+      <h3 class="h3sec">What has been done so far</h3>
+      <ul class="feat">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> AI Executive Steering Committee and AI Task Force established, with an AI Liaison network across schools</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> School Board AI Resolution No. 26-132 approved</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Microsoft Copilot and MagicSchool rolled out districtwide</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> June 5 Parent AI Symposium and June 8-9 Leadership Week sessions held</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Family Forum sessions and browardschools.ai hub development underway</li>
+      </ul>
+
+      <h3 class="h3sec">Ways to share feedback</h3>
+      <p class="lead">Straight from the closing slide: the Artificial Intelligence in Education survey, SAC/SAF meetings, district advisory/committee meetings, School Board meetings, and emailing Board members directly.</p>
+
+      <h3 class="h3sec">Presentation materials</h3>
+      <div class="docrow">
+        <a class="doc" href="documents/community/broward-ai-vision-system-readiness-8-17-26.pdf" target="_blank" rel="noopener"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 00-2 2v14a2 2 0 002 2h10a2 2 0 002-2V8z"/><path d="M14 3v5h5"/></svg></span><div class="meta"><b>Broward Powered by AI: From Vision to System Readiness</b><span>PDF, 1.7 MB &middot; 32 slides</span></div></a>
+      </div>
+      <p class="cite"><b>Source:</b> Broward Powered by AI Slidedeck, 8.17.26, Division of Academics, Approved Documents / 6 Community, BCPS SharePoint; District 4 Back to School AI event flyer.</p>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== SPARK DETAIL ===================== -->
+<div class="view" id="event-spark">
+  <section class="band">
+    <div class="wrap">
+      <p><button class="btn btn-outline" data-go="home">&larr; Back to Recent Updates</button></p>
+      <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:start" class="spark-top-grid">
+        <div>
+          <div class="eyebrow">Recognition</div>
+          <h2 class="h2">Broward selected for Impact Florida's SPARK cadre</h2>
+          <p class="lead">Broward County Public Schools is one of six Florida districts selected to join SPARK, Supporting Practical AI for Real K-12 Classrooms, an 18-month statewide initiative examining and supporting responsible AI use in education.</p>
+        </div>
+        <div>
+          <img src="/images/community/spark-announcement-graphic.jpg" alt="Impact Florida SPARK announcement graphic" style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow);display:block">
+        </div>
+      </div>
+      <style>@media(max-width:900px){.spark-top-grid{grid-template-columns:1fr!important}}</style>
+
+      <div class="event">
+        <div>
+          <p>SPARK is led by Impact Florida in partnership with the University of Florida's CS Everyone Center, in collaboration with Microsoft and Google. Through the program, district teams work on both policy governance and practice: developing or refining guidance on ethics, data privacy, procurement, academic integrity, and responsible use, while testing practical instructional approaches rooted in real classroom needs.</p>
+          <p>The other districts selected for the first SPARK cadre are Citrus County School District, School District of Manatee County, School District of Palm Beach County, Polk County Public Schools, and Putnam County School District (in partnership with NEFEC).</p>
+          <div class="quote">"AI is changing education faster than ever before, and districts shouldn't have to navigate that change alone. Through SPARK, we're creating a collaborative space where district leaders can learn from one another, build coherent systems, and develop thoughtful approaches that put students, educators, and communities at the center of AI implementation."<span>Dr. Nadine Ebri, SPARK Program and Instructional Lead Consultant</span></div>
+          <p>District teams will assess their current AI readiness, collaborate with peers and national experts, strengthen policy and governance, pilot instructional innovations, and develop coherent approaches that align leadership, technology, and teaching.</p>
+        </div>
+        <div class="eventfacts">
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><div><b>Announced</b>August 18, 2026</div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Duration</b>18-month statewide initiative</div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><path d="M16 5a3 3 0 010 6M19 20c0-2-1-3.5-2.5-4.3"/></svg><div><b>Led by</b>Impact Florida, with UF's CS Everyone Center, Microsoft, and Google</div></div>
+        </div>
+      </div>
+
+      <h3 class="h3sec">Resources</h3>
+      <div class="docrow">
+        <a class="reslink" href="https://impactfl.org/news/six-florida-districts-selected-to-join-new-ai-focused-initiative" target="_blank" rel="noopener"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6M10 14L21 3"/></svg></span><div class="meta"><b>Read the Impact Florida press release</b><span>impactfl.org</span></div></a>
+        <a class="reslink" href="https://lnkd.in/eUXaJ77H" target="_blank" rel="noopener"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M10 9v12M10 13a4 4 0 018 0v8"/></svg></span><div class="meta"><b>Impact Florida's LinkedIn announcement</b><span>Tags all six SPARK cadre districts</span></div></a>
+        <a class="reslink" href="#principles" data-go="principles" style="cursor:pointer"><span class="fi"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v4h1"/></svg></span><div class="meta"><b>Broward's AI principles</b><span>browardschools.ai</span></div></a>
+      </div>
+      <p class="cite"><b>Source:</b> Impact Florida, "Six Florida districts selected to join new AI-focused initiative," August 18, 2026; Impact Florida LinkedIn post, August 2026.</p>
     </div>
   </section>
 </div>
@@ -1780,6 +1953,17 @@ body.sac-noscroll{overflow:hidden!important}
     render(initial);
     window.scrollTo({top:0,behavior:'instant'});
   }
+
+  // Recent updates pager (homepage)
+  var updateCards=document.querySelectorAll('#updatesGrid .update-card');
+  var pagerBtns=document.querySelectorAll('#pager button');
+  function showUpdatesPage(p){
+    updateCards.forEach(function(c){c.classList.toggle('on', c.getAttribute('data-page')===String(p));});
+    pagerBtns.forEach(function(b){b.classList.toggle('on', b.getAttribute('data-page')===String(p));});
+  }
+  pagerBtns.forEach(function(b){
+    b.addEventListener('click', function(e){ e.stopPropagation(); showUpdatesPage(this.getAttribute('data-page')); });
+  });
 })();
 </script>
 <script>
