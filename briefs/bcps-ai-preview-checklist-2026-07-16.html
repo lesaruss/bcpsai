@@ -108,7 +108,7 @@
 <div class="tablist" role="tablist" aria-label="Progress tracker sections">
   <button class="tab-btn" role="tab" id="tab-btn-questions" aria-controls="tab-questions" aria-selected="true" tabindex="0">Open Questions <span class="count">0</span></button>
   <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">13</span></button>
-  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">83</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">84</span></button>
 </div>
 
 <div class="tabpanel" id="tab-questions" role="tabpanel" aria-labelledby="tab-btn-questions">
@@ -218,6 +218,12 @@
 
 <div class="tabpanel" id="tab-completed" role="tabpanel" aria-labelledby="tab-btn-completed" hidden>
 <h2>Completed</h2>
+<details class="done">
+<summary>Resolved Alex Macri's 8/19 three-PDF posting request: hosted the two remaining decks and added the South Area Advisory Meeting event page (August 20)</summary>
+<div class="body">
+<p>Alex Macri's 8/19 email named three presentation PDFs to post; the August 17 "Back to School AI" deck was already live (see above). Worked with Alyssa to resolve which of the other two identical-looking slide deck filenames belonged to which event, and Alyssa confirmed the South Area Advisory Meeting was actually held August 19, not August 17 as the Framework tracker had it. Hosted "What is AI and How Students Will Use It" as a downloadable resource on the Family Forum page (the PowerPoint the samplenote had been waiting on). Added a new South Area Advisory Meeting event card and detail page to the Community Engagement landing page, reusing the August 17 event page's structure, and hosted its deck (compressed from the original 49 MB file to 2.1 MB with no loss of slides or text, using the same approach as the already-hosted August 17 deck). Both PDFs are hosted in Supabase Storage rather than the GitHub repo, per the standing file-storage rule. Pushed the index.html change, verified byte-for-byte via a GitHub content read-back, confirmed the Vercel deployment reached READY on production, and confirmed both new resource links live and downloadable via direct fetch.</p><p class="reflink"><a href="https://browardschools.ai/#community" target="_blank" rel="noopener">View on the site: Community Engagement &#8599;</a></p>
+</div>
+</details>
 <details class="done">
 <summary>Reslink resource-card title/subtext bleeding onto the same line fixed site-wide (August 19)</summary>
 <div class="body">
