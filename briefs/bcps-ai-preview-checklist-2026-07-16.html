@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BCPS Powered by AI: Progress Tracker (updated August 6 2026)</title>
+<title>BCPS Powered by AI: Progress Tracker (updated August 25 2026)</title>
 <style>
   :root{
     --text:#1a1a1a;--text-75:rgba(26,26,26,.78);--text-50:rgba(26,26,26,.55);
@@ -108,7 +108,7 @@
 <div class="tablist" role="tablist" aria-label="Progress tracker sections">
   <button class="tab-btn" role="tab" id="tab-btn-questions" aria-controls="tab-questions" aria-selected="true" tabindex="0">Open Questions <span class="count">0</span></button>
   <button class="tab-btn" role="tab" id="tab-btn-pending" aria-controls="tab-pending" aria-selected="false" tabindex="-1">Pending <span class="count">13</span></button>
-  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">84</span></button>
+  <button class="tab-btn" role="tab" id="tab-btn-completed" aria-controls="tab-completed" aria-selected="false" tabindex="-1">Completed <span class="count">85</span></button>
 </div>
 
 <div class="tabpanel" id="tab-questions" role="tabpanel" aria-labelledby="tab-btn-questions">
@@ -218,6 +218,12 @@
 
 <div class="tabpanel" id="tab-completed" role="tabpanel" aria-labelledby="tab-btn-completed" hidden>
 <h2>Completed</h2>
+<details class="done">
+<summary>Broward Powered by AI logo swapped to the new "Option 1" mark (majority-vote selection) in the homepage header and the Student AI Council deck (August 25)</summary>
+<div class="body">
+<p>Framework document 8/24 pending item: "update all fliers, websites, and communication tools with the new logo." Cross-checked against the actual design-approval email thread ("Re: 168 Broward Powered by AI Logo design (Proof#1)") -- Farrah A. Wilson's August 21 email confirmed the FINAL logo files are "Option 1, the logo selected by majority vote." V identified the two site locations: the homepage header lockup (index.html, .logo-full) and the Broward County Public Schools mark on slide 1 of the embedded Student AI Council deck (draft/student-ai-council/index.html), which sits directly above the deck on the AI Liaison Network page. V supplied the exact approved PNG (39,457 bytes) after the SharePoint connector could preview but not hand over raw file bytes; confirmed it byte-for-byte matched the SharePoint source (Broward Powered by AI Logo FINAL.png) before use. Both files' old logo image (identical 47,471-byte asset in both places) replaced via the github-patch relay, one commit each, byte-for-byte read-back verified on both, Vercel deployments READY, and both live-verified via direct fetch of the production domain (browardschools.ai/ and browardschools.ai/draft/student-ai-council/) confirming the new logo bytes are actually being served, not just committed. Pre-change file contents kept as local backups for instant rollback if needed. Remaining scope per V, explicitly not touched here: any previously-created documents referencing the old logo are the responsibility of their originating teams to update; the homepage introduction video's on-screen logo requires the video's producer, not a page edit -- both relayed to V to route to the BCPS team, not actioned by us.</p>
+</div>
+</details>
 <details class="done">
 <summary>Resolved Alex Macri's 8/19 three-PDF posting request: hosted the two remaining decks and added the South Area Advisory Meeting event page (August 20)</summary>
 <div class="body">
