@@ -2171,7 +2171,12 @@ function googleTranslateElementInit(){
   function closePopup(){ backdrop.classList.remove('open'); backdrop.setAttribute('aria-hidden','true'); try{ sessionStorage.setItem(KEY,'1'); }catch(e){} }
   if(closeBtn){ closeBtn.addEventListener('click',closePopup); }
   backdrop.addEventListener('click',function(e){ if(e.target===backdrop){ closePopup(); } });
-  if(actionBtn){ actionBtn.addEventListener('click',closePopup); }
+  if(actionBtn){ actionBtn.addEventListener('click',function(e){
+    e.preventDefault();
+    closePopup();
+    var target=document.querySelector('[data-go="family-forum"]:not(#ffPopupAction)');
+    if(target){ target.click(); }
+  }); }
   document.addEventListener('keydown',function(e){ if(e.key==='Escape' && backdrop.classList.contains('open')){ closePopup(); } });
   if(isAnnounceDay && !seen){ setTimeout(openPopup,700); }
 })();
