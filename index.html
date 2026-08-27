@@ -2023,6 +2023,8 @@ body.sac-noscroll{overflow:hidden!important}
   document.querySelectorAll('[data-lang]').forEach(function(el){
     el.addEventListener('click',function(e){ e.preventDefault(); setLanguage(el.getAttribute('data-lang')); });
   });
+  var mobileLangSel=document.getElementById('langSelectMobile');
+  if(mobileLangSel){ mobileLangSel.addEventListener('change',function(){ setLanguage(mobileLangSel.value); }); }
   document.querySelectorAll('[data-go]').forEach(function(el){
     el.addEventListener('click',function(e){ e.preventDefault(); go(el.getAttribute('data-go')); });
   });
