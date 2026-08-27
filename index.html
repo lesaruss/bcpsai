@@ -2217,6 +2217,8 @@ function googleTranslateElementInit(){
     topbarEl.classList.add('has-notice');
     noticeEl.style.display='flex';
   }
+  var ffPageBanner=document.getElementById('ffPageBanner');
+  if(isAnnounceDay && ffPageBanner){ ffPageBanner.style.display='block'; }
   if(isAnnounceDay && !seen){ setTimeout(openPopup,700); }
 })();
 
