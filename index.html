@@ -360,10 +360,23 @@ footer.site b{color:#fff}
   </div>
 </div>
 
-<div class="topbar">
+<div class="topbar" id="topbar">
   <div class="wrap">
+    <div class="topbar-notice" id="topbarNotice">
+      <span>Today &middot; August 27, 2026 &mdash; Family Forum #2: deeper family information and a live Q&amp;A.</span>
+      <button type="button" class="topbar-notice-link" data-go="family-forum">View details &rarr;</button>
+    </div>
     <div class="langs" aria-label="Language options">
       <button class="notranslate" translate="no" data-lang="en">English</button><button class="notranslate" translate="no" data-lang="es">Español</button><button class="notranslate" translate="no" data-lang="ht">Kreyòl Ayisyen</button><button class="notranslate" translate="no" data-lang="pt">Português</button>
+    </div>
+    <div class="langs-mobile" aria-label="Language options">
+      <label for="langSelectMobile">Choose Language</label>
+      <select id="langSelectMobile" class="notranslate" translate="no">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="ht">Kreyòl Ayisyen</option>
+        <option value="pt">Português</option>
+      </select>
     </div>
   </div>
 </div>
