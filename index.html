@@ -2158,6 +2158,25 @@ function googleTranslateElementInit(){
 })();
 
 (function(){
+  var KEY='bcpsai-ff2-popup-2026-08-27';
+  var backdrop=document.getElementById('ffPopupBackdrop');
+  if(!backdrop){ return; }
+  var closeBtn=document.getElementById('ffPopupClose');
+  var actionBtn=document.getElementById('ffPopupAction');
+  var today=new Date();
+  var isAnnounceDay = today.getFullYear()===2026 && today.getMonth()===7 && today.getDate()===27;
+  var seen=false;
+  try{ seen = !!sessionStorage.getItem(KEY); }catch(e){}
+  function openPopup(){ backdrop.classList.add('open'); backdrop.setAttribute('aria-hidden','false'); }
+  function closePopup(){ backdrop.classList.remove('open'); backdrop.setAttribute('aria-hidden','true'); try{ sessionStorage.setItem(KEY,'1'); }catch(e){} }
+  if(closeBtn){ closeBtn.addEventListener('click',closePopup); }
+  backdrop.addEventListener('click',function(e){ if(e.target===backdrop){ closePopup(); } });
+  if(actionBtn){ actionBtn.addEventListener('click',closePopup); }
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape' && backdrop.classList.contains('open')){ closePopup(); } });
+  if(isAnnounceDay && !seen){ setTimeout(openPopup,700); }
+})();
+
+(function(){
   var slides=document.querySelectorAll('#heroCarousel .slide');
   var playlistWrap=document.getElementById('heroCarouselPlaylist');
   var caption=document.getElementById('heroCarouselCaption');
