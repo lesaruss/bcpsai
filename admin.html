@@ -81,11 +81,16 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue);bo
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Same bundled @supabase/ssr browser client as login.html. Switched off the
+     supabase-js CDN script on 2026-09-20 so the session lives in the
+     sb-<ref>-auth-token cookie rather than localStorage. This page has to move
+     with login.html: they share one session, and a client reading localStorage
+     would no longer find a session written to a cookie. -->
+<script src="/auth-client.js"></script>
 <script>
 const SUPABASE_URL="https://fwbhwfxpncrsfhttimna.supabase.co";
 const SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ3Ymh3ZnhwbmNyc2ZodHRpbW5hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NjAxMzksImV4cCI6MjA5MDIzNjEzOX0.9mxjK0bn5WATCbNLWrHPakD6yHUDtHFHrOaklPnWkOA";
-const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const sb = supabaseSsr.createBrowserClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 (async ()=>{
   const { data } = await sb.auth.getSession();

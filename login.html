@@ -51,15 +51,43 @@ button:hover{background:var(--navy)}
   <p class="note">Access is for authorized Broward County Public Schools staff. Accounts are shared with the BCPS MarComm portal.</p>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Auth client: @supabase/ssr's createBrowserClient, bundled into this repo
+     as /auth-client.js (rebuild with: npm run build:auth-client).
+
+     Replaced the supabase-js CDN script on 2026-09-20. The reason is the
+     storage medium, not the CDN: supabase-js keeps the session in
+     localStorage, which the server never sees. createBrowserClient keeps it in
+     the chunked sb-<ref>-auth-token COOKIE, which is what lets middleware.ts
+     verify a session before serving the gated pages. Same library pairing
+     bcpsmarcomm.com uses (createBrowserClient in src/lib/supabase.ts,
+     createServerClient in src/middleware.ts).
+
+     Bundled locally rather than pulled from a CDN so signing in never depends
+     on a third-party host being reachable. If the CDN were blocked or down,
+     the gate would be up with no way through it. -->
+<script src="/auth-client.js"></script>
 <script>
 const SUPABASE_URL="https://fwbhwfxpncrsfhttimna.supabase.co";
 const SUPABASE_ANON_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ3Ymh3ZnhwbmNyc2ZodHRpbW5hIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2NjAxMzksImV4cCI6MjA5MDIzNjEzOX0.9mxjK0bn5WATCbNLWrHPakD6yHUDtHFHrOaklPnWkOA";
-const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const sb = supabaseSsr.createBrowserClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 const msg = document.getElementById('msg');
 function show(t,ok){ msg.textContent=t; msg.className='msg '+(ok?'ok':'err'); }
 
-(async ()=>{ const { data } = await sb.auth.getSession(); if(data.session){ location.href='/admin.html'; } })();
+// Where to send the visitor once signed in. middleware.ts appends ?next=<path>
+// when it bounces someone off a gated page, so they land back where they were
+// headed. Same-origin paths only, so a crafted link cannot use this page to
+// forward someone to another site. Mirrors getSafeNext() in bcpsmarcomm's
+// login page.
+function safeNext(){
+  const n = new URLSearchParams(location.search).get('next');
+  return (n && n.startsWith('/') && !n.startsWith('//')) ? n : '/admin.html';
+}
+
+// This is also the refresh point for an expired access token. The middleware
+// reads the cookie read-only and cannot refresh it, so an expired session
+// bounces here, getSession() silently refreshes it, and the visitor is
+// forwarded on without retyping anything.
+(async ()=>{ const { data } = await sb.auth.getSession(); if(data.session){ location.href=safeNext(); } })();
 
 document.getElementById('form').addEventListener('submit', async (e)=>{
   e.preventDefault();
@@ -69,11 +97,17 @@ document.getElementById('form').addEventListener('submit', async (e)=>{
     password: document.getElementById('password').value
   });
   btn.disabled=false; btn.textContent='Sign In';
-  if(error){ show(error.message,false); } else { show('Signed in. Redirecting...',true); location.href='/admin.html'; }
+  if(error){ show(error.message,false); } else { show('Signed in. Redirecting...',true); location.href=safeNext(); }
 });
 
 document.getElementById('google').addEventListener('click', async ()=>{
-  const { error } = await sb.auth.signInWithOAuth({ provider:'google', options:{ redirectTo: location.origin + '/admin.html' } });
+  // Come back to THIS page rather than straight to the destination. The OAuth
+  // callback has to be handled somewhere ungated: the code is exchanged for a
+  // session here, the cookie is written, and only then is the visitor
+  // forwarded on. Sending the callback straight to a gated page would bounce
+  // it back to login before the exchange could ever run.
+  const back = location.origin + '/login.html?next=' + encodeURIComponent(safeNext());
+  const { error } = await sb.auth.signInWithOAuth({ provider:'google', options:{ redirectTo: back } });
   if(error){ show(error.message,false); }
 });
 </script>

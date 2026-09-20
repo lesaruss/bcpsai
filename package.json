@@ -1,0 +1,16 @@
+{
+  "name": "bcpsai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "browardschools.ai (Broward Powered by AI). Static site served from the repo root. This package.json exists so Vercel can install the dependencies used by middleware.ts, the login-required gate on the site root and the BCPS AI Progress Tracker, and so /auth-client.js can be rebuilt. Note there is deliberately no script named \"build\": Vercel auto-runs that one, and this site is plain HTML served straight from the repo root with no build step. Rebuild the auth bundle by hand with: npm install && npm run build:auth-client (commit the result).",
+  "dependencies": {
+    "@supabase/ssr": "^0.10.2",
+    "@vercel/functions": "^3.1.1"
+  },
+  "scripts": {
+    "build:auth-client": "esbuild auth-client-entry.js --bundle --format=iife --global-name=supabaseSsr --minify --target=es2020 --outfile=auth-client.js"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}
