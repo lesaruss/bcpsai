@@ -363,9 +363,9 @@ footer.site b{color:#fff}
 <div class="topbar" id="topbar">
   <div class="wrap">
     <div class="topbar-notice" id="topbarNotice">
-      <span>Live now &middot; 5:30&ndash;7:00 PM &mdash; Family Forum #2: deeper family information and a live Q&amp;A.</span>
-      <a class="topbar-notice-link" href="https://tinyurl.com/FamilyForumTwo" target="_blank" rel="noopener" style="font-weight:800">Join live now &rarr;</a>
-      <button type="button" class="topbar-notice-link" data-go="family-forum">View details &rarr;</button>
+      <span id="topbarNoticeText">Mon, Sept 28 &middot; 5:30&ndash;7:00 PM &mdash; Family Forum #3: Understanding AI and Its Use in BCPS.</span>
+      <a class="topbar-notice-link" id="topbarNoticeJoin" href="https://tinyurl.com/FamilyForumWebinar" target="_blank" rel="noopener" style="font-weight:800;display:none">Join live now &rarr;</a>
+      <button type="button" class="topbar-notice-link" data-go="event-ff3">View details &rarr;</button>
     </div>
     <div class="langs" aria-label="Language options">
       <button class="notranslate" translate="no" data-lang="en">English</button><button class="notranslate" translate="no" data-lang="es">Español</button><button class="notranslate" translate="no" data-lang="ht">Kreyòl Ayisyen</button><button class="notranslate" translate="no" data-lang="pt">Português</button>
@@ -465,14 +465,15 @@ footer.site b{color:#fff}
       <div class="eyebrow">What's new</div>
       <h2 class="h2">Recent updates</h2>
       <div class="updates-grid" id="updatesGrid">
+        <div class="update-card on" data-page="1"><img class="thumb" src="/images/community/family-forum-3-flyer-9-28-26.png" alt="Family Forum flyer: Understanding AI and Its Use in Broward County Public Schools, Monday, September 28, 2026" loading="lazy"><div class="card-body"><span class="tag-new">Upcoming</span><p>Family Forum #3: Understanding AI and Its Use in Broward County Public Schools. Monday, September 28, 2026, 5:30&ndash;7:00 P.M., virtual, with a moderated Q&amp;A.</p><button class="btn btn-outline" data-go="event-ff3" style="width:100%;justify-content:center">View details &amp; join link &rarr;</button></div></div>
         <div class="update-card on" data-page="1"><img class="thumb" src="/images/community/spark-announcement-graphic.jpg" alt="Impact Florida SPARK announcement graphic" loading="lazy"><div class="card-body"><span class="tag-new">Recognition</span><p>Broward selected for Impact Florida's SPARK cadre, an 18-month initiative supporting responsible AI use in education.</p><button class="btn btn-outline" data-go="event-spark" style="width:100%;justify-content:center">Read more &rarr;</button></div></div>
         <div class="update-card on" data-page="1"><img class="thumb" src="/images/community/back-to-school-ai-title-slide.jpg" alt="Broward Powered by AI: From Vision to System Readiness, Division of Academics title slide" loading="lazy"><div class="card-body"><span class="tag-new">Event</span><p>Back to School AI: What Parents Need to Know &mdash; District 4 parent event on approved AI tools, online safety, and supporting learning at home.</p><button class="btn btn-outline" data-go="event-aug17" style="width:100%;justify-content:center">View briefing &rarr;</button></div></div>
-        <div class="update-card on" data-page="1"><img class="thumb" src="/images/symposium/photo-02.jpg" alt="Parent AI Symposium 2026, district leader addressing attendees" loading="lazy"><div class="card-body"><span class="tag-new">Event</span><p>Parent AI Symposium 2026 sessions are underway, open to parents, educators, and community leaders.</p><button class="btn btn-outline" data-go="event-symposium" style="width:100%;justify-content:center">See dates &rarr;</button></div></div>
+        <div class="update-card" data-page="2"><img class="thumb" src="/images/symposium/photo-02.jpg" alt="Parent AI Symposium 2026, district leader addressing attendees" loading="lazy"><div class="card-body"><span class="tag-new">Event</span><p>Parent AI Symposium 2026 sessions are underway, open to parents, educators, and community leaders.</p><button class="btn btn-outline" data-go="event-symposium" style="width:100%;justify-content:center">See dates &rarr;</button></div></div>
         <div class="update-card" data-page="2"><img class="thumb" src="/images/card-board-action.jpg" alt="Broward County School Board" loading="lazy"><div class="card-body"><span class="tag-new">Board action</span><p>School Board Resolution No. 26-132 was approved, formally adopting the districtwide AI approach.</p><button class="btn btn-outline" data-go="policy" style="width:100%;justify-content:center">Read the resolution &rarr;</button></div></div>
         <div class="update-card" data-page="2"><img class="thumb" src="/images/card-family-forum.jpg" alt="Family Forum, virtual AI-literacy sessions for families" loading="lazy"><div class="card-body"><span class="tag-new">Ongoing</span><p>Family Forum continues its ongoing AI-literacy sessions for families. Family Forum #2 (August 27) is now complete and recorded below; next session: Monday, September 28, 2026.</p><button class="btn btn-outline" data-go="family-forum" style="width:100%;justify-content:center">View details &rarr;</button></div></div>
       </div>
       <div class="update-nav">
-        <span style="font-size:.84rem;color:var(--muted)">Showing 3 of 5 updates</span>
+        <span style="font-size:.84rem;color:var(--muted)">Showing 3 of 6 updates</span>
         <div class="pager" id="pager">
           <button data-page="1" class="on">1</button>
           <button data-page="2">2</button>
@@ -878,7 +879,7 @@ footer.site b{color:#fff}
         <details data-q="faq" style="display:block"><summary>34. How does Artificial Intelligence affect the district&rsquo;s climate goals? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">We are all concerned about the energy and environmental impact AI can have. The use of Artificial Intelligence can help us better track and improve the use of operational systems, such as lighting, heating, ventilation, air conditioning, and building systems, to help reduce energy use. Environmental impact remains an important question that we will continue reviewing.</div></details>
         <details data-q="faq" style="display:block"><summary>35. How can families stay informed? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">Families can visit the Broward Powered by AI website at <a href="https://browardschools.ai/" target="_blank" rel="noopener">browardschools.ai</a> for updates, approved tools, parent resources, recordings, slide decks, family forum dates, community feedback opportunities, and accountability information.</div></details>
         <details data-q="faq" style="display:block"><summary>36. How can parents and guardians participate in future decisions? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">Families can complete district and school-based surveys, submit feedback through Broward Powered by AI, attend Community and Family Forums, participate in school advisory meetings, attend area or district advisory meetings, contact School Board members, attend School Board meetings, and share concerns through school and district channels.</div></details>
-        <details data-q="faq" style="display:block"><summary>37. What are the next Family Forum dates? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">The next Family Forum is Monday, September 28, 2026. It was originally set for September 24 and was rescheduled by the District because of conflicting district events. Family Forum #1 (July 29, 2026) and Family Forum #2 (August 27, 2026) have already been held and are recorded on this site. Families should check district communications and Broward Powered by AI for updates and posting of future sessions.</div></details>
+        <details data-q="faq" style="display:block"><summary>37. What are the next Family Forum dates? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">The next Family Forum is Monday, September 28, 2026, from 5:30 p.m. to 7:00 p.m., held virtually on Microsoft Teams at <a href="https://tinyurl.com/FamilyForumWebinar" target="_blank" rel="noopener">tinyurl.com/FamilyForumWebinar</a>. It was originally set for September 24 and was rescheduled by the District because of conflicting district events. Family Forum #1 (July 29, 2026) and Family Forum #2 (August 27, 2026) have already been held and are recorded on this site. Families should check district communications and Broward Powered by AI for updates and posting of future sessions.</div></details>
         <details data-q="faq" style="display:block"><summary>38. What if my family&rsquo;s question was not answered during the forum? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">Families are encouraged to continue submitting questions and feedback to the team through Broward Powered by AI. Please visit <a href="https://browardschools.ai/" target="_blank" rel="noopener">browardschools.ai</a>.</div></details>
         <details data-q="faq" style="display:block"><summary>39. How will data be used to make decisions about Artificial Intelligence tools, and who oversees those decisions? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">Broward County Public Schools plans to look at more than numbers alone. The district&rsquo;s monitoring process includes family feedback, student outcomes, student engagement, teacher workload, and possible overuse or unintended effects. Oversight includes the Instructional Innovation &amp; Digital Learning Department, along with district leadership groups, tool review teams, educators, and other human decision makers. Broward County Public Schools is also a proud member of the SPARK initiative, led by Impact Florida in partnership with the University of Florida&rsquo;s CS Everyone Center and in collaboration with Microsoft, Google, and other school districts. For more information about SPARK, please visit <a href="https://browardschools.ai/#event-spark" target="_blank" rel="noopener">browardschools.ai/#event-spark</a>.</div></details>
         <details data-q="faq" style="display:block"><summary>40. What evidence will show whether Artificial Intelligence tools are helping students and teachers? <svg class="chev" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></summary><div class="body">The district plans to review several measures, including student outcomes, engagement, teacher workload, time saved, and whether the tools support individualized learning. Families will also have opportunities to share feedback. Because implementation is still developing, the district will continue reviewing results and sharing updates rather than relying on one measure alone.</div></details>
@@ -1388,6 +1389,19 @@ body.sac-noscroll{overflow:hidden!important}
 
         <div class="event-card">
           <div class="top">
+            <div class="datechip"><span class="mon">Sept</span><span class="day">28</span></div>
+            <div><h3 style="font-size:1rem">Family Forum #3</h3><span class="tag">Upcoming</span></div>
+          </div>
+          <p style="color:var(--muted);font-size:.9rem">Virtual, 5:30&ndash;7:00 P.M. Understanding AI and its use in BCPS: AI policy and vetting, student-facing tools and teacher training, and student voices, with a moderated Q&amp;A.</p>
+          <ul class="feat">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Microsoft Teams join link</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Add to your calendar</li>
+          </ul>
+          <p style="margin-top:14px"><button class="btn" data-go="event-ff3" style="width:100%;justify-content:center;background:var(--navy);color:#fff">View event details &rarr;</button></p>
+        </div>
+
+        <div class="event-card">
+          <div class="top">
             <div class="datechip"><span class="mon">Aug</span><span class="day">27</span></div>
             <div><h3 style="font-size:1rem">Family Forum #2</h3><span class="tag">Completed</span></div>
           </div>
@@ -1588,7 +1602,7 @@ body.sac-noscroll{overflow:hidden!important}
 
       <h3 class="h3sec" style="margin-top:48px">Family Forum sessions</h3>
       <div class="grid3">
-        <div class="tile"><div class="num">Sept 28</div><div class="lbl">Family Forum #3 &middot; continued communication and feedback</div></div>
+        <div class="tile" style="cursor:pointer" data-go="event-ff3"><div class="num">Sept 28</div><div class="lbl">Family Forum #3 &middot; upcoming &middot; see details and join link</div></div>
         <div class="tile" style="cursor:pointer" data-go="event-ff2"><div class="num">August 27</div><div class="lbl">Family Forum #2 &middot; held, recorded for families unable to attend live</div></div>
         <div class="tile" style="cursor:pointer" data-go="family-forum"><div class="num">July 29</div><div class="lbl">Family Forum #1 &middot; this page</div></div>
       </div>
@@ -1666,8 +1680,68 @@ body.sac-noscroll{overflow:hidden!important}
 
       <h3 class="h3sec" style="margin-top:48px">Family Forum sessions</h3>
       <div class="grid3">
-        <div class="tile"><div class="num">Sept 28</div><div class="lbl">Family Forum #3 &middot; continued communication and feedback</div></div>
+        <div class="tile" style="cursor:pointer" data-go="event-ff3"><div class="num">Sept 28</div><div class="lbl">Family Forum #3 &middot; upcoming &middot; see details and join link</div></div>
         <div class="tile" style="cursor:pointer" data-go="event-ff2"><div class="num">August 27</div><div class="lbl">Family Forum #2 &middot; this page</div></div>
+        <div class="tile" style="cursor:pointer" data-go="family-forum"><div class="num">July 29</div><div class="lbl">Family Forum #1 &middot; held, recorded for families unable to attend live</div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ===================== FAMILY FORUM #3 DETAIL (upcoming) ===================== -->
+<div class="view" id="event-ff3">
+  <section class="band">
+    <div class="wrap">
+      <p><button class="btn btn-outline" data-go="community">&larr; Back to Community Engagement</button></p>
+
+      <div style="display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:start" class="family-forum-top-grid">
+        <div>
+          <div class="eyebrow">Community &middot; Parent &amp; Community Engagement &middot; Upcoming</div>
+          <h2 class="h2">Family Forum #3 &mdash; Monday, September 28, 2026</h2>
+          <p class="lead"><b>Understanding AI and Its Use in Broward County Public Schools.</b> As technology continues to evolve, BCPS is committed to helping families better understand how artificial intelligence (AI) is being used to support teaching, learning, and student success. Families are invited to join a Virtual Family Forum on Artificial Intelligence in Education.</p>
+          <p>During this interactive webinar, families will learn about AI in education, hear how BCPS is approaching its use in schools, and have an opportunity to ask questions.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn" href="https://tinyurl.com/FamilyForumWebinar" target="_blank" rel="noopener" style="background:var(--navy);color:#fff">Join on Microsoft Teams &rarr;</a>
+            <a class="btn btn-outline" href="/documents/community/family-forum-3-9-28-26.ics" download>Add to calendar (Outlook / Apple)</a>
+            <a class="btn btn-outline" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=BCPS%20Family%20Forum%3A%20Understanding%20AI%20and%20Its%20Use%20in%20Broward%20County%20Public%20Schools&amp;dates=20260928T213000Z%2F20260928T230000Z&amp;details=Virtual%20Family%20Forum%20on%20Artificial%20Intelligence%20in%20Education.%20Join%20on%20Microsoft%20Teams%3A%20https%3A%2F%2Ftinyurl.com%2FFamilyForumWebinar&amp;location=Virtual%20(Microsoft%20Teams)" target="_blank" rel="noopener">Google Calendar</a>
+          </div>
+          <p class="cite" style="margin-top:8px">Meeting link: <a href="https://tinyurl.com/FamilyForumWebinar" target="_blank" rel="noopener">tinyurl.com/FamilyForumWebinar</a>. The link goes live at 5:30 P.M. on September 28.</p>
+        </div>
+        <div>
+          <img src="/images/community/family-forum-3-flyer-9-28-26.png" alt="Family Forum flyer: Understanding AI and Its Use in Broward County Public Schools, virtual webinar, Monday, September 28, 2026, 5:30 to 7:00 P.M. Topics: AI policy and vetting rules process; student facing tools, teacher training and best practices; student voices. Microsoft Teams link tinyurl.com/FamilyForumWebinar. Hosted by the Instructional Innovation and Digital Learning Department, 754-321-2620." style="width:100%;border-radius:var(--radius);box-shadow:var(--shadow)" loading="lazy">
+          <p class="cite" style="margin-top:8px">Flyer provided by BCPS. The QR code on the flyer opens the same Microsoft Teams meeting.</p>
+        </div>
+      </div>
+      <style>@media(max-width:900px){.family-forum-top-grid{grid-template-columns:1fr!important}}</style>
+
+      <div class="event">
+        <div>
+          <h3 style="margin-bottom:10px">Come prepared with your questions</h3>
+          <p>The forum closes with a moderated Q&amp;A. Come prepared to ask questions related to the topics featured on the flyer. Each question will have a 1-minute limit so more attendees will have a chance to participate.</p>
+          <p>Can&rsquo;t attend live? As with Family Forum #1 and #2, this page will be updated after the session with the recording and any materials BCPS shares.</p>
+        </div>
+        <div class="eventfacts">
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18"/></svg><div><b>Date</b>Monday, September 28, 2026</div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Time</b>5:30 P.M. &ndash; 7:00 P.M.</div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 0114 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><b>Location</b>Virtual webinar on Microsoft Teams</div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 4-6"/></svg><div><b>Format</b>Webinar with a moderated Q&amp;A</div></div>
+          <div class="row"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 2.7-5 6-5s6 2 6 5"/><path d="M16 5a3 3 0 010 6M19 20c0-2-1-3.5-2.5-4.3"/></svg><div><b>Hosted by</b>Instructional Innovation &amp; Digital Learning Department &middot; <a href="tel:+17543212620">754-321-2620</a></div></div>
+        </div>
+      </div>
+
+      <h3 class="h3sec">What we&rsquo;ll explore</h3>
+      <div class="grid3">
+        <div class="card"><h3>AI policy and vetting rules process</h3><p>How BCPS sets policy for AI and the process a tool goes through before it is approved for use in schools.</p></div>
+        <div class="card"><h3>Student-facing tools, teacher training, and best practices</h3><p>The AI tools students may use, how teachers are trained to use them, and the best practices that guide classroom use.</p></div>
+        <div class="card"><h3>Student voices</h3><p>Hear directly from students about AI in their learning.</p></div>
+      </div>
+
+      <p class="cite" style="margin-top:24px"><b>Sources:</b> BCPS Family Forum flyer, &ldquo;Understanding AI and Its Use in Broward County Public Schools,&rdquo; September 28, 2026; BCPS letter to families announcing the Virtual Family Forum on Artificial Intelligence in Education.</p>
+
+      <h3 class="h3sec" style="margin-top:48px">Family Forum sessions</h3>
+      <div class="grid3">
+        <div class="tile" style="cursor:pointer" data-go="event-ff3"><div class="num">Sept 28</div><div class="lbl">Family Forum #3 &middot; this page &middot; upcoming</div></div>
+        <div class="tile" style="cursor:pointer" data-go="event-ff2"><div class="num">August 27</div><div class="lbl">Family Forum #2 &middot; held, recorded for families unable to attend live</div></div>
         <div class="tile" style="cursor:pointer" data-go="family-forum"><div class="num">July 29</div><div class="lbl">Family Forum #1 &middot; held, recorded for families unable to attend live</div></div>
       </div>
     </div>
@@ -1847,9 +1921,10 @@ body.sac-noscroll{overflow:hidden!important}
           <div class="datechip"><span class="mon">Sept</span><span class="day">28</span></div>
           <div><h3 style="font-size:1rem">Family Forum #3</h3><span class="tag">Upcoming</span></div>
         </div>
-        <p style="color:var(--muted);font-size:.9rem">Monday, September 28, 2026. Rescheduled by the District from September 24 because of conflicting district events. Continued communication and feedback. Session details have not yet been provided by BCPS &mdash; this page will be updated with a link to its own page once they are.</p>
+        <p style="color:var(--muted);font-size:.9rem">Monday, September 28, 2026, 5:30&ndash;7:00 P.M., virtual. Rescheduled by the District from September 24 because of conflicting district events. Understanding AI and its use in Broward County Public Schools, with a moderated Q&amp;A.</p>
+        <p style="margin-top:14px"><button class="btn" data-go="event-ff3" style="width:100%;justify-content:center;background:var(--navy);color:#fff">View event details &rarr;</button></p>
       </div>
-      <p class="cite"><b>Source:</b> BCPS Broward Powered by AI pending items, September 17, 2026 (Family Forum rescheduled to Monday, September 28); Broward Powered by AI Monthly Board Implementation Report, July 2026 (rev. 7-23-2026), Parent &amp; Community Engagement Timeline.</p>
+      <p class="cite"><b>Source:</b> BCPS Family Forum flyer and letter to families, September 28, 2026; BCPS Broward Powered by AI pending items, September 17, 2026 (Family Forum rescheduled to Monday, September 28); Broward Powered by AI Monthly Board Implementation Report, July 2026 (rev. 7-23-2026), Parent &amp; Community Engagement Timeline.</p>
     </div>
   </section>
 </div>
@@ -2273,11 +2348,11 @@ function googleTranslateElementInit(){
 <div class="ecomodal-backdrop" id="ffPopupBackdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Family Forum announcement">
   <div class="ecomodal">
     <button type="button" class="ecoclose" id="ffPopupClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-    <span class="tag-new" style="display:inline-block;margin-bottom:10px">Live now &middot; 5:30&ndash;7:00 PM</span>
-    <h3>Family Forum #2 is happening now</h3>
-    <p>Deeper family information and a live Q&amp;A, continuing the Family Forum series on AI in Broward schools. Can&rsquo;t make it live? A recording will be posted after the session.</p>
-    <a class="btn" href="https://tinyurl.com/FamilyForumTwo" target="_blank" rel="noopener" style="width:100%;justify-content:center;background:var(--navy);color:#fff">Join live now &rarr;</a>
-    <button type="button" class="btn btn-outline" data-go="family-forum" id="ffPopupAction" style="width:100%;justify-content:center;margin-top:8px">View Family Forum details &rarr;</button>
+    <span class="tag-new" style="display:inline-block;margin-bottom:10px">Tonight &middot; 5:30&ndash;7:00 PM</span>
+    <h3>Family Forum #3 is tonight</h3>
+    <p>Understanding AI and Its Use in Broward County Public Schools: AI policy and vetting, student-facing tools and teacher training, and student voices, with a moderated Q&amp;A. Can&rsquo;t make it live? This page will be updated after the session.</p>
+    <a class="btn" href="https://tinyurl.com/FamilyForumWebinar" target="_blank" rel="noopener" style="width:100%;justify-content:center;background:var(--navy);color:#fff">Join on Microsoft Teams &rarr;</a>
+    <button type="button" class="btn btn-outline" data-go="event-ff3" id="ffPopupAction" style="width:100%;justify-content:center;margin-top:8px">View Family Forum details &rarr;</button>
   </div>
 </div>
 
@@ -2333,13 +2408,16 @@ function googleTranslateElementInit(){
 })();
 
 (function(){
-  var KEY='bcpsai-ff2-popup-2026-08-27';
+  var KEY='bcpsai-ff3-popup-2026-09-28';
   var backdrop=document.getElementById('ffPopupBackdrop');
   if(!backdrop){ return; }
   var closeBtn=document.getElementById('ffPopupClose');
   var actionBtn=document.getElementById('ffPopupAction');
   var today=new Date();
-  var isAnnounceDay = today.getFullYear()===2026 && today.getMonth()===7 && today.getDate()===27;
+  // Topbar notice runs from now through the forum (Sept 28, 2026); the popup and
+  // "Join live now" link appear on the day itself only.
+  var isAnnounceDay = today.getFullYear()===2026 && today.getMonth()===8 && today.getDate()===28;
+  var isNoticeWindow = today < new Date(2026,8,29);
   var seen=false;
   try{ seen = !!sessionStorage.getItem(KEY); }catch(e){}
   function openPopup(){ backdrop.classList.add('open'); backdrop.setAttribute('aria-hidden','false'); }
@@ -2349,15 +2427,21 @@ function googleTranslateElementInit(){
   if(actionBtn){ actionBtn.addEventListener('click',function(e){
     e.preventDefault();
     closePopup();
-    var target=document.querySelector('[data-go="family-forum"]:not(#ffPopupAction)');
+    var target=document.querySelector('[data-go="event-ff3"]:not(#ffPopupAction)');
     if(target){ target.click(); }
   }); }
   document.addEventListener('keydown',function(e){ if(e.key==='Escape' && backdrop.classList.contains('open')){ closePopup(); } });
   var topbarEl=document.getElementById('topbar');
   var noticeEl=document.getElementById('topbarNotice');
-  if(isAnnounceDay && topbarEl && noticeEl){
+  if(isNoticeWindow && topbarEl && noticeEl){
     topbarEl.classList.add('has-notice');
     noticeEl.style.display='flex';
+    if(isAnnounceDay){
+      var textEl=document.getElementById('topbarNoticeText');
+      var joinEl=document.getElementById('topbarNoticeJoin');
+      if(textEl){ textEl.innerHTML='Tonight &middot; 5:30&ndash;7:00 PM &mdash; Family Forum #3: Understanding AI and Its Use in BCPS.'; }
+      if(joinEl){ joinEl.style.display=''; }
+    }
   }
   if(isAnnounceDay && !seen){ setTimeout(openPopup,700); }
 })();

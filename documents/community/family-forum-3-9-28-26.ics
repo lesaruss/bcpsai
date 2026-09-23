@@ -1,0 +1,16 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Broward Powered by AI//Family Forum//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:family-forum-3-2026-09-28@browardschools.ai
+DTSTAMP:20260923T000000Z
+DTSTART:20260928T213000Z
+DTEND:20260928T230000Z
+SUMMARY:BCPS Family Forum: Understanding AI and Its Use in Broward County Public Schools
+DESCRIPTION:Virtual Family Forum on Artificial Intelligence in Education. Join on Microsoft Teams: https://tinyurl.com/FamilyForumWebinar\n\nTopics: AI policy and vetting rules process\; student-facing tools\, teacher training and best practices\; student voices. Come prepared with questions for the moderated Q&A (1-minute limit per question).\n\nDetails: https://browardschools.ai/#event-ff3
+LOCATION:Virtual (Microsoft Teams) https://tinyurl.com/FamilyForumWebinar
+URL:https://browardschools.ai/#event-ff3
+END:VEVENT
+END:VCALENDAR
