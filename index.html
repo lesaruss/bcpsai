@@ -2299,8 +2299,35 @@ body.sac-noscroll{overflow:hidden!important}
     views.forEach(function(v){v.classList.toggle('active',v.id===id);});
     navBtns.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-go')===id);});
   }
+  // GA4 section views, added 2026-09-25 (Sean). The site is one page whose
+  // sections swap in place, so GA4 only ever saw the first load and logged
+  // nearly every view as "/". Each move to a different section now sends one
+  // page_view under a virtual path (/accountability, /family-forum, ...) so
+  // the BCPS Marcom report can show which sections people read.
+  //
+  // The landing view is deliberately left to the gtag config in <head>,
+  // exactly as before, so home page counting does not change and nothing is
+  // counted twice. Only in-page moves are added here.
+  var currentView=(function(){
+    var h=(location.hash||'').replace('#','');
+    return validIds.indexOf(h)!==-1 ? h : 'home';
+  })();
+  function trackView(id){
+    if(id===currentView){ return; }
+    currentView=id;
+    if(typeof gtag!=='function'){ return; }
+    var path=id==='home' ? '/' : '/'+id;
+    var el=document.getElementById(id);
+    var heading=el && el.querySelector('h1,h2');
+    var label=heading ? heading.textContent.replace(/\s+/g,' ').trim() : id;
+    gtag('event','page_view',{
+      page_location: location.origin+path,
+      page_title: label+' | Broward Powered by AI'
+    });
+  }
   function go(id){
     render(id);
+    trackView(id);
     setMenu(false);
     window.scrollTo({top:0,behavior:'smooth'});
     if(location.hash!=='#'+id){ history.pushState({section:id},'','#'+id); }
@@ -2349,6 +2376,7 @@ body.sac-noscroll{overflow:hidden!important}
     var id=(location.hash||'').replace('#','');
     if(validIds.indexOf(id)===-1){ id='home'; }
     render(id);
+    trackView(id);
   });
   var initial=(location.hash||'').replace('#','');
   if(validIds.indexOf(initial)!==-1){
