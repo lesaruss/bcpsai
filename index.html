@@ -175,6 +175,8 @@ section.band.soft{background:var(--bg-soft);border-top:1px solid var(--line);bor
 /* tools */
 .tool .top{display:flex;align-items:center;gap:13px;margin-bottom:12px}
 .tool .logo{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.15rem;flex:0 0 auto}
+.tool .logo.has-img{width:auto;height:54px;min-width:54px;max-width:132px;padding:6px 8px;background:#fff;border:1px solid var(--line)}
+.tool .logo.has-img img{height:100%;width:auto;max-width:100%;object-fit:contain;display:block}
 .tag{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--teal);background:var(--teal-soft);padding:3px 9px;border-radius:999px;margin-top:3px}
 .feat{list-style:none;margin:12px 0 0;padding:0}
 .feat li{display:flex;gap:9px;align-items:flex-start;padding:6px 0;font-size:.9rem;color:var(--ink)}
@@ -678,7 +680,7 @@ footer.site b{color:#fff}
 
       <h3 class="h3sec">AI tools</h3>
       <div class="grid2">
-        <div class="card tool"><div class="top"><span class="logo" style="background:#0067b8">C</span><div><h3>Microsoft Copilot</h3><span class="tag">Approved</span></div></div>
+        <div class="card tool"><div class="top"><span class="logo has-img"><img src="/images/logos/copilot.png" alt="" width="176" height="160"></span><div><h3>Microsoft Copilot</h3><span class="tag">Approved</span></div></div>
           <p style="color:var(--muted);font-size:.92rem">An AI assistant inside the district's protected Microsoft environment, with enterprise data protection enabled.</p>
           <ul class="feat">
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> <b>Largest Copilot Premium implementation in education in the world</b>, verified by Microsoft</li>
@@ -687,7 +689,7 @@ footer.site b{color:#fff}
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Student access is currently a limited pilot for AI-Academy students, with plans to expand to broader grade-based access</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Parent FAQ and demonstration video</li>
           </ul><p style="font-size:.88rem;color:var(--muted);margin-top:10px"><b>For example:</b> an AI-Academy student uses Copilot to help outline and revise a project write-up, with the teacher reviewing every step.</p><p style="margin-top:12px"><button class="btn btn-outline" data-go="tool-copilot" style="width:100%;justify-content:center">View full details &rarr;</button></p></div>
-        <div class="card tool"><div class="top"><span class="logo" style="background:#7c3aed">M</span><div><h3>MagicSchool AI</h3><span class="tag">Approved</span></div></div>
+        <div class="card tool"><div class="top"><span class="logo has-img"><img src="/images/logos/magicschool.png" alt="" width="347" height="154"></span><div><h3>MagicSchool AI</h3><span class="tag">Approved</span></div></div>
           <p style="color:var(--muted);font-size:.92rem">A purpose-built education platform that helps teachers plan, differentiate, and reach every learner, with human oversight at every step.</p>
           <ul class="feat">
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Built for K-12 classroom instruction</li>
@@ -695,7 +697,7 @@ footer.site b{color:#fff}
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Helps educators differentiate for ESE and ESOL learners</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Student data is never used to train AI models, and the district owns all of it</li>
           </ul><p style="font-size:.88rem;color:var(--muted);margin-top:10px"><b>For example:</b> a teacher uses MagicSchool to generate a differentiated reading passage for an ESE student, at a reading level suited to that student, in minutes instead of an hour.</p><p style="margin-top:12px"><button class="btn btn-outline" data-go="tool-magicschool" style="width:100%;justify-content:center">View full details &rarr;</button></p></div>
-        <div class="card tool"><div class="top"><span class="logo" style="background:#0c7d46">K</span><div><h3>Khan Academy / Khanmigo</h3><span class="tag">Approved partner</span></div></div>
+        <div class="card tool"><div class="top"><span class="logo has-img"><img src="/images/logos/khanmigo.png" alt="" width="304" height="160"></span><div><h3>Khan Academy / Khanmigo</h3><span class="tag">Approved partner</span></div></div>
           <p style="color:var(--muted);font-size:.92rem">An AI tutor built on Khan Academy's platform, listed among BCPS's approved AI partners.</p>
           <ul class="feat">
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Full tool details, safety features, and classroom guidance are being finalized with BCPS</li>
@@ -705,7 +707,7 @@ footer.site b{color:#fff}
       <h3 class="h3sec" style="margin-top:26px">XR/VR tools</h3>
       <p class="lead">Extended and virtual reality tools, and more coming.</p>
       <div class="grid2">
-        <div class="card tool"><div class="top"><span class="logo" style="background:#047854">P</span><div><h3>Prisms VR</h3><span class="tag">Approved</span></div></div>
+        <div class="card tool"><div class="top"><span class="logo has-img"><img src="/images/logos/prisms.png" alt="" width="342" height="160"></span><div><h3>Prisms VR</h3><span class="tag">Approved</span></div></div>
           <p style="color:var(--muted);font-size:.92rem">An immersive virtual reality platform students use to explore math and science concepts hands-on, from ratios and graphing to phase changes, always teacher-directed.</p>
           <ul class="feat">
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Used for standards-aligned math and science lessons</li>
