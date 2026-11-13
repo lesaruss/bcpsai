@@ -177,6 +177,7 @@ section.band.soft{background:var(--bg-soft);border-top:1px solid var(--line);bor
 .tool .logo{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.15rem;flex:0 0 auto}
 .tool .logo.has-img{width:auto;height:54px;min-width:54px;max-width:132px;padding:6px 8px;background:#fff;border:1px solid var(--line)}
 .tool .logo.has-img img{height:100%;width:auto;max-width:100%;object-fit:contain;display:block}
+@media(max-width:600px){.tool .logo.has-img{max-width:96px}}
 .tag{display:inline-block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--teal);background:var(--teal-soft);padding:3px 9px;border-radius:999px;margin-top:3px}
 .feat{list-style:none;margin:12px 0 0;padding:0}
 .feat li{display:flex;gap:9px;align-items:flex-start;padding:6px 0;font-size:.9rem;color:var(--ink)}
@@ -720,7 +721,7 @@ footer.site b{color:#fff}
       <h3 class="h3sec" style="margin-top:26px">Family resources</h3>
       <p class="lead">Free, district-supported tools that help parents and guardians support safe, healthy technology use at home.</p>
       <div class="grid2">
-        <div class="card tool"><div class="top"><span class="logo" style="background:#4f4fcf">L</span><div><h3>Linewize Parent</h3><span class="tag">Family resource</span></div></div>
+        <div class="card tool"><div class="top"><span class="logo has-img"><img src="/images/logos/linewize.png" alt="" width="600" height="149"></span><div><h3>Linewize Parent</h3><span class="tag">Family resource</span></div></div>
           <p style="color:var(--muted);font-size:.92rem">A free service, powered by Qustodio, that gives BCPS parents and guardians greater visibility into their child&rsquo;s online activity and screen time.</p>
           <ul class="feat">
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg> Free to BCPS parents and guardians through the district&rsquo;s partnership with Linewize</li>
